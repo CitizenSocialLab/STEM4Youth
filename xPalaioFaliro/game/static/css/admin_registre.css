@@ -1,0 +1,122 @@
+#usuaris_titol {
+    position:absolute;
+    top:310px;
+    left:155px;
+    font-size:25px;
+    width:700px;
+}
+
+#boto_registre {
+    position:absolute;
+    top:355px;
+    left:255px;
+    width:500px;
+    height:100px;
+    text-align: center;
+    font-size:30px;
+    line-height: 120%;
+}
+
+
+#llista_usuaris_titol {
+    position:absolute;
+    top:120px;
+    left:100px;
+    font-size:25px;
+    width:700px;
+    text-decoration: underline;
+    text-align: left;
+}
+
+#llista_usuaris {
+    position:absolute;
+    top:175px;
+    left:100px;
+    text-align: left;
+
+}
+
+#boto_iniciar {
+    position:absolute;
+    top:550px;
+    left:305px;
+    width:400px;
+    height:80px;
+    text-align: center;
+    font-size:30px;
+    line-height: 120%;
+
+}
+
+.control_wealth {
+    position: absolute;
+    top: 450px;
+    left: 90px;
+    width: 400px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 120%;
+}
+
+.control_reward {
+    position: absolute;
+    top: 450px;
+    left: 500px;
+    width: 450px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 120%;
+}
+
+.control_wealth_previous {
+    position: absolute;
+    top: 150px;
+    left: 90px;
+    width: 400px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 120%;
+}
+
+.control_reward_previous {
+    position: absolute;
+    top: 150px;
+    left: 500px;
+    width: 450px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 120%;
+}
+
+.control_uncertainly {
+    position:absolute;
+    top:450px;
+    left:500px;
+    width:600px;
+    text-align: center;
+    font-size:30px;
+    line-height: 120%;
+}
+
+.button_S {
+    width:125px;
+    height:50px;
+    padding-top: 12px;
+}
+
+#partida_jugant {
+    position:absolute;
+    top:660px;
+    left:205px;
+    width:600px;
+    text-align: center;
+    font-size:20px;
+    line-height: 120%;
+    color: #ff0000;
+}
+
+table{
+    table-layout: fixed;
+}
+
+

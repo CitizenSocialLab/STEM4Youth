@@ -1,0 +1,223 @@
+
+/****************************************************/
+/****************************************************/
+/* CSS Modal Resultats */
+
+.resultats_table {
+    position: absolute;
+    left:310px;
+    top:350px;
+}
+
+.top_bold {
+    border-top:2px solid;
+    border-color:#646464;
+}
+
+.bottom_bold {
+    border-bottom:2px solid;
+    border-color:#646464;
+}
+
+.top_thin {
+    border-top:thin solid;
+    border-color:#646464;
+}
+
+.bottom_thin {
+    border-bottom:thin solid;
+    border-color:#646464;
+}
+
+table th, td{
+    padding-left: 8px;
+    padding-right: 8px;
+
+}
+
+#image_resultat {
+    position: absolute;
+    top: 90px;
+    left: 50px;
+    width: 185px;
+}
+
+#text_resultat_aconseguit {
+    position: absolute;
+    top: 105px;
+    left: 148px;
+    width: 700px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    color: #035992;
+}
+
+#text_resultat_no_aconseguit {
+    position: absolute;
+    top: 105px;
+    left: 148px;
+    width: 700px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    color: #035992;
+}
+
+
+#subtext_resultat_aconseguit {
+    position: absolute;
+    top: 160px;
+    left: 148px;
+    width: 710px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+    color: #035992;
+}
+
+
+#subtext_resultat_no_aconseguit {
+    position: absolute;
+    top: 160px;
+    left: 148px;
+    width: 710px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+    color: #035992;
+}
+
+
+
+#text_objectiu {
+    position: absolute;
+    top: 215px;
+    left: 170px;
+    width: 170px;
+
+    text-align: center;
+    font-weight: bold;
+}
+
+#text_pot {
+    position: absolute;
+    top: 215px;
+    left: 420px;
+    width: 170px;
+
+    text-align: center;
+    font-weight: bold;
+}
+
+#text_diners {
+    position: absolute;
+    top: 200px;
+    left: 640px;
+    width: 190px;
+
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+#resultat_objectiu {
+    position: absolute;
+    top: 255px;
+    left: 170px;
+    width: 170px;
+    font-size: 60px;
+    font-weight: normal;
+    height: 85px;
+    border-radius: 10px;
+    background-color: lightblue;
+}
+
+#resultat_pot {
+    position: absolute;
+    top: 255px;
+    left: 420px;
+    font-size: 60px;
+    font-weight: normal;
+    width: 170px;
+    height: 85px;
+    border-radius: 10px;
+    background-color: lightblue;
+}
+
+#resultat_diners {
+    position: absolute;
+    top: 255px;
+    left: 660px;
+    font-size: 60px;
+    font-weight: normal;
+    width: 170px;
+    height: 85px;
+    border-radius: 10px;
+    background-color: lightgrey;
+}
+
+
+#resultat_total_contribucions{
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+
+#resultat_total_acumulado {
+    position: absolute;
+    top: 470px;
+    /* left: 0px; */
+    right: 40px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: right;
+    width: 300px;
+}
+
+#objetivo_total {
+    position: absolute;
+    top: 480px;
+    left: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    width: 200px;
+}
+
+#contribucio_user {
+    position: absolute;
+    top: 110px;
+    left: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+#partida_resum {
+    position: absolute;
+    top: 355px;
+    left: 385px;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+#partida_resum_nota {
+    position: absolute;
+    top: 596px;
+    left: 10px;
+    font-size: 11pt;
+}
+
+
+#table_partida_detail {
+    position: absolute;
+    top: 370px;
+    left: 0px;
+}
+
+

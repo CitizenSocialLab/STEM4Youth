@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+    <link href="/static/css/index.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block content %}
+    <div class="topdiv">
+        <!--
+        <div class="fons"></div>
+        -->
+
+        <div class="capsalera_background"></div>
+
+        <!--
+        <div class="page_header_left">{{ text.common.game }}</div>
+        -->
+
+        <hr class="separador-top" />
+
+
+        <div class="text_title_welcome">
+            {{ text.main.main_text| safe }}
+        </div>
+
+
+        <div class="text_welcome">
+            {{ text.main.main_text2| safe }}
+        </div>
+
+        <div class="logos_llenguatge">
+            <a href="/ca/">
+                <button class="bx bx-push bx-mainwhite logos_idioma">CAT</button>
+            </a>
+            <a href="/es/" class="logos_idioma">
+                <button class="bx bx-push bx-mainwhite logos_idioma">ESP</button>
+            </a>
+            <a href="/en/" class="logos_idioma">
+                <button class="bx bx-push bx-mainwhite logos_idioma">ENG</button>
+            </a>
+            <!--
+            <a href="/gr/" class="logos_idioma">
+                <button class="bx bx-push bx-mainwhite logos_idioma">GRC</button>
+            </a>
+            -->
+        </div>
+
+        <hr class="separador-bottom" />
+
+        <div class="vull_jugar">
+            <form method="post" action="/{{ lang }}/user/nickname">
+                <button class="bx bx-push bx-main">
+                    {{ text.main.boto }}
+                </button>
+            </form>
+        </div>
+        <!--
+        <img id="imatge_logos" src="/static/img/logos/all_logos.png"/>
+        -->
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $("a").click(function (event) {
+            event.preventDefault();
+            window.location = $(this).attr("href");
+        });
+    </script>
+
+{% endblock %}

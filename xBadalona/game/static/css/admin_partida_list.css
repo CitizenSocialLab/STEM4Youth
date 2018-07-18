@@ -1,0 +1,45 @@
+#llista_partides_titol {
+    position:absolute;
+    top:120px;
+    left:50px;
+    font-size:25px;
+    width:700px;
+    text-decoration: underline;
+    text-align: left;
+}
+
+#llista_partides {
+    position:absolute;
+    top:155px;
+    left:50px;
+    text-align: left;
+
+}
+
+#partides_1 {
+    position:absolute;
+    top: 160px;
+    left: 40px;
+    width: 400px;
+}
+
+#partides_2 {
+    position:absolute;
+    top: 160px;
+    left: 550px;
+    width: 400px;
+}
+
+
+.partides tr:nth-child(even) {background: #dedede  }
+
+
+.partides td {
+    text-align: left;
+}
+
+table{
+    table-layout: fixed;
+}
+
+

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+    <link href="/static/css/resultats_final.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block content %}
+    <div class="topdiv">
+
+        <div class="user_info">
+            <span class="glyphicon glyphicon-user" style="margin-left: 20px;"></span>
+            {{ user.nickname }}
+        </div>
+
+        <div class="capsalera_background"></div>
+
+        <div class="page_title">{{ text.final_joc.thanks| safe }}</div>
+
+        <div class="winnings_public_goods" id="winnings_public_goods"></div>
+
+        <div class="tickets" id="tickets"></div>
+        <div class="message" id="message"></div>
+
+        {% if xAire %}
+        <div class="vull-jugar">
+            <form method="post" action="/{{ lang }}/game/logos">
+                <button class="bx bx-push bx-main">
+                    {{ text.final_joc.boto }}
+                </button>
+            </form>
+        </div>
+        {%  endif %}
+
+        {% if Athens %}
+        <div class="vull-jugar">
+            <form method="post" action="/{{ lang }}/">
+                <button class="bx bx-push bx-main">
+                    {{ text.final_joc.boto }}
+                </button>
+            </form>
+        </div>
+        {%  endif %}
+
+
+        <hr class="separador-bottom" />
+
+
+        <!--
+        <img id="imatge_logos" src="/static/img/logos/all_logos.png"/>
+        -->
+
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+
+    <script>
+
+        $(document).ready(function() {
+            var winnings_public_goods = '{{ text.final_joc.winnings }}'
+            winnings_public_goods = winnings_public_goods.replace('{nickname}', '{{ username }}')
+            winnings_public_goods = winnings_public_goods.replace('{winnings}', "<span class='bold_tickets'>"+'{{ winnings_public_goods }}'+"</span>")
+            $('#winnings_public_goods').html(winnings_public_goods)
+
+            if ('{{ goal }}' == "achieved"){
+                console.log('Action')
+                var tickets = '{{ text.final_joc.tickets }}'
+                tickets = tickets.replace('{tickets}', "<span class='bold_tickets'>{tickets}</span>")
+                tickets = tickets.replace('{tickets}', '{{ tickets }}')
+                $('#tickets').html(tickets)
+                $('#message').html('{{ text.final_joc.action }}')
+            }else{
+                console.log('No action')
+                var no_tickets = '{{ text.final_joc.no_tickets }}'
+                no_tickets = no_tickets.replace('{tickets}', "<span class='bold_color'>{tickets}</span>")
+                no_tickets = no_tickets.replace('{tickets}', '{{ tickets }}')
+                $('#tickets').html(no_tickets)
+                $('#message').html('{{ text.final_joc.no_action }}')
+            }
+            if ('{{ bot }}' >= 2){
+                var tickets = '{{ text.final_joc.tickets_bots }}'
+                $('#tickets').html(tickets)
+            }
+
+        });
+
+    </script>
+{% endblock %}

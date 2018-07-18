@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+    <link href="/static/css/enquesta_Athens.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block title %}{{ text.enquesta1.titol_pagina }}{% endblock %}
+
+{% block content %}
+    <div class="topdiv-centered">
+
+        <div class="capsalera_background"></div>
+
+        <div class="page_title">{{ text.enquesta1.titol }}</div>
+
+        <hr class="separador-top" />
+
+        <form method="post" action="/{{ lang }}/user/enquesta1_Athens">
+
+            <div class="pregunta1">
+                <div class="pregunta_titol">{{ text.enquesta1.pr1 }}</div>
+                <div class="btn-toolbar" data-toggle="buttons">
+                    <input type="hidden" name="gender" value="{{ gender }}">
+                    <button name="gender" id="gender1" value="M" class="button_L bx bx-option {{ gender_1_checked }}">{{ text.enquesta1.pr1_r1 }}</button>
+                    <button name="gender" id="gender2" value="F" class="button_L bx bx-option {{ gender_2_checked }}">{{ text.enquesta1.pr1_r2 }}</button>
+                    <button name="gender" id="gender3" value="N" class="button_L bx bx-option {{ gender_3_checked }}">{{ text.enquesta1.pr1_r3 }}</button>
+                </div>
+                <div class="error_space">
+                    {% if gender_danger %} <span class="error">{{ text.common.error_opcio }}</span>{%  endif %}
+                </div>
+            </div>
+
+            <div class="pregunta2">
+                <div class="pregunta_titol">{{ text.enquesta1.pr2 }}</div>
+                <div class="btn-toolbar" data-toggle="buttons">
+                    <input type="hidden" name="age_range" value="{{ age_range }}">
+                    <button name="age_range" id="age_range_1" value="r1" class="button_M bx bx-option {{ age_range_1_checked }}">{{ text.enquesta1.pr2_r1 }}</button>
+                    <button name="age_range" id="age_range_2" value="r2" class="button_M bx bx-option {{ age_range_2_checked }}">{{ text.enquesta1.pr2_r2 }}</button>
+                    <button name="age_range" id="age_range_3" value="r3" class="button_M bx bx-option {{ age_range_3_checked }}">{{ text.enquesta1.pr2_r3 }}</button>
+                    <button name="age_range" id="age_range_4" value="r4" class="button_M bx bx-option {{ age_range_4_checked }}">{{ text.enquesta1.pr2_r4 }}</button>
+                    <br />
+                    <button name="age_range" id="age_range_5" value="r5" class="button_M bx bx-option {{ age_range_5_checked }}" style="margin-top: 10px; margin-left: 90px;">{{ text.enquesta1.pr2_r5 }}</button>
+                    <button name="age_range" id="age_range_6" value="r6" class="button_M bx bx-option {{ age_range_6_checked }}" style="margin-top: 10px;">{{ text.enquesta1.pr2_r6 }}</button>
+                    <button name="age_range" id="age_range_7" value="r7" class="button_M bx bx-option {{ age_range_7_checked }}" style="margin-top: 10px;">{{ text.enquesta1.pr2_r7 }}</button>
+                </div>
+                <div class="error_space">
+                    {% if age_range_danger %} <span class="error">{{ text.common.error_opcio }}</span>{%  endif %}
+                </div>
+            </div>
+
+            <div class="pregunta3">
+                <div class="pregunta_titol">{{ text.enquesta1.pr3 }}</div>
+                <div class="btn-toolbar" data-toggle="buttons">
+                    <input type="hidden" name="residence" value="{{ residence }}">
+                    <button name="residence" id="residence1" value="r1" class="button_M bx bx-option {{ residence_0_checked }}" onClick="touched(this.id)">{{ text.enquesta1.pr3_r1 }}</button>
+                    <button name="residence" id="residence2" value="r2" class="button_M bx bx-option {{ residence_1_checked }}" onClick="touched(this.id)">{{ text.enquesta1.pr3_r2 }}</button>
+                    <button name="residence" id="residence3" value="r3" class="button_M bx bx-option {{ residence_2_checked }}" onClick="touched(this.id)">{{ text.enquesta1.pr3_r3 }}</button>
+                    <button name="residence" id="residence4" value="r4" class="button_M bx bx-option {{ residence_3_checked }}" onClick="touched(this.id)">{{ text.enquesta1.pr3_r4 }}</button>
+                </div>
+                <div class="error_space">
+                    {% if residence_danger %} <span class="error">{{ text.common.error_opcio }}</span>{%  endif %}
+                </div>
+            </div>
+
+
+
+            <hr class="separador-bottom" />
+
+            <div class="page_button_right">
+                <button class="bx bx-push bx-main" type="submit">{{ text.common.seguent }}</button>
+            </div>
+
+            <div class="page_button_left">
+                <button id="boto_sortir" type="button" onclick="location.href='/{{ lang }}/user/logout'" name="logout" class="bx-push bx bx-white" >
+                    {{ text.common.sortir_joc }}
+                </button>
+            </div>
+        </form>
+
+    </div> <!-- /container -->
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+
+        function touched(id) {
+            console.log(id)
+            /*if (id == 'origen1'){
+                $(".pregunta6").hide()
+                document.getElementById("pais").value = "Spain";
+            }
+
+            if (id == 'origen2'){
+                $(".pregunta6").show()
+            }
+
+            if (id == 'residence1'){
+                $(".pregunta4").show()
+            }
+
+            if (id == 'residence2'){
+                $(".pregunta4").hide()
+                document.getElementById("postal_code").value = "0";
+            }*/
+
+        }
+    </script>
+{% endblock %}

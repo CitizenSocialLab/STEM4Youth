@@ -1,0 +1,117 @@
+.bx {
+    display: inline-block;
+    line-height: 23px;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 16px 10px 16px;
+    text-align: center;
+    text-transform: none;
+    white-space: nowrap;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    box-sizing: border-box;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    border: 1px solid #ffffff;
+    outline: none;
+}
+
+.bx-mini {
+    width: 35px;
+    height:35px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+.bx-push {
+}
+.bx-tab {
+}
+
+.bx-red {
+    color: white;
+    border: 1px solid #ff6056;
+    background-color: #ff6056;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+.bx-red.disabled {
+    color: #ff6056;
+    border: 1px solid #ff6056;
+    background-color: #ffffff;
+}
+
+.bx-blue {
+    color: white;
+    border: 1px solid #357ebd;
+    background-color: #428bca;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+.bx-blue.disabled {
+    color: #357ebd;
+    border: 1px solid #357ebd;
+    background-color: #ffffff;
+}
+.bx-main {
+    color: white;
+    border: 1px solid #CD1919;
+    background-color: #CD1919;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+.bx-main.disabled {
+    color: #CD1919;
+    border: 1px solid #CD1919;
+    background-color: #ffffff;
+}
+
+.bx-mainwhite {
+    color: #CD1919;
+    border: 1px solid #CD1919;
+    background-color: white;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+
+.bx-white {
+    color: #333333;
+    border: 1px solid #cccccc;
+    background-color: transparent;
+}
+
+.bx-option {
+    color: #333333;
+    border: 1px solid #CD1919;
+    background-color: transparent;
+}
+.bx-option-selected {
+    color: #333;
+    border: 1px solid #CD1919;
+    background-color: #FAE8E8;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 5px 0px inset;
+}
+.bx-option-hover {
+    color: #333333;
+    border: 1px solid #CD1919;
+    background-color: transparent;
+}
+
+.bx-input {
+    color: #000000;
+    border: 1px solid #CD1919;
+    background-color: #ffffff;
+}
+
+

@@ -1,0 +1,60 @@
+#background_tutorial {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:1024px;
+    height: 595px;
+    margin-left: -15px;
+    z-index:0;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #EFE9FF 0%, #ffffff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EFE9FF), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #EFE9FF 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #EFE9FF 0%,#ffffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #EFE9FF 0%,#ffffff 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #EFE9FF 0%,#ffffff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EFE9FF', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+
+.slide {
+    z-index: 2;
+    position: absolute;
+    top: 22px;
+    left: 130px;
+    width: 733px;
+    height: 550px;
+}
+
+.bx-my-white {
+    color: #333333;
+    border: 0px solid #cccccc;
+    background-color: transparent;
+    width: 170px;
+    height: 570px;
+}
+
+.prev-button {
+    z-index: 2;
+    position:absolute;
+    top: 0px;
+    left: -15px;
+    outline: none;
+}
+
+.next-button {
+    z-index: 2;
+    position:absolute;
+    top: 0px;
+    left:840px;
+    outline: none;
+}
+
+#tutorial_shadow{
+z-index: 1;
+position: absolute;
+top: 532px;
+left: 196px;
+height: 63px;
+width: 600px;
+}

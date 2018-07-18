@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+    <link href="/static/css/resultats_clima.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block content %}
+    <div class="topdiv-centered">
+
+        <div class="page_title" id="page_title"></div>
+
+        <div class="capsalera_background"></div>
+
+        <hr class="separador-top" />
+        <hr class="separador-bottom" />
+
+        <div class="page_button_right">
+            <button id="boto_enquesta" type="button" onclick="location.href='/{{ lang }}/user/final_joc'" name="logout" class="bx bx-push bx-mainwhite" >
+                {{  text.resultats.enquesta }}
+            </button>
+        </div>
+
+        <div id="text_resultat_aconseguit" hidden>{{ text.resultats.aconseguit | safe }}</div>
+        <div id="text_resultat_no_aconseguit" hidden>{{ text.resultats.no_aconseguit | safe }}</div>
+
+        <div id="resultat_objectiu">120</div>
+        <div id="text_objectiu">{{ text.resultats.objectiu }}</div>
+
+        <div id="resultat_pot"></div>
+        <div id="text_pot">{{ text.resultats.pot }}</div>
+
+        <div id="resultat_action"></div>
+        <div id="text_action">{{ text.resultats.action|safe }}</div>
+
+        <div id="resultat_diners"></div>
+        <div id="text_diners">{{ text.resultats.diners_guanyats|safe }}</div>
+
+        <div id="partida_resum_nota">{{ text.resultats.resum_nota }}</div>
+
+        <div id="table_partida_detail"></div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+
+    <script>
+        function update_status(user_id) {
+
+            $.ajax({
+                url: '/es/ws/stats_partida_detail/{{ num_partida }}/',
+                success: function (data) {
+
+                    this.always_win = data.always_win;
+
+                    var table2 = '<table class="table_partida_detail">';
+
+                    console.log(data)
+
+                    // Header
+                    table2 += "<tr style='cellpadding:5;'>";
+                    table2 += "<td colspan=8 style=font-size:18px;font-weight:bold;cell></td>";
+                    table2 += "</tr>";
+                    table2 += '<tr class="top_bottom_bold_black">';
+                    table2 += '<th style="width:50px;"> {{ text.resultats.player }} </th>';
+                    table2 += '<th style="width:200px;"> {{ text.resultats.nickname }} </th>';
+                    table2 += '<th style="width:50px;"> {{ text.resultats.endowment }} </th>';
+                    for (i = 1; i <= 10; i++) table2 += '<th class style="width: 20px"> R' + i + '</th>';
+
+                    table2 += '<th style="width:100px;"> {{ text.resultats.contribution }} </th>';
+                    table2 += '<th style="width:100px"> {{ text.resultats.savings }} </th>';
+                    table2 += '<th style="width:100px;"> {{ text.resultats.bot }} </th>';
+                    table2 += "</tr>";
+
+                    var num_robot = Array.apply(null, Array(6)).map(Number.prototype.valueOf, 0);
+
+                    var total_diners_reals = 0;
+                    for (i = 0; i < data.nicknames.length; i++) {
+                        if (user_id == data.user_ids[i]) style_user = 'background-color:#FAE8E8; font-weight: bold;';
+                        else style_user = '';
+
+                        var player = i + 1;
+                        table2 += '<tr class="top_bottom_border_bold_red">';
+                        table2 += '<td style="font-size:16px;'+style_user+'">' + player + '</td>';
+                        table2 += '<td style="font-size:16px;'+style_user+'">' + data.nicknames[i] + '</td>';
+                        table2 += '<td style="font-size:16px;'+style_user+'">' + data.endowment_initial[i] + '</td>';
+
+                        for (j = 0; j <= 9; j++) {
+
+                            if (data.rondes[i][j] === null) {
+                                ronda_val = '-';
+                            } else {
+                                if (data.robot[i][j]) {
+                                    ronda_val = data.rondes[i][j];
+                                } else {
+                                    ronda_val = data.rondes[i][j] + '*';
+                                    num_robot[i] = num_robot[i] + 1;
+                                }
+                            }
+
+                            table2 += '<td style="font-size:16px; width:60px; '+style_user+'">' + ronda_val + '</td>';
+                        }
+
+                        table2 += '<td style="font-size:16px;'+style_user+'">' + data.diners_contribuits[i] + '</td>';
+
+                        // Diners restants
+                        var diners_restants = data.endowment_initial[i] - data.diners_contribuits[i];
+                        table2 += '<td style="font-size:16px;'+style_user+'">' + diners_restants + '</td>';
+
+                        // Bots
+                        if (user_id == data.user_ids[i] & data.bots[i] > 1) {
+                            table2 += '<td style="font-size:16px;'+style_user+'">' + data.bots[i] + '</td>';
+
+                        } else {
+                            table2 += '<td style="font-size:16px;'+style_user+'">' + data.bots[i] + '</td>';
+                        }
+
+                        // Diners guanyats per l'usuari
+                        savings_real = data.savings_public_goods[i];
+                        winnings_real = data.winnings_public_goods[i];
+                        bot = data.bots[i];
+                        if (user_id == data.user_ids[i]){
+                            var savings_current_participant = savings_real;
+                            var winnings_current_participant = winnings_real;
+                            var bot_current_participant = bot;
+                        }
+                        table2 += "</tr>";
+                    }
+
+
+                    table2 += '<tr class="top_bottom_bold_red">';
+                    table2 += '<th style="font-size:16px;" colspan=2> Total </th>';
+
+                    // Diners total inicials
+                    var total_inicial = 0;
+                    for (i = 0; i < data.endowment_initial.length; i++) total_inicial += data.endowment_initial[i]
+                    table2 += '<th style="font-size:16px;">' + total_inicial + '</th>';
+
+                    // Diners per ronda
+                    for (i = 0; i < 10; i++) {
+                        var total_ronda = 0;
+                        for (j = 0; j < data.rondes.length; j++) {
+                            total_ronda += data.rondes[j][i];
+                        }
+                        table2 += '<th style="font-size:16px;">' + total_ronda + '</th>';
+                    }
+
+
+                    // Diners totals contribuits
+                    var total_contribuciones = 0
+                    for (i = 0; i < data.endowment_initial.length; i++) total_contribuciones += data.diners_contribuits[i]
+                    table2 += '<th style="font-size:16px;">' + total_contribuciones + '</th>';
+
+                    // Diners totals restants
+                    var total_restants = 0
+                    for (i = 0; i < data.endowment_initial.length; i++) total_restants += data.endowment_initial[i] - data.diners_contribuits[i]
+                    table2 += '<th style="font-size:16px;">' + total_restants + '</th>';
+                    table2 += '<th style="font-size:16px;"> - </th>';
+
+                    // Diners reals
+                    //table2 += '<td style="font-size:16px;">' + total_diners_reals + '</td>';
+                    //table2 += "</tr>";
+
+                    $("#table_partida_detail").append(table2);
+                    $("#resultat_pot").text(total_contribuciones);
+
+                    if (total_contribuciones >= data.threshold)
+                    {
+                        var title = '{{ text.resultats.aconseguit }}'
+                        $('#page_title').html(title);
+
+                        if (data.control_reward == 'SOCIAL'){
+                            var message = '{{ text.resultats.aconseguit_economic }}'
+                            message = message.replace('{goal}',data.threshold)
+                            message = message.replace('{pot}',total_contribuciones)
+                            message = message.replace('{savings}', savings_current_participant)
+                            $('#text_resultat_aconseguit').show();
+                            $('#text_resultat_aconseguit').html(message);
+                            $("#resultat_action").text(total_contribuciones);
+                            $("#resultat_diners").text(winnings_current_participant);
+
+                        }
+                        console.log(data)
+                        if (data.control_reward == 'ECONOMIC'){
+                            var action = total_contribuciones * data.factor_return
+                            var reward = (savings_current_participant + ((total_contribuciones - action)/data.num_players)).toFixed(0)
+                            var proportion = (((total_contribuciones - action)/data.num_players)).toFixed(0)
+                            console.log(winnings_current_participant)
+                            var message = '{{ text.resultats.aconseguit_social }}'
+                            message = message.replace('{goal}',data.threshold)
+                            message = message.replace('{pot}',total_contribuciones)
+                            message = message.replace('{savings}', savings_current_participant)
+                            message = message.replace('{reward}', total_contribuciones - action)
+                            message = message.replace('{proportion}', proportion)
+                            message = message.replace('{winnings}', winnings_current_participant.toFixed(0))
+                            message = message.replace('{action}', action)
+                            $('#text_resultat_aconseguit').show();
+                            $('#text_resultat_aconseguit').html(message);
+                            $("#resultat_action").text(action);
+                            $("#resultat_diners").text(winnings_current_participant);
+
+                        }
+
+                    } else {
+                        var title = '{{ text.resultats.no_aconseguit }}'
+                        $('#page_title').html(title);
+
+
+                        var message = '{{ text.resultats.no_aconseguit_ambdos }}'
+
+                        $('#text_resultat_no_aconseguit').show();
+                        $('#text_resultat_no_aconseguit').html(message);
+                        $("#resultat_action").text(0);
+                        $("#resultat_diners").text(0);
+
+                    }
+
+                    if (bot_current_participant >= 2){
+                            var message = '{{ text.resultats.result_bot }}'
+                            message = message.replace('{bot}',bot_current_participant)
+                            $('#text_resultat_aconseguit').hide();
+                            $('#text_resultat_no_aconseguit').hide();
+                            $('#text_resultat_aconseguit').show();
+                            $('#text_resultat_aconseguit').html(message);
+                    }
+                },
+                error: function (data) {
+                    setTimeout(function () { update_status(user_id); }, 500);
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            update_status({{ user.id }});
+        });
+
+
+    </script>
+{% endblock %}

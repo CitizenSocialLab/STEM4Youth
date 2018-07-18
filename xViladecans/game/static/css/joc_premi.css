@@ -1,0 +1,287 @@
+/*  PANTALLA JOC 1 */
+
+.text_title1 {
+    position: absolute;
+    top: 160px;
+    left: 60px;
+    width: 610px;
+    font-size: 38px;
+    text-align: left;
+    font-weight: bolder;
+    color: #DAC239;
+
+}
+
+.text_info1 {
+    position: absolute;
+    top: 250px;
+    left: 60px;
+    width: 900px;
+    font-size: 24px;
+    text-align: left;
+}
+
+.user_info1 {
+    position: absolute;
+    top: 110px;
+    right: 5px;
+    width: 610px;
+    text-align: right;
+    color: #444444;
+    font-size: 22px;
+    z-index: 2;
+}
+
+
+.text_title {
+    position: absolute;
+    top: 140px;
+    left: 31px;
+    width: 610px;
+    font-size: 38px;
+    text-align: left;
+    font-weight: bolder;
+    color: #DAC239;
+
+}
+
+.text_info {
+    position: absolute;
+    top: 240px;
+    left: 30px;
+    width: 860px;
+    font-size: 24px;
+    text-align: left;
+}
+
+
+.text_info2 {
+    position: absolute;
+    top: 120px;
+    left: 30px;
+    width: 860px;
+    font-size: 24px;
+    text-align: left;
+}
+
+
+.text_info3 {
+    position: absolute;
+    top: 230px;
+    left: 30px;
+    width: 860px;
+    font-size: 24px;
+    text-align: left;
+}
+
+.text_info4 {
+    position: absolute;
+    top: 500px;
+    left: 131px;
+    width: 860px;
+    font-size: 24px;
+    text-align: left;
+}
+
+.taula_resum {
+    position: absolute;
+    top:280px;
+    left: 30px;
+    width: 860px;
+    border: 2px solid #762C53;
+}
+
+.taula_resum th {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 26px;
+    padding: 5px 5px 5px 5px ;
+    border: 2px solid #bda7db;
+    background-color: #e1d7ff;
+
+}
+
+.taula_resum td {
+    text-align: center;
+    font-size: 26px;
+    padding: 5px 5px 5px 5px ;
+    border: 2px solid #bda7db;
+}
+
+.taula_resum2 {
+    position: absolute;
+    top:160px;
+    left: 30px;
+    width: 860px;
+    border: 2px solid #762C53;
+}
+
+.taula_resum2 th {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 26px;
+    padding: 5px 5px 5px 5px ;
+    border: 2px solid #bda7db;
+    background-color: #e1d7ff;
+
+}
+
+.taula_resum2 td {
+    text-align: center;
+    font-size: 26px;
+    padding: 5px 5px 5px 5px ;
+    border: 2px solid #bda7db;
+}
+
+.negrita_premi {
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+
+
+.pregunta_premi1 {
+    position: absolute;
+    top:450px;
+    left: 30px;
+    width: 960px;
+    font-size: 24px;
+    text-align: left;
+}
+
+#button-guess-C {
+    position: absolute;
+    top:500px;
+    left: 100px;
+}
+
+#button-guess-D {
+    position: absolute;
+    top:500px;
+    left: 480px;
+}
+
+
+.pregunta_premi2 {
+    position: absolute;
+    top:440px;
+    left: 130px;
+    width: 900px;
+    font-size: 24px;
+    text-align: left;
+}
+
+#button-C {
+    position: absolute;
+    top:500px;
+    left: 100px;
+}
+
+#button-D {
+    position: absolute;
+    top:500px;
+    left: 480px;
+}
+
+
+
+.esperant_premi {
+    position: absolute;
+    top: 435px;
+    left: 300px;
+    width: 400px;
+    text-align: center;
+}
+
+.esperant_premi_text {
+    position: absolute;
+    top: 520px;
+    left: 300px;
+    width: 400px;
+    text-align: center;
+}
+
+
+
+
+.seleccio_valor {
+    position: absolute;
+    top: 460px;
+    left: 240px;
+    width: 400px;
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: #91496F;
+}
+
+.seleccio {
+    position: absolute;
+    top: 460px;
+    left: 40px;
+    width: 400px;
+    text-align: left;
+    font-size: 24px;
+}
+
+.oponent_valor {
+    position: absolute;
+    top: 500px;
+    left: 240px;
+    width: 400px;
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: #91496F;
+}
+
+.oponent {
+    position: absolute;
+    top: 500px;
+    left: 40px;
+    width: 400px;
+    text-align: left;
+    font-size: 24px;
+}
+
+
+.resultat_valor {
+    position: absolute;
+    top: 460px;
+    left: 760px;
+    width: 400px;
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: #91496F;
+}
+
+.resultat {
+    position: absolute;
+    top: 460px;
+    left: 470px;
+    width: 400px;
+    text-align: left;
+    font-size: 24px;
+}
+
+
+.resultat_op_valor {
+    position: absolute;
+    top: 500px;
+    left: 760px;
+    width: 400px;
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: #91496F;
+}
+
+.resultat_op {
+    position: absolute;
+    top: 500px;
+    left: 470px;
+    width: 400px;
+    text-align: left;
+    font-size: 24px;
+}

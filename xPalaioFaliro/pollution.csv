@@ -1,0 +1,12 @@
+tag,district, school,num_schools,NO2,level,quality
+r1,Ciutat Vella,Cervantes & Baixeras,2,50.31,H,Poor
+r2,L'Eixample,Fort Pienc & Joan Miró,2,52.38,H,Poor
+r3,Sants-Monjuïc,Seat,1,46.89,H,Poor
+r4,Les Corts,Les Corts & Lavina,2,44.60,L,Poor
+r5,Sarrià-Sant Gervasi,Monserdà,1,41.88,L,Poor
+r6,Gracia,Pau Casals & Sagrada Familia,2,43.80,L,Poor
+r7,Horta-Guinardó,Coves d'en Cimany & Àngels Garriga,2,39.53,L,Regular
+r8,Nou Barris,Calderón & Timbaler del Bruc,2,40.88,L,Poor
+r9,Sant Andreu,Can Fabra & El Sagrer,2,44.17,L,Poor
+r10,Sant Martí,Els Horts & Sant Martí,2,39.05,L,Regular
+r11,Out of Barcelona,,0,46.23,H,Poor

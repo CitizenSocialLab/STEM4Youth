@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+    <link href="/static/css/index.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block content %}
+    <div class="topdiv">
+        <!--
+        <div class="fons"></div>
+        -->
+
+        <div class="capsalera_background"></div>
+
+        <!--
+        <div class="page_header_left">{{ text.common.game }}</div>
+        -->
+
+        <hr class="separador-top" />
+
+
+        <div class="text_logos_1">
+            {{ text.logos.main_text_1| safe }}
+        </div>
+
+
+        <div class="text_logos_2">
+            {{ text.logos.main_text_2| safe }}
+        </div>
+
+        <img id="imatge_logos_1" src="/static/img/logos/logos-01.png"/>
+
+        <div class="text_logos_3">
+            {{ text.logos.main_text_3| safe }}
+        </div>
+
+        <img id="imatge_logos_2" src="/static/img/logos/logos-02.png"/>
+
+        <hr class="separador-bottom" />
+
+        <div class="vull_jugar">
+            <form method="post" action="/{{ lang }}/">
+                <button class="bx bx-push bx-main">
+                    {{ text.logos.boto }}
+                </button>
+            </form>
+        </div>
+        <!--
+        <img id="imatge_logos" src="/static/img/logos/all_logos.png"/>
+        -->
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $("a").click(function (event) {
+            event.preventDefault();
+            window.location = $(this).attr("href");
+        });
+    </script>
+
+{% endblock %}

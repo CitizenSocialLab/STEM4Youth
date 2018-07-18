@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+    <link href="/static/css/joc_dictator.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block title %}{{ text.joc_dictator.titol_pagina }} | {{ user.nickname }}{% endblock %}
+
+{% block content %}
+
+    <div class="topdiv-centered">
+
+        <div class="capsalera_background"></div>
+        <!--<img src="/static/img/logo.png" class="page_logo"/>-->o"/>-->
+
+        <div class="page_title">{{ text.joc_dictator.titol }}</div>
+
+        <hr class="separador-top" />
+
+        <div class="text_title">{{ text.joc_dictator.tha_tocat }}</div>
+        <div class="text_title2">{{ text.joc_dictator.dictator }}</div>
+
+        <!-- FASE 1 -->
+
+        <div class="text_info2">{{ text.joc_dictator.text_dictator | safe }}</div>
+        <!--
+        <button id="button-0" class="bx bx-push boto_seleccio_joc button-format"></button>
+        <button id="button-1" class="bx bx-push boto_seleccio_joc button-format"></button>
+        <button id="button-2" class="bx bx-push boto_seleccio_joc button-format"></button>
+        <button id="button-3" class="bx bx-push boto_seleccio_joc button-format"></button>
+        <button id="button-4" class="bx bx-push boto_seleccio_joc button-format"></button>
+        <button id="button-5" class="bx bx-push boto_seleccio_joc button-format"></button>
+
+        -->
+        <button id="button-0-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-1-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-2-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-3-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-4-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-5-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-6-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-7-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-8-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-9-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-10-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+
+
+        <!-- FASE 2 -->
+
+        <div class="esperant_dictator" hidden>
+            <i id="presentacio_waiting"class="fa fa-spinner fa-spin fa-5x"></i>
+        </div>
+
+        <div class="esperant_dictator_text" hidden>{{ text.joc_dictator.espera_dictator }}</div>
+
+        <div class="seleccio_dictator_text" hidden>{{ text.joc_dictator.dictator_resultat1 }}</div>
+        <div class="seleccio_dictator" hidden></div>
+
+        <div class="seleccio_dictator2_text" hidden>{{ text.joc_dictator.dictator_resultat1b }}</div>
+        <div class="seleccio_dictator2" hidden></div>
+
+        <!-- FASE 3 -->
+
+        <div class="seleccio_punisher_text" hidden>{{ text.joc_dictator.dictator_resultat2 }}</div>
+        <div class="seleccio_punisher" hidden></div>
+
+        <div class="seleccio_punisher2_text" hidden>{{ text.joc_dictator.dictator_resultat2a }}</div>
+        <div class="seleccio_punisher2" hidden></div>
+
+        <div class="resultat_dictator_text" hidden>{{ text.joc_dictator.dictator_resultat3 }}</div>
+        <div class="resultat_dictator" hidden></div>
+
+        <div class="resultat_punisher_text" hidden>{{ text.joc_dictator.dictator_resultat4 }}</div>
+        <div class="resultat_punisher" hidden></div>
+
+        <div class="missatge_fi" hidden>{{ text.joc_dictator.missatge_fi }}</div>
+
+        <hr class="separador-bottom" />
+
+        <div class="page_button_right" hidden>
+            <button id="boto_enquesta" type="button" onclick="location.href='/{{ lang }}/user/joc_dictator3'" name="logout" class="bx bx-push bx-redstencil" >
+                {{ text.joc_dictator.seguent_joc }}
+            </button>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+{% block javascript %}
+    <script>
+
+    function button_pressed(value) {
+        console.log("Apretat "+value);
+        $('.button-format').hide();
+        $('.button-format-small').hide();
+        $('.text_info2').hide();
+
+        $(".esperant_dictator").show();
+        $(".esperant_dictator_text").show();
+
+        $(".seleccio_dictator_text").show();
+        $(".seleccio_dictator").text(value+' {{ text.joc_dictator.monedes }}').show();
+
+        $(".seleccio_dictator2_text").show();
+        $(".seleccio_dictator2").text((10-value)+' {{ text.joc_dictator.monedes }}').show();
+
+        enviar_accio({{ user.id }},value);
+    }
+
+    function isInt(n) {
+        return n % 1 === 0;
+    }
+
+    //Funcio per a enviar la selecció
+    function enviar_accio(user, accio) {
+        $.ajax({
+            url: '/es/ws/enviar_accio_dictator1/'+user+'/'+accio+'/',
+            success: function(data) {
+                console.log(data);
+                if (data.saved == "ok") {
+                    demanar_resultat({{ user.id }});
+                } else {
+                    enviar_accio(user, accio);
+                }
+            },
+            error: function(){
+                enviar_accio(user, accio);
+            }
+        });
+    }
+
+
+    //Funcio per a obtenir el resultat del torn
+    function demanar_resultat(user) {
+        $.ajax({
+            url: '/es/ws/demanar_resultat_dictator1/'+user+'/',
+            success: function(data) {
+                console.log(data);
+                if (data.correcte) {
+
+                    //MOSTRAR FINAL DEL JOC
+                    $(".esperant_dictator").hide();
+                    $(".esperant_dictator_text").hide();
+                    $(".seleccio_punisher_text").show();
+                    var text = data.seleccio_punisher * {{factor_punisher}};
+                    $(".seleccio_punisher").text(text  +' {{ text.joc_dictator.monedes }}').show();
+
+                    $(".seleccio_punisher2_text").show();
+                    text = data.seleccio_punisher;
+                    $(".seleccio_punisher2").text(text  +' {{ text.joc_dictator.monedes }}').show();
+
+                    $(".resultat_dictator_text").show();
+                    text = data.resultat_dictator;
+                    $(".resultat_dictator").text(text  +' {{ text.joc_dictator.monedes }}').show();
+                    $(".resultat_punisher_text").show();
+                    text = data.resultat_punisher;
+                    $(".resultat_punisher").text(text  +' {{ text.joc_dictator.monedes }}').show();
+                    $(".page_button_right").show();
+                    $(".missatge_fi").show();
+
+
+
+                } else {
+                    setTimeout(function(){demanar_resultat(user)}, 500);
+                }
+            },
+            error: function(data) {
+                setTimeout(function(){demanar_resultat(user)}, 500);
+            }
+        });
+    }
+
+    $(document).ready(function() {
+
+        $("#button-0").on("pushed", function(e) { button_pressed(0); });
+        $("#button-1").on("pushed", function(e) { button_pressed(1); });
+        $("#button-2").on("pushed", function(e) { button_pressed(2); });
+        $("#button-3").on("pushed", function(e) { button_pressed(3); });
+        $("#button-4").on("pushed", function(e) { button_pressed(4); });
+        $("#button-5").on("pushed", function(e) { button_pressed(5); });
+
+        $("#button-0-small").on("pushed", function(e) { button_pressed(0); });
+        $("#button-1-small").on("pushed", function(e) { button_pressed(1); });
+        $("#button-2-small").on("pushed", function(e) { button_pressed(2); });
+        $("#button-3-small").on("pushed", function(e) { button_pressed(3); });
+        $("#button-4-small").on("pushed", function(e) { button_pressed(4); });
+        $("#button-5-small").on("pushed", function(e) { button_pressed(5); });
+        $("#button-6-small").on("pushed", function(e) { button_pressed(6); });
+        $("#button-7-small").on("pushed", function(e) { button_pressed(7); });
+        $("#button-8-small").on("pushed", function(e) { button_pressed(8); });
+        $("#button-9-small").on("pushed", function(e) { button_pressed(9); });
+        $("#button-10-small").on("pushed", function(e) { button_pressed(10); });
+
+    });
+
+
+
+    </script>
+{% endblock %}
+

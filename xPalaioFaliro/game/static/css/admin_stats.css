@@ -1,0 +1,20 @@
+#stats_titol {
+    position:absolute;
+    top:120px;
+    left:50px;
+    font-size:20px;
+    width:700px;
+    text-decoration: underline;
+    text-align: left;
+}
+
+#stats_info {
+    position:absolute;
+    top:160px;
+    left:50px;
+    text-align: left;
+}
+
+table{
+    table-layout: fixed;
+}

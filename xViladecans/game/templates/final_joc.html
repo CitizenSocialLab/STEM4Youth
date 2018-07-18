@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+    <link href="/static/css/index.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block content %}
+    <div class="topdiv">
+
+        <div class="fons"></div>
+
+
+
+        <div class="agraiment-final">{{ text.final_joc.agraiment| safe }}</div>
+
+
+        <div class="resum">{{ text.final_joc.text_resultat1 }}</div>
+        <div class="username">({{ username }})</div>
+
+        <!--
+        <div class="resum_text resum_clima">{{ text.final_joc.text_resultat2 }}</div>
+        <div class="resum_valor resum_clima_valor">{{ resultat_clima }}</div>
+
+        <div class="resum_text resum_inversor ">{{ text.final_joc.text_resultat3 }}</div>
+        <div class="resum_valor resum_inversor_valor">{{ resultat_inversor }}</div>
+
+        <div class="resum_text resum_empresari">{{ text.final_joc.text_resultat4 }}</div>
+        <div class="resum_valor resum_empresari_valor">{{ resultat_empresari }}</div>
+
+        <div class="resum_text resum_premi">{{ text.final_joc.text_resultat5 }}</div>
+        <div class="resum_valor resum_premi_valor">{{ resultat_premi }}</div>
+        -->
+        <div class="resum_text resum_total">{{ text.final_joc.text_resultat6 }}</div>
+        <div id="total_valor" name="total_valor" class="resum_valor resum_total_valor" hidden>{{ resultat_total }}</div>
+
+        <div class="resum_text resum_abacus">{{ text.final_joc.text_resultat7 }}</div>
+        <div id="valor_vals" name="valors_vals" class="resum_valor resum_abacus_valor" hidden>{{ val_abacus }}</div>
+        <!--
+        <div class="text_correu">{{ text.final_joc.text_correu | safe }}</div>
+        -->
+        <div class="vull-jugar">
+            <form method="post" action="/{{ lang }}/">
+                <button class="bx bx-push bx-redstencil">
+                    {{ text.final_joc.boto }}
+                </button>
+            </form>
+        </div>
+
+        <img id="imatge_logos" src="/static/img/logos/all_logos.png"/>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+
+    <script>
+
+        $(document).ready(function() {
+            $('#total_valor').show()
+            $('#total_valor').text('{{ resultat_total }}' + ' ' + '{{ text.final_joc.text_monedas }}')
+
+            $('#valor_vals').show()
+
+        });
+
+    </script>
+{% endblock %}

@@ -1,0 +1,61 @@
+#boto_jugar {
+    position: absolute;
+    top: 300px;
+    left: 255px;
+    width: 500px;
+    height: 220px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 120%;
+
+}
+
+.text_inici {
+    position: absolute;
+    top: 140px;
+    left: 100px;
+    width: 790px;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 40px;
+}
+
+.text_inici li {
+    font-size: 22px;
+    text-align: left;
+}
+
+.error_partida {
+    position: absolute;
+    top: 525px;
+    left: 100px;
+    width: 790px;
+    color: #ff0000;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.user_info {
+    position: absolute;
+    top: 110px;
+    right: 5px;
+    width: 610px;
+    text-align: right;
+    color: #444444;
+    font-size: 22px;
+    z-index: 2;
+}
+
+
+
+.user_coins {
+    position:absolute;
+    top:38px;
+    right:5px;
+    width:610px;
+    text-align: right;
+    color: #444444;
+    font-size:42px;
+    z-index: 2;
+}

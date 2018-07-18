@@ -1,0 +1,70 @@
+#Duracio de la ronda
+#TEMPS_RONDA_SEC = 20
+TEMPS_RONDA_SEC = 20
+TEMPS_RONDA = TEMPS_RONDA_SEC*1000
+
+
+#Duracio del temps entre rondes
+#TEMPS_ESPERA_SEC = 15
+TEMPS_ESPERA_SEC = 15
+TEMPS_ESPERA = TEMPS_ESPERA_SEC*1000
+
+
+#Segons que esperem abans que s'inicii la partida
+# TEMPS_INICI_SEC = 15
+TEMPS_INICI_SEC = 15
+TEMPS_INICI = TEMPS_INICI_SEC*1000
+
+NUM_RONDES = 10
+
+NUMS_JUGADOR = [1,2,3,4,5,6]
+VALORS_INICI = [40,40,40,40,40,40]
+
+
+# Trust Game
+INVERSOR_EMPRESARI = ['I','I','I','E','E','E']
+
+DINERS_INVERSOR = 10
+DINERS_EMPRESARI = 0
+FACTOR_EMPRESARI = 3
+
+
+# Dictators Dilemma
+DICTATOR_PUNISHER = ['D','D','D','P','P','P']
+
+DINERS_DICTATOR = 10
+DINERS_PUNISHER = 5
+FACTOR_PUNISHER = 2
+
+# Prisoner Dilemma
+ADVANTAGE_DISADVANTAGE = ['A','A','A','D','D','D']
+EQUAL = ['E','E','E','E','E','E']
+COOPERAR = ['C','D']
+
+# Matrix1
+MATRIX1 = [[0 for x in range(2)] for y in range(4)]
+MATRIX1[0][0] = 10
+MATRIX1[0][1] = 10 #CC
+MATRIX1[1][0] = 5
+MATRIX1[1][1] = 15 #CD
+MATRIX1[2][0] = 15
+MATRIX1[2][1] = 5 #DC
+MATRIX1[3][0] = 0
+MATRIX1[3][1] = 0 #DD
+
+# Matrix2
+MATRIX2 = [[0 for x in range(2)] for y in range(4)]
+MATRIX2[0][0] = 10
+MATRIX2[0][1] = 6
+MATRIX2[1][0] = 5
+MATRIX2[1][1] = 10
+MATRIX2[2][0] = 15
+MATRIX2[2][1] = 3
+MATRIX2[3][0] = 0
+MATRIX2[3][1] = 0
+
+EXPERIMENT = "BADALONA"
+
+# Vals
+
+FACTOR_VALS = 12

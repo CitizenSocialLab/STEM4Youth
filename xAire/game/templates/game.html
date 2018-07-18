@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+    <link href="/static/css/game.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block title %} | Joc{% endblock %}
+
+{% block content %}
+
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <!-------------------------          MODAL INICIAL       --------------------------->
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <div id="welcome-modal" class="modal fade">
+        <div class="modal-dialog modal-welcome">
+            <div class="modal-content modal-content-welcome">
+                <!-- dialog body -->
+                <div class="modal-body modal-welcome-body">
+                    <div style="position:relative">
+                        <div id="presentacio_partida">{{ text.game.esperando_datos | safe }}</div>
+                        <i id="presentacio_waiting"class="fa fa-spinner fa-spin fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <!-------------------------          MODAL ESPERA RONDA       ---------------------->
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <div id="esperar-modal" class="modal fade">
+        <div class="modal-dialog modal-welcome">
+            <div class="modal-content modal-content-welcome">
+                <!-- dialog body -->
+                <div class="modal-body modal-welcome-body">
+                    <div style="position:relative">
+                        <div id="presentacio_partida">{{ text.game.esperando_ronda | safe }}</div>
+                        <i id="presentacio_waiting"class="fa fa-spinner fa-spin fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <!-------------------------         MODAL COUNTDOWN      --------------------------->
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <div id="countdown-modal" class="modal fade">
+        <div class="modal-dialog modal-countdown">
+            <div class="modal-content modal-content-countdown">
+                <!-- dialog body -->
+                <div class="modal-body modal-countdown-body">
+                    <div style="position:relative">
+
+                        {% if xAire %}
+                        <div id="countdown_text_player"></div>
+                        <div id="countdown_text_endowment"></div>
+                        {%  endif %}
+
+                        {% if Athens %}
+                        <div id="countdown_text_player" style="top:120px"></div>
+                        <div id="countdown_text_endowment" style="top:160px"></div>
+                        {%  endif %}
+
+                        <div id="countdown_text_wealth"></div>
+
+                        <div id="countdown_text_others">{{ text.game.countdown_text_others | safe }}</div>
+                        <table id="countdown_valor_otros" hidden>
+                            <tr>
+                                <td class="countdown_valor_j" id="countdown_j1"></td>
+                            </tr>
+                            <tr>
+                                <td class="countdown_valor_j" id="countdown_j2"></td>
+                            </tr>
+                            <tr>
+                                <td class="countdown_valor_j" id="countdown_j3"></td>
+                            </tr>
+                            <tr>
+                                <td class="countdown_valor_j" id="countdown_j4"></td>
+                            </tr>
+                            <tr>
+                                <td class="countdown_valor_j" id="countdown_j5"></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="modal-footer modal-countdown-footer">
+                    <div style="position:relative">
+                        <div id="countdown_titol" hidden>{{ text.game.empezamos_en }}</div>
+                        <div id="countdown_time" hidden></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <!-------------------------          MODAL RONDA       --------------------------->
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <div id="ronda-modal" class="modal fade">
+        <div class="modal-dialog modal-ronda">
+            <div class="modal-content modal-content-ronda">
+                <div class="modal-body modal-ronda-body">
+                    <div id="ronda_taula_resultats">
+                        {#<img id="modal_ronda_img" src="/static/img/drbrain_pensatiu.png"/>#}
+                        <div id="modal_ronda_msg"></div>
+
+                        <table class="resultats_table">
+                            <tr class="bottom_bold">
+                                <th style="width:20px">{{ text.common.player |safe }} </th>
+                                <th style="width:50px">{{ text.game.resultats_inicial|safe }}</th>
+                                <th style="width:50px">{{ text.game.resultats_actual|safe }}</th>
+                                <th style="width:50px">{{ text.game.resultats_contribucions|safe }}</th>
+                            </tr>
+                            <tr class="bottom_thin">
+                                <td id="player_1">{{ text.game.player|safe }} 1</td>
+                                <td id="resultat_inicial_1"></td>
+                                <td id="resultat_actual_1"></td>
+                                <th id="resultat_seleccio_1"></th>
+                            </tr>
+                            <tr class="bottom_thin">
+                                <td id="player_2">{{ text.game.player|safe }} 2</td>
+                                <td id="resultat_inicial_2"></td>
+                                <td id="resultat_actual_2"></td>
+                                <th id="resultat_seleccio_2"></th>
+                            </tr>
+                            <tr class="bottom_thin">
+                                <td id="player_3">{{ text.game.player|safe }} 3</td>
+                                <td id="resultat_inicial_3"></td>
+                                <td id="resultat_actual_3"></td>
+                                <th id="resultat_seleccio_3"></th>
+                            </tr>
+                            <tr class="bottom_thin">
+                                <td id="player_4">{{ text.game.player|safe }} 4</td>
+                                <td id="resultat_inicial_4"></td>
+                                <td id="resultat_actual_4"></td>
+                                <th id="resultat_seleccio_4"></th>
+                            </tr>
+                            <tr class="bottom_thin">
+                                <td id="player_5">{{ text.game.player|safe }} 5</td>
+                                <td id="resultat_inicial_5"></td>
+                                <td id="resultat_actual_5"></td>
+                                <th id="resultat_seleccio_5"></th>
+                            </tr>
+                            <tr class="bottom_thin">
+                                <td id="player_6">{{ text.game.player|safe }} 6</td>
+                                <td id="resultat_inicial_6"></td>
+                                <td id="resultat_actual_6"></td>
+                                <th id="resultat_seleccio_6"></th>
+                            </tr>
+                            <tr class="top_bold">
+                                <td>{{ text.game.total|safe }}</td>
+                                <td></td>
+                                <td></td>
+                                <th id="resultat_total_contribucions"></th>
+                            </tr>
+                        </table>
+
+
+                        <div id="resultat_objectiu"></div>
+                        <div id="text_objectiu">{{ text.game.resultats_objectiu }}</div>
+
+                        <div id="resultat_contribucio"></div>
+                        <div id="text_contribucio">{{ text.game.resultats_total_pot|safe }}</div>
+
+                        <div id="text_nota">{{ text.game.text_nota|safe }}</div>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer modal-ronda-footer">
+                    <div style="position:relative">
+                        <div id="nextround_titol">{{ text.game.siguiente_juego }}</div>
+                        <div id="nextround_time"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <!----------------------          MODAL FINAL PARTIDA       ------------------------>
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <div id="final-modal" class="modal fade">
+        <div class="modal-dialog modal-final">
+            <div class="modal-content modal-content-final">
+                <!-- dialog body -->
+                <div class="modal-body modal-final-body">
+                    <div style="position:relative">
+
+                        <div id="fi_partida">{{ text.game.titol_final }}</div>
+                        <div id="fi_partida_text">{{ text.game.text_final | safe }}</div>
+                    </div>
+                </div>
+                <!-- dialog buttons -->
+                <div class="modal-footer modal-final-footer">
+                    <button id="final-modal-fi" type="button" class="bx bx-push bx-white">
+                        {{ text.game.sortir }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <!----------------------          CAPÇALERA DEL JOC         ------------------------>
+    <!---------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------->
+    <div class="topdiv">
+
+        <div class="capsalera_background"></div>
+        <hr class="separador-top" />
+
+        <!-- Logo -->
+
+        <!-- Temps -->
+        <div id="timer_title">{{ text.game.temps }}</div>
+        <div id="timer-wrap">
+            <div id="timer_background"></div>
+            <div id="timer_progress"></div>
+        </div>
+
+
+        <div class="user_info">
+            <span class="glyphicon glyphicon-user" style="margin-left: 20px;"></span>
+            {{ user.nickname }}
+        </div>
+
+        <!---------------------------------------------------------------------------------->
+        <!---------------------------------------------------------------------------------->
+        <!----------------------          MATRIUS DE DECISIO        ------------------------>
+        <!---------------------------------------------------------------------------------->
+        <!---------------------------------------------------------------------------------->
+
+        <!-- Ronda -->
+
+        <div id="text-ronda"></div>
+        <!-- Budget -->
+
+        <div id="text-bucket"></div>
+        <!--
+        <img id="image-bucket" src="/static/img/monedes.png">
+        -->
+        <!-- Botons -->
+
+
+        <div id="text-contribucio">{{ text.game.que_esculls }}</div>
+
+        <button id="button-0" class="bx bx-push boto_seleccio_joc"></button>
+{#        <button id="button-1" class="bx bx-push boto_seleccio_joc"></button>#}
+        <button id="button-2" class="bx bx-push boto_seleccio_joc"></button>
+{#        <button id="button-3" class="bx bx-push boto_seleccio_joc"></button>#}
+        <button id="button-4" class="bx bx-push boto_seleccio_joc"></button>
+
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script src="/static/js/timer.js"></script>
+    <script src="/static/js/game.js"></script>
+
+    <script>
+        var text_player = "{{ text.common.player }}"
+        var text_ronda = "{{ text.game.round }}";
+        var text_total_pot = "{{ text.game.resultats_total_pot }}";
+        var text_objetivo = "{{ text.game.resultats_objectiu }}";
+        var text_contribucio_user = "{{ text.game.contribucio_user }}";
+        var text_contribucio_dummy = "{{ text.game.resultats_contribucio_dummy }}";
+        var text_num_ronda = "{{ text.game.resultats_ronda }}";
+        var text_monedes = "{{ text.common.monedes }}";
+        var text_bucket = "{{ text.game.et_queden }}";
+        var text_equal = "{{ text.game.countdown_text_equal }}"
+        var text_unequal = "{{ text.game.countdown_text_unequal }}"
+        var text_number_player = "{{ text.game.countdown_text_player }}"
+        var text_endowment = "{{ text.game.countdown_text_endowment }}"
+        var text_in = "{{ text.common.in }}"
+        var text_NO2 = "{{ text.game.countdown_text_NO2 }}"
+        var text_live_players = "{{ text.game.countdown_text_live_players }}"
+        var text_NO2_players = "{{ text.game.countdown_text_NO2_players }}"
+        var text_NO2_units = "{{ text.game.countdown_text_NO2_units }}"
+        var text_live_barcelona = "{{ text.game.countdown_text_live_barcelona }}"
+        var text_have = "{{ text.common.have }}"
+        var text_wealth = "{{ text.game.countdown_text_wealth }}"
+        var text_school_1 = "{{ text.game.countdown_text_school_1 }}"
+        var text_school_2 = "{{ text.game.countdown_text_school_2 }}"
+        var text_know = "{{ text.common.know }}"
+        var text_quality = "{{ text.common.quality }}"
+
+        game.load_game('{{ user.id }}', '{{ lang }}');
+    </script>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "admin.html" %}
+
+
+{% block stylesheet %}
+    <link href="/static/css/admin.css" rel="stylesheet" media="screen">
+    <link href="/static/css/admin_users.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block content_admin %}
+    <div id="users_1" class="userlist">
+        <table>
+            <tr>
+                <th class="th_valor">ID</th>
+                <th class="th_nickname">user</th>
+                <th class="th_valor">PART</th>
+                <th class="th_valor">CLI</th>
+                <th class="th_valor">INV</th>
+                <th class="th_valor">EMP</th>
+                <th class="th_valor">PRE</th>
+                <th class="th_valor">TOT</th>
+                <th class="th_valor">ABA</th>
+            </tr>
+
+        {% for user in users_1 %}
+            <tr>
+              <td class="td_valor">{{ user.id }}</td>
+              <td class="td_nickname">{{ user.nickname }}</td>
+              <td class="td_valor">{{ user.partida }}</td>
+              <td class="td_valor">{{ user.diners_clima }}</td>
+              <td class="td_valor">{{ user.diners_inversor }}</td>
+              <td class="td_valor">{{ user.diners_empresari }}</td>
+              <td class="td_valor">{{ user.diners_premi }}</td>
+              <td class="td_valor">{{ user.diners_total }}</td>
+              <td class="td_valor" style="font-weight:bold;">{{ user.val_abacus }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+
+    <div id="users_2" class="userlist">
+        <table>
+            <tr>
+                <th class="th_valor">ID</th>
+                <th class="th_nickname">user</th>
+                <th class="th_valor">PART</th>
+                <th class="th_valor">CLI</th>
+                <th class="th_valor">INV</th>
+                <th class="th_valor">EMP</th>
+                <th class="th_valor">PRE</th>
+                <th class="th_valor">TOT</th>
+                <th class="th_valor">ABA</th>
+            </tr>
+
+        {% for user in users_2 %}
+            <tr>
+              <td class="td_valor">{{ user.id }}</td>
+              <td class="td_nickname">{{ user.nickname }}</td>
+              <td class="td_valor">{{ user.partida }}</td>
+              <td class="td_valor">{{ user.diners_clima }}</td>
+              <td class="td_valor">{{ user.diners_inversor }}</td>
+              <td class="td_valor">{{ user.diners_empresari }}</td>
+              <td class="td_valor">{{ user.diners_premi }}</td>
+              <td class="td_valor">{{ user.diners_total }}</td>
+              <td class="td_valor" style="font-weight:bold;">{{ user.val_abacus }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+    <link href="/static/css/enquesta.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block title %}{{ text.enquestafinal4.titol_pagina }}{% endblock %}
+
+{% block content %}
+    <div class="topdiv-centered">
+
+        <div class="capsalera_background"></div>
+
+        <div class="page_title_2">{{ text.enquestafinal4.titol }}</div>
+
+        <hr class="separador-top" />
+
+        <form method="post" action="/{{ lang }}/user/enquestafinal4">
+
+            <div class="preguntafinal6">
+                <div class="pregunta_titol">{{ text.enquestafinal4.pr6 }}</div>
+                <div class="btn-toolbar" data-toggle="buttons">
+
+                    <input type="hidden" name="pr6_r1" value="{{ pr6_r1 }}">
+                    <input type="hidden" name="pr6_r2" value="{{ pr6_r2 }}">
+                    <input type="hidden" name="pr6_r3" value="{{ pr6_r3 }}">
+                    <input type="hidden" name="pr6_r4" value="{{ pr6_r4 }}">
+                    <input type="hidden" name="pr6_r5" value="{{ pr6_r5 }}">
+                    <input type="hidden" name="pr6_r6" value="{{ pr6_r6 }}">
+                    <input type="hidden" name="pr6_r7" value="{{ pr6_r7 }}">
+                    <input type="hidden" name="pr6_r8" value="{{ pr6_r8 }}">
+                    <input type="hidden" name="pr6_r9" value="{{ pr6_r9 }}">
+                    <input type="hidden" name="pr6_r10" value="{{ pr6_r10 }}">
+                    <input type="hidden" name="pr6_r11" value="{{ pr6_r11 }}">
+
+                    <button name="pr6_r1" id="pr6_r1" value="r1" class="boto_llarg bx bx-option {{ pr6_1_checked }}">{{ text.enquestafinal4.pr6_r1 }}</button>
+                    <button name="pr6_r2" id="pr6_r2" value="r2" class="boto_llarg bx bx-option {{ pr6_2_checked }}">{{ text.enquestafinal4.pr6_r2 }}</button>
+                    </br>
+                    <button name="pr6_r3" id="pr6_r3" value="r3" class="boto_llarg bx bx-option {{ pr6_3_checked }}" style="margin-top: 10px;">{{ text.enquestafinal4.pr6_r3 }}</button>
+                    <button name="pr6_r4" id="pr6_r4" value="r4" class="boto_llarg bx bx-option {{ pr6_4_checked }}" style="margin-top: 10px;">{{ text.enquestafinal4.pr6_r4 }}</button>
+                    </br>
+                    <button name="pr6_r5" id="pr6_r5" value="r5" class="boto_llarg bx bx-option {{ pr6_5_checked }}" style="margin-top: 10px;">{{ text.enquestafinal4.pr6_r5 }}</button>
+                    <button name="pr6_r6" id="pr6_r6" value="r6" class="boto_llarg bx bx-option {{ pr6_6_checked }}" style="margin-top: 10px;">{{ text.enquestafinal4.pr6_r6 }}</button>
+                    </br>
+                    <button name="pr6_r7" id="pr6_r7" value="r7" class="boto_llarg bx bx-option {{ pr6_7_checked }}" style="margin-top: 10px;">{{ text.enquestafinal4.pr6_r7 }}</button>
+                    <button name="pr6_r8" id="pr6_r8" value="r8" class="boto_llarg bx bx-option {{ pr6_8_checked }}" style="margin-top: 10px;">{{ text.enquestafinal4.pr6_r8 }}</button>
+                    </br>
+                    <button name="pr6_r9" id="pr6_r9" value="r9" class="boto_superllarg bx bx-option {{ pr6_9_checked }}" style="margin-top: 10px;">{{ text.enquestafinal4.pr6_r9 }}</button>
+                    </br>
+                    <button name="pr6_r10" id="pr6_r10" value="r10" class="boto_superllarg bx bx-option {{ pr6_10_checked }}" style="margin-top: 10px;">{{ text.enquestafinal4.pr6_r10 }}</button>
+                    </br>
+                    <button name="pr6_r11" id="pr6_r11" value="r11" class="boto_llarg bx bx-option {{ pr6_11_checked }}" style="margin-top: 10px;">{{ text.enquestafinal4.pr6_r11 }}</button>
+
+                </div>
+                <div class="error_space">
+                    {% if pr6_danger %} <span class="error">{{ text.common.error_opcio }}</span>{%  endif %}
+                </div>
+            </div>
+            <hr class="separador-bottom" />
+
+            <div class="page_button_right">
+                <button class="bx bx-push bx-redstencil" type="submit">{{ text.common.seguent }}</button>
+            </div>
+
+
+        </form>
+
+    </div> <!-- /container -->
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+
+    $(document).ready(function() {
+        $('#pr6_r1').click(function(){
+            if ($('#pr6_r1').val() == 'r1'){
+                $('#pr6_r1').val('')
+                $('#pr6_r1').addClass("bx-option-selected");
+            }else{
+                $('#pr6_r1').val('r1')
+                $('#pr6_r1').removeClass("bx-option-selected");
+            }
+        });
+        $('#pr6_r2').click(function(){
+            if ($('#pr6_r2').val() == 'r2'){
+                $('#pr6_r2').val('')
+                $('#pr6_r2').addClass("bx-option-selected");
+            }else{
+                $('#pr6_r2').val('r2')
+                $('#pr6_r2').removeClass("bx-option-selected");
+            }
+        });
+        $('#pr6_r3').click(function(){
+            if ($('#pr6_r3').val() == 'r3'){
+                $('#pr6_r3').val('')
+                $('#pr6_r3').addClass("bx-option-selected");
+            }else{
+                $('#pr6_r3').val('r3')
+                $('#pr6_r3').removeClass("bx-option-selected");
+            }
+        });
+        $('#pr6_r4').click(function(){
+            if ($('#pr6_r4').val() == 'r4'){
+                $('#pr6_r4').val('')
+                $('#pr6_r4').addClass("bx-option-selected");
+            }else{
+                $('#pr6_r4').val('r4')
+                $('#pr6_r4').removeClass("bx-option-selected");
+            }
+        });
+        $('#pr6_r5').click(function(){
+            if ($('#pr6_r5').val() == 'r5'){
+                $('#pr6_r5').val('')
+                $('#pr6_r5').addClass("bx-option-selected");
+            }else{
+                $('#pr6_r5').val('r5')
+                $('#pr6_r5').removeClass("bx-option-selected");
+            }
+        });
+        $('#pr6_r6').click(function(){
+            if ($('#pr6_r6').val() == 'r6'){
+                $('#pr6_r6').val('')
+                $('#pr6_r6').addClass("bx-option-selected");
+            }else{
+                $('#pr6_r6').val('r6')
+                $('#pr6_r6').removeClass("bx-option-selected");
+            }
+        });
+        $('#pr6_r7').click(function(){
+            if ($('#pr6_r7').val() == 'r7'){
+                $('#pr6_r7').val('')
+                $('#pr6_r7').addClass("bx-option-selected");
+            }else{
+                $('#pr6_r7').val('r7')
+                $('#pr6_r7').removeClass("bx-option-selected");
+            }
+        });
+        $('#pr6_r8').click(function(){
+            if ($('#pr6_r8').val() == 'r8'){
+                $('#pr6_r8').val('')
+                $('#pr6_r8').addClass("bx-option-selected");
+            }else{
+                $('#pr6_r8').val('r8')
+                $('#pr6_r8').removeClass("bx-option-selected");
+            }
+        });
+        $('#pr6_r9').click(function(){
+            if ($('#pr6_r9').val() == 'r9'){
+                $('#pr6_r9').val('')
+                $('#pr6_r9').addClass("bx-option-selected");
+            }else{
+                $('#pr6_r9').val('r9')
+                $('#pr6_r9').removeClass("bx-option-selected");
+            }
+        });
+        $('#pr6_r10').click(function(){
+            if ($('#pr6_r10').val() == 'r10'){
+                $('#pr6_r10').val('')
+                $('#pr6_r10').addClass("bx-option-selected");
+            }else{
+                $('#pr6_r10').val('r10')
+                $('#pr6_r10').removeClass("bx-option-selected");
+            }
+        });
+        $('#pr6_r11').click(function(){
+            if ($('#pr6_r11').val() == 'r11'){
+                $('#pr6_r11').val('')
+                $('#pr6_r11').addClass("bx-option-selected");
+            }else{
+                $('#pr6_r11').val('r11')
+                $('#pr6_r11').removeClass("bx-option-selected");
+            }
+        });
+
+    });
+
+    </script>
+{% endblock %}

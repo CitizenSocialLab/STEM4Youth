@@ -1,0 +1,26 @@
+#Duracio de la ronda
+#TEMPS_RONDA_SEC = 20
+TEMPS_RONDA_SEC = 20
+TEMPS_RONDA = TEMPS_RONDA_SEC*1000
+
+
+#Duracio del temps entre rondes
+#TEMPS_ESPERA_SEC = 10
+TEMPS_ESPERA_SEC = 10
+TEMPS_ESPERA = TEMPS_ESPERA_SEC*1000
+
+
+#Segons que esperem abans que s'inicii la partida
+# TEMPS_INICI_SEC = 5
+TEMPS_INICI_SEC = 5
+TEMPS_INICI = TEMPS_INICI_SEC*1000
+
+NUM_RONDES = 10
+
+NUMS_JUGADOR = [1,2,3,4,5,6]
+VALORS_INICI = [40,40,40,40,40,40]
+INVERSOR_EMPRESARI = ['I','I','I','E','E','E']
+COOPERAR = ['C','D']
+
+# Factor del valor dels vals
+FACTOR_VALS = 10

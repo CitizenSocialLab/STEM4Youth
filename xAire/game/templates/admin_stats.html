@@ -1,0 +1,110 @@
+{% extends "admin.html" %}
+
+
+{% block stylesheet %}
+    <link href="/static/css/admin.css" rel="stylesheet" media="screen">
+    <link href="/static/css/admin_stats.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block content_admin %}
+        <div id="stats_titol">
+            Info General
+        </div>
+
+        <div id="stats_info"></div>
+{% endblock %}
+{% block javascript %}
+
+    <script>
+            function update_list() {
+                $.ajax({
+                    url: '/es/ws/stats_partida/',
+                    success: function(data) {
+                        console.log(data)
+                        if(true) {
+
+
+
+                            mytext = '<table width="90%">' +
+                                    '<tr>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:right; width:350px; padding-right: 30px"></th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:22px;font-weight:bold;text-align:right; width:350px; padding-right: 30px">'+ "Total Games" +'</th>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:left; width:200px;">'+ data.total_games +'</th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:18px;font-weight:normal;text-align:right; width:350px; padding-right: 30px">'+ "Goal achieved " + data.total_games_achieved +'</th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:22px;font-weight:bold;text-align:right; width:350px; padding-right: 30px">'+ "Games Social" +'</th>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:left; width:200px;">'+ data.total_games_social +'</th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:18px;font-weight:normal;text-align:right; width:350px; padding-right: 30px">'+ "Equal " + data.total_games_social_equal +'</th>'+
+                                    '</tr>' +
+                                    '<th th style="font-size:18px;font-weight:normal;text-align:right; width:350px; padding-right: 30px">'+ "Unequal Low " + data.total_games_social_unequal_low +'</th>'+
+                                    '</tr>' +
+                                    '<th th style="font-size:18px;font-weight:normal;text-align:right; width:350px; padding-right: 30px">'+ "Unequal High " + data.total_games_social_unequal_high +'</th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:22px;font-weight:bold;text-align:right; width:350px; padding-right: 30px">'+ "Games Economic" +'</th>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:left; width:200px;">'+ data.total_games_economic +'</th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:18px;font-weight:normal;text-align:right; width:350px; padding-right: 30px">'+ "Equal " + data.total_games_economic_equal +'</th>'+
+                                    '</tr>' +
+                                    '<th th style="font-size:18px;font-weight:normal;text-align:right; width:350px; padding-right: 30px">'+ "Unequal Low " + data.total_games_economic_unequal_low +'</th>'+
+                                    '</tr>' +
+                                    '<th th style="font-size:18px;font-weight:normal;text-align:right; width:350px; padding-right: 30px">'+ "Unequal High " + data.total_games_economic_unequal_high +'</th>'+
+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '</tr>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:22px;font-weight:bold;text-align:right; width:350px; padding-right: 30px">'+ "Total Participants" +'</th>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:left; width:200px;">'+ data.total_participants +'</th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:22px;font-weight:bold;text-align:right; width:350px; padding-right: 30px">'+ "Total Tickets LAIE" +'</th>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:left; width:200px;">'+ data.tickets_laie +'</th>'+
+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '</table>';
+
+                            $('#stats_info').html(mytext);
+                        }
+                        setTimeout(function(){update_list()}, 10000);
+                    },
+                    error: function(data) {
+                        console.log("error")
+                         setTimeout(function(){update_list()}, 10000);
+                    }
+                });
+            }
+
+            $(document).ready(function() {
+                update_list();
+            });
+        </script>
+
+{% endblock %}

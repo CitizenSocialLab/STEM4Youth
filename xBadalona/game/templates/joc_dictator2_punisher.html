@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+    <link href="/static/css/joc_dictator.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block title %}{{ text.joc_dictator2.titol_pagina }} | {{ user.nickname }}{% endblock %}
+
+{% block content %}
+
+    <div class="topdiv-centered">
+
+        <div class="capsalera_background"></div>
+        <img src="/static/img/logo.png" class="page_logo"/>
+
+        <div class="page_title">{{ text.joc_dictator.titol }}</div>
+
+        <hr class="separador-top" />
+
+        <div class="text_title">{{ text.joc_dictator.tha_tocat }}</div>
+        <div class="text_title2">{{ text.joc_dictator.punisher }}</div>
+
+        <!-- FASE 1 -->
+
+        <div class="text_info">{{ text.joc_dictator.text_punisher | safe }}</div>
+
+
+        <div class="esperant_punisher">
+            <i id="presentacio_waiting"class="fa fa-spinner fa-spin fa-5x"></i>
+        </div>
+        <div class="esperant_punisher_text">{{ text.joc_dictator.espera_punisher }}</div>
+
+        <!-- FASE 2 -->
+
+
+        <div class="punisher_text1" hidden>{{ text.joc_dictator.punisher_text1 | safe}}</div>
+        <div class="punisher_text1_valor" hidden></div>
+
+        <div class="punisher_text1a" hidden>{{ text.joc_dictator.punisher_text1a | safe}}</div>
+        <div class="punisher_text1a_valor" hidden></div>
+
+        <div class="punisher_text2" hidden>{{ text.joc_dictator.punisher_text2 | safe}}</div>
+        <div class="punisher_text2_valor" hidden></div>
+
+        <div class="punisher_text3" hidden>{{ text.joc_dictator.punisher_text3 | safe}}</div>
+
+        <!--
+        <button id="button-0" class="bx bx-push boto_seleccio_joc button-format"></button>
+        <button id="button-1" class="bx bx-push boto_seleccio_joc button-format"></button>
+        <button id="button-2" class="bx bx-push boto_seleccio_joc button-format"></button>
+        <button id="button-3" class="bx bx-push boto_seleccio_joc button-format"></button>
+        <button id="button-4" class="bx bx-push boto_seleccio_joc button-format"></button>
+        <button id="button-5" class="bx bx-push boto_seleccio_joc button-format"></button>
+        -->
+
+        <button id="button-0-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-1-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-2-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-3-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-4-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-5-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-6-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-7-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-8-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-9-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+        <button id="button-10-small" class="bx bx-push boto_seleccio_joc button-format-small"></button>
+
+
+        <!-- FASE 2 -->
+
+        <div class="seleccio_dictator_text" hidden>{{ text.joc_dictator.punisher_resultat1 }}</div>
+        <div class="seleccio_dictator" hidden></div>
+
+        <div class="seleccio_dictator2_text" hidden>{{ text.joc_dictator.punisher_resultat1b }}</div>
+        <div class="seleccio_dictator2" hidden></div>
+
+        <div class="seleccio_punisher_text" hidden>{{ text.joc_dictator.punisher_resultat2 }}</div>
+        <div class="seleccio_punisher" hidden></div>
+
+        <div class="seleccio_punisher2_text" hidden>{{ text.joc_dictator.punisher_resultat2a }}</div>
+        <div class="seleccio_punisher2" hidden></div>
+
+        <div class="resultat_dictator_text" hidden>{{ text.joc_dictator.punisher_resultat3 }}</div>
+        <div class="resultat_dictator" hidden></div>
+
+        <div class="resultat_punisher_text" hidden>{{ text.joc_dictator.punisher_resultat4 }}</div>
+        <div class="resultat_punisher" hidden></div>
+
+        <div class="missatge_fi" hidden>{{ text.joc_dictator.missatge_fi }}</div>
+
+        <hr class="separador-bottom" />
+
+        <div class="page_button_right" hidden>
+            <button id="boto_enquesta" type="button" onclick="location.href='/{{ lang }}/user/joc_dictator3'" name="logout" class="bx bx-push bx-blaustencil" >
+                {{ text.joc_dictator.seguent_joc }}
+            </button>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+
+
+    function button_pressed(value) {
+        enviar_accio({{ user.id }},value);
+        console.log(value);
+
+    }
+
+    function isInt(n) {
+        return n % 1 === 0;
+    }
+
+    //Funcio per a enviar la selecció
+    function enviar_accio(user, accio) {
+        $.ajax({
+            url: '/es/ws/enviar_accio_punisher1/'+user+'/'+accio+'/',
+            success: function(data) {
+                console.log(data);
+                if (data.saved == "ok") {
+                    $(".button-long-format").hide();
+                    $(".boto_seleccio_joc").hide();
+                    $(".text-button-punisher").hide();
+                    $(".text_info").hide();
+                    $(".punisher_text1").hide();
+                    $(".punisher_text1_valor").hide();
+                    $(".punisher_text1a").hide();
+                    $(".punisher_text1a_valor").hide();
+                    $(".punisher_text2").hide();
+                    $(".punisher_text2_valor").hide();
+                    $(".punisher_text3").hide();
+
+                    $(".seleccio_dictator_text").show();
+                    $(".seleccio_dictator").text(data.seleccio_dictator+' {{ text.joc_dictator.monedes }}').show();
+
+
+                    $(".seleccio_dictator2_text").show();
+                    $(".seleccio_dictator2").text((data.resta_dictator)+' {{ text.joc_dictator.monedes }}').show();
+
+                    $(".seleccio_punisher_text").show();
+                    var text = data.seleccio_punisher * {{factor_punisher}};
+                    $(".seleccio_punisher").text(text  +' {{ text.joc_dictator.monedes }}').show();
+
+                    $(".seleccio_punisher2_text").show();
+                    text = data.seleccio_punisher;
+                    $(".seleccio_punisher2").text(text  +' {{ text.joc_dictator.monedes }}').show();
+
+                    $(".resultat_dictator_text").show();
+                    text = data.resultat_dictator;
+                    $(".resultat_dictator").text(text  +' {{ text.joc_dictator.monedes }}').show();
+                    $(".resultat_punisher_text").show();
+                    text = data.resultat_punisher;
+                    $(".resultat_punisher").text(text  +' {{ text.joc_dictator.monedes }}').show();
+                    $(".page_button_right").show();
+                    $(".missatge_fi").show();
+
+
+                } else {
+                    enviar_accio(user, accio);
+                }
+            },
+            error: function(){
+                enviar_accio(user, accio);
+            }
+        });
+    }
+
+
+    //Funcio per a obtenir el resultat del torn
+    function demanar_resultat(user) {
+        $.ajax({
+            url: '/es/ws/demanar_resultat_punisher1/'+user+'/',
+            success: function(data) {
+                console.log(data);
+                if (data.correcte) {
+                    console.log('data correcte');
+
+
+                    //MOSTRAR MENU DE DECISIO
+                    $(".esperant_punisher").hide();
+                    $(".esperant_punisher_text").hide();
+
+                    $(".punisher_text1").show();
+                    $(".punisher_text1_valor").text(data.seleccio + " {{ text.joc_dictator.monedes }}").show();
+
+                    // 10, es el dinero que tiene el dictador
+                    $(".punisher_text1a").show();
+                    $(".punisher_text1a_valor").text(10 - data.seleccio + " {{ text.joc_dictator.monedes }}").show();
+
+                    $(".punisher_text3").show();
+
+                    $(".boto_seleccio_joc").show();
+
+
+                    $(".text-button-punisher").show();
+
+
+
+                } else {
+                    setTimeout(function(){demanar_resultat(user)}, 500);
+                }
+
+            },
+            error: function(data) {
+                setTimeout(function(){demanar_resultat(user)}, 500);
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        console.log('punicher')
+
+        $("#button-0-small").on("pushed", function(e) { button_pressed(0); });
+        $("#button-1-small").on("pushed", function(e) { button_pressed(1); });
+        $("#button-2-small").on("pushed", function(e) { button_pressed(2); });
+        $("#button-3-small").on("pushed", function(e) { button_pressed(3); });
+        $("#button-4-small").on("pushed", function(e) { button_pressed(4); });
+        $("#button-5-small").on("pushed", function(e) { button_pressed(5); });
+        $("#button-6-small").on("pushed", function(e) { button_pressed(6); });
+        $("#button-7-small").on("pushed", function(e) { button_pressed(7); });
+        $("#button-8-small").on("pushed", function(e) { button_pressed(8); });
+        $("#button-9-small").on("pushed", function(e) { button_pressed(9); });
+        $("#button-10-small").on("pushed", function(e) { button_pressed(10); });
+
+
+        $(".boto_seleccio_joc").hide();
+        demanar_resultat({{ user.id }});
+    });
+
+
+
+    </script>
+{% endblock %}

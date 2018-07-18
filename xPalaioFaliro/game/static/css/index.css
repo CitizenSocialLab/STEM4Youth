@@ -1,0 +1,244 @@
+.text_title_welcome {
+    position: absolute;
+    top: 120px;
+    left: 100px;
+    width: 790px;
+    font-size: 32px;
+    color: #CD1919;
+    font-weight: bold;
+}
+
+.text_welcome {
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    width: 790px;
+    font-size: 22px;
+    text-align: justify;
+}
+
+.vull_jugar {
+    position: absolute;
+    top: 605px;
+    right: 16px;
+    width: 400px;
+    text-align: right;
+}
+
+.logos_llenguatge {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    text-align: right;
+}
+
+.logos_idioma {
+    font-size: 22px;
+    width: 100px;
+    height:50px;
+}
+
+#imatge_logos {
+    height: 180px;
+    position: absolute;
+    top: 495px;
+    left: 95px;
+}
+
+.bold_text_welcome {
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+
+
+.fons {
+    z-index: -5;
+    top:0;
+    left:0;
+    width:1024px;
+    height:490px ;  /* XX: ADDED 100 */
+    margin-left: -15px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #FAE8E8 0%, #FAE8E8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FAE8E8), color-stop(100%,#FAE8E8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #FAE8E8 0%,#FAE8E8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #FAE8E8 0%,#FAE8E8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #FAE8E8 0%,#FAE8E8 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #FAE8E8 0%,#FAE8E8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FAE8E8', endColorstr='#FAE8E8',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+.agraiment-final{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    width: 900px;
+    font-size: 38px;
+    color: #CD1919;
+    font-weight: bold;
+    text-align: center;
+}
+
+.resum {
+    position: absolute;
+    text-align: center;
+    top: 90px;
+    left: 30px;
+    width: 890px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.username {
+    position: absolute;
+    text-align: center;
+    top: 130px;
+    left: 30px;
+    width: 890px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.resum_text {
+    position: absolute;
+    left: 5px;
+    width: 300px;
+    font-size: 22px;
+    text-align: right;
+}
+
+.resum_clima {
+    top: 130px;
+
+}
+
+.resum_inversor {
+    top: 170px;
+
+}
+
+.resum_empresari {
+    top: 210px;
+
+}
+
+.resum_premi {
+    top: 250px;
+
+}
+
+.resum_total {
+     top: 160px;
+    font-weight: bolder;
+    font-size: 26px;
+    left: 190px;
+
+
+}
+
+.resum_valor {
+    position: absolute;
+    top: 90px;
+    left: 320px;
+    width: 890px;
+    font-size: 22px;
+    font-weight: bolder;
+    color: #CD1919;
+}
+
+.resum_clima_valor {
+    top: 130px;
+
+}
+
+.resum_inversor_valor {
+    top: 170px;
+
+}
+
+.resum_empresari_valor {
+    top: 210px;
+
+}
+
+.resum_premi_valor {
+    top: 250px;
+
+}
+
+.resum_total_valor {
+    top: 160px;
+    font-weight: bolder;
+    font-size: 26px;
+    left: 500px;
+}
+
+
+.resum_abacus {
+    top: 280px;
+    font-weight: bold;
+    font-size: 30px;
+    left: 235px;
+    width: 300px;
+}
+
+.resum_abacus_valor {
+    left: 570px;
+    top: 260px;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.text_correu{
+    position: absolute;
+    top: 390px;
+    left: 5px;
+    width: 660px;
+    font-size: 21px;
+    font-style: italic;
+}
+
+.text_logos_1 {
+    position: absolute;
+    top: 120px;
+    left: 100px;
+    width: 790px;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.text_logos_2 {
+    position: absolute;
+    top: 440px;
+    left: 100px;
+    width: 790px;
+    font-size: 18px;
+    text-align: justify;
+}
+
+
+#imatge_logos_1 {
+    width: 790px;
+    height: 180px;
+    position: absolute;
+    top: 260px;
+    left: 95px;
+}
+
+#imatge_logos_2 {
+    width: 790px;
+    height: 90px;
+    position: absolute;
+    top: 480px;
+    left: 95px;
+}
+
+.negrita_correu {
+    font-size: 21px;
+    font-weight: bolder;
+    color: #269abc;
+}
+

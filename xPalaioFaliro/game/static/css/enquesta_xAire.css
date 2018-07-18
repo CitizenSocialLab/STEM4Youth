@@ -1,0 +1,387 @@
+
+
+.text_main {
+    position: absolute;
+    top: 250px;
+    left: 67px;
+    width: 824px;
+    text-align: left;
+    font-weight: normal;
+    font-size: 26px;
+    z-index: 2;
+}
+
+.text_gracias {
+    position: absolute;
+    top: 200px;
+    left: 67px;
+    width: 824px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 26px;
+    color: #CD1919;
+    z-index: 2;
+}
+
+.enquesta_form {
+    width: 900px;
+    text-align: left;
+}
+
+.enquesta_logo {
+    position:absolute;
+    top:10px;
+    left:10px;
+    width:100px;
+    text-align: left;
+}
+
+.enquesta_boto {
+    position:absolute;
+    top:560px;
+    right:180px;
+    width:100px;
+    text-align: center;
+}
+
+.pregunta_titol {
+    text-align: left;
+    font-weight: normal;
+    font-size: 20px;
+    color: #CD1919;
+    text-align: justify;
+}
+
+.pregunta_titol_custom4 {
+    text-align: left;
+    font-weight: normal;
+    font-size: 20px;
+    color: #CD1919;
+}
+
+.pregunta_info {
+    text-align: left;
+    font-weight: normal;
+    font-size: 14px;
+    color:#CD1919;
+}
+
+
+.button_S {
+    width:100px;
+    height:45px;
+    padding-top: 12px;
+    margin-top: 5px;
+}
+
+.button_M {
+    width:185px;
+    height:45px;
+    padding-top: 12px;
+    margin-top: 5px;
+}
+
+.button_L {
+    width:250px;
+    height:45px;
+    padding-top: 12px;
+    margin-top: 5px;
+}
+
+.button_XL {
+    width:310px;
+    height:45px;
+    padding-top: 12px;
+    margin-top: 5px;
+}
+
+.button_XXL {
+    width:410px;
+    height:45px;
+    padding-top: 12px;
+    margin-top: 5px;
+}
+
+.button_XXXL {
+    width:500px;
+    height:45px;
+    padding-top: 12px;
+    margin-top: 5px;
+}
+
+.button_XXXXL {
+    width:830px;
+    height:45px;
+    padding-top: 12px;
+    margin-top: 5px;
+}
+/*********************************/
+/*********************************/
+/** Preguntes cuestionari final **/
+/*********************************/
+/*********************************/
+
+
+.preguntafinal1 {
+    position:absolute;
+    top:180px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.preguntafinal2 {
+    position:absolute;
+    top: 180px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.preguntafinal3 {
+    position:absolute;
+    top: 420px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.preguntafinal4 {
+    position:absolute;
+    top: 120px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.preguntafinal5 {
+    position:absolute;
+    top: 360px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.preguntafinal6 {
+    position:absolute;
+    top: 180px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.preguntafinal7 {
+    position:absolute;
+    top: 420px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.preguntafinal8 {
+    position:absolute;
+    top: 120px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.preguntafinal9 {
+    position:absolute;
+    top: 340px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.preguntafinal10 {
+    position:absolute;
+    top: 120px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.preguntafinal11 {
+    position:absolute;
+    top: 200px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+/* Preguntes cuestionari 1*/
+
+
+.pregunta1 {
+    position:absolute;
+    top:200px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.pregunta2 {
+    position:absolute;
+    top:300px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.pregunta3 {
+    position: absolute;
+    top: 400px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+
+.pregunta4 {
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.pregunta5 {
+    position:absolute;
+    top:360px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+
+/* Preguntes cuestionari 2*/
+
+.text_city_title {
+    position: absolute;
+    top: 120px;
+    left: 100px;
+    width: 790px;
+    font-size: 30px;
+    color: #CD1919;
+    font-weight: bold;
+    text-align: left;
+}
+
+.text_city_info {
+    position: absolute;
+    top: 180px;
+    left: 100px;
+    width: 790px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.pregunta6 {
+    position:absolute;
+    top:300px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+
+/* Preguntes cuestionari 3*/
+
+.text_frame_title {
+    position: absolute;
+    top: 120px;
+    left: 100px;
+    width: 790px;
+    font-size: 30px;
+    color: #CD1919;
+    font-weight: bold;
+    text-align: left;
+}
+
+.text_frame_info {
+    position: absolute;
+    top: 180px;
+    left: 100px;
+    width: 790px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.pregunta8 {
+    position:absolute;
+    top:275px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.pregunta9 {
+    position:absolute;
+    top:375px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.pregunta10 {
+    position:absolute;
+    top:470px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+
+/* Questions verification */
+
+.verification_question_1 {
+    position:absolute;
+    top:120px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.verification_question_2 {
+    position:absolute;
+    top:260px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.verification_question_3 {
+    position: absolute;
+    top: 400px;
+    left: 100px;
+    width: 790px;
+    text-align: left;
+}
+
+.error_verification {
+    position: absolute;
+    top: 550px;
+    left: 100px;
+    width: 790px;
+    text-align: center;
+    color: #f00;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.error {
+    color:#f00;
+    font-size: 16px;
+}
+
+.error_space {
+    height:30px;
+}
+
+.bold_text {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+

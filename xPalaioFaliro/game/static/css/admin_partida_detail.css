@@ -1,0 +1,102 @@
+#table_partida_detail {
+    position: absolute;
+    top: 250px;
+    margin:10px;
+    font-size:1.25em;
+}
+
+#table_partida_jocs {
+    position: absolute;
+    top: 460px;
+    margin:10px;
+    font-size:1.25em;
+}
+
+.top_bottom_bold_red {
+    border-top: 4px solid;
+    border-bottom:4px solid;
+    border-color:#CD1919;
+    background: #CD1919;
+}
+
+.top_bottom_bold_black {
+    border-bottom:4px solid;
+    border-top: 4px solid;
+    border-color:#000000;
+    background: #000000;
+}
+
+.top_bottom_border_bold_red {
+    border-bottom:4px solid;
+    border-top: 4px solid;
+    border-color:#CD1919;
+}
+
+.top_bottom_border_bold_black {
+    border-bottom:4px solid;
+    border-top: 4px solid;
+    border-color:#000000;
+}
+
+table td{
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 15px;
+    vertical-align: center;
+    text-align: center;
+    height: 20px;
+}
+
+table th{
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    vertical-align: center;
+    text-align: center;
+    height: 30px;
+}
+
+.table_partida_detail{
+    width:100%;
+}
+.table_partida_detail tr {
+    text-align: center;
+}
+
+#table_partida {
+    position: absolute;
+    top: 100px;
+    margin:10px;
+    font-size:1.25em;
+    width:100%;
+    table-layout: fixed;
+}
+
+.table_partida{
+    width:100%;
+}
+.table_partida {
+    text-align: center;
+}
+
+.top_bold {
+    border-top:2px solid;
+    border-color:black;
+}
+
+.bottom_bold {
+    border-bottom:2px solid;
+    border-color:black;
+}
+
+.top_dotted {
+    border-top:thin dotted;
+    border-color:black;
+}
+
+.bottom_dotted {
+    border-bottom:thin dotted;
+    border-color:black;
+}

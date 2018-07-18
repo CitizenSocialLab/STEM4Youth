@@ -1,0 +1,110 @@
+{% extends "admin.html" %}
+
+
+{% block stylesheet %}
+    <link href="/static/css/admin.css" rel="stylesheet" media="screen">
+    <link href="/static/css/admin_partida.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block content_admin %}
+
+    <div id="usuaris_titol" hidden>No hay ninguna partida jugandose...</div>
+
+    <div id="table_partida"></div>
+
+{% endblock %}
+
+{% block javascript %}
+
+        <script>
+            function tancarPartida(num_partida) {
+                //console.log("Tancant partida " + num_partida);
+                $.ajax({
+                    url: '/es/ws/tancar_partida/'+num_partida+'/'
+                });
+            }
+
+            function tancarRonda(num_partida) {
+                //console.log("Tancant ronda " + num_partida);
+                $.ajax({
+                    url: '/es/ws/tancar_ronda/'+num_partida+'/'
+                });
+            }
+
+            function detailPartida(num_partida) {
+                window.location.href = '/es/admin/partida_detail/'+num_partida+'/'
+            }
+
+            function update_estat() {
+                $.ajax({
+                    url: '/es/ws/estat_partida/',
+                    success: function(data) {
+
+                        $("#table_partida").empty();
+
+
+
+                        if(data.partides.length>0) {
+                            $('#usuaris_titol').hide();
+
+                            // Aqui en teoria tenim un array de partides
+                            for (var i = 0; i < data.partides.length; i++) {
+                                this.guanyen_igualment = data.partides[i].guanyen_igualment;
+                                this.diners_heterogenis =  data.partides[i].diners_heterogenis;
+                                this.imatges_refors = data.partides[i].imatges_refors;
+
+                                var table = '<table style="width=90%;">';
+
+                                table+="<tr style='cellpadding:10;'>";
+                                table+="<td colspan=7 style=font-size:22px;font-weight:bold;cell>Partida #"+data.partides[i].num_partida+"</td>";
+                                table+="</tr>";
+
+                                table+="<tr>";
+                                table+='<td style="font-size:16px;"> Creacion <br />' + data.partides[i].data_creacio + '</td>';
+                                table+='<td style="font-size:16px;"> Inicio <br />'+ data.partides[i].data_inici + '</td>';
+                                table+='<td style="font-size:16px;"> Respuestas: <br /> '+data.partides[i].ronda_data[data.partides[i].ronda_data.length-1].num_respostes+'</td>';
+                                table+='<td style="font-size:16px;">'+data.partides[i].estat+'</td>';
+                                if (this.guanyen_igualment) table+='<td style="font-size:16px; width:10%;"> Siempre ganan <br /> Sí </td>';
+                                else table+='<td style="font-size:16px; width:10%;"> Siempre ganan <br /> No </td>';
+                                if (this.diners_heterogenis) table+='<td style="font-size:16px; width:10%;"> Dinero heterogéneo <br /> Sí </td>';
+                                else table+='<td style="font-size:16px; width:10%;"> Dinero heterogéneo <br /> No </td>';
+                                if (this.imatges_refors) table+='<td style="font-size:16px; width:10%;"> Imágenes refuerzo <br /> Sí </td>';
+                                else table+='<td style="font-size:16px; width:10%;"> Imágenes refuerzo <br /> No </td>';                                table+="</tr>";
+
+                                table+="<tr>";
+
+                                table+="</tr>";
+
+                                table+="<tr>";
+                                table+='<td></td>';
+                                table+='<td><button onclick="tancarPartida('+data.partides[i].num_partida+')" class="bx-push bx bx-red" style="width:150px;height:40px;font-size:14px">' + "Cerrar partida" + '</button></td>'
+                                table+="<td></td>";
+                                table+='<td><button onclick="tancarRonda('+data.partides[i].num_partida+')" class="bx-push bx bx-blue" style="width:150px;height:40px;font-size:14px">' + "Cerrar ronda" + '</button></td>'
+                                table+='<td></td>';
+                                table+='<td><button onclick="detailPartida('+data.partides[i].num_partida+')" class="bx-push bx bx-blaustencil" style="width:150px;height:40px;font-size:14px">' + "Detalles" + '</button></td>'
+                                table+="</tr>";
+                                table+="</table> <br />";
+
+                                $("#table_partida").append(table );
+                            }
+                        }
+                        else
+                        {
+                            $('#usuaris_titol').show();
+                        }
+
+                        setTimeout(function(){update_estat()}, 500);
+                    },
+                    error: function(data) {
+                        setTimeout(function(){update_estat()}, 500);
+                    }
+                });
+            }
+
+            $(document).ready(function() {
+                update_estat();
+            });
+        </script>
+
+{% endblock %}

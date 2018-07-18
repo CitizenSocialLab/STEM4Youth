@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+    <link href="/static/css/joc_prisoner.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block title %}{{ text.joc_prisoner.titol_pagina }}{% endblock %}
+
+{% block content %}
+
+    <div class="topdiv-centered">
+
+
+        <div class="capsalera_background"></div>
+        <!--<img src="/static/img/logo.png" class="page_logo"/>-->
+
+        <div class="page_title">{{ text.joc_prisoner.titol2 }}</div>
+
+        <hr class="separador-top" />
+
+        <div class="text_info2">{{ text.joc_prisoner.text2a | safe }}</div>
+
+        <table class="taula_resum_advantatge" width="800px;" hidden="True">
+            <tr>
+                <th>{{ text.joc_prisoner.si_tu }}</th>
+                <th>{{ text.joc_prisoner.i_ell }}</th>
+                <th>{{ text.joc_prisoner.tu_guanyes }}</th>
+                <th>{{ text.joc_prisoner.ell_guanya }}</th>
+            </tr>
+            <tr>
+                <td>{{ text.joc_prisoner.text_mantener }}</td>
+                <td>{{ text.joc_prisoner.text_mantener }}</td>
+                <td>{{matrix.0.0}} {{ text.common.monedes }}</td>
+                <td>{{matrix.0.1}} {{ text.common.monedes }}</td>
+            </tr>
+            <tr>
+                <td>{{ text.joc_prisoner.text_mantener }}</td>
+                <td>{{ text.joc_prisoner.text_incrementar }}</td>
+                <td>{{matrix.1.0}} {{ text.common.monedes }}</td>
+                <td>{{matrix.1.1}} {{ text.common.monedes }}</td>
+            </tr>
+            <tr>
+                <td>{{ text.joc_prisoner.text_incrementar }}</td>
+                <td>{{ text.joc_prisoner.text_mantener }}</td>
+                <td>{{matrix.2.0}} {{ text.common.monedes }}</td>
+                <td>{{matrix.2.1}} {{ text.common.monedes }}</td>
+            </tr>
+            <tr>
+                <td>{{ text.joc_prisoner.text_incrementar }}</td>
+                <td>{{ text.joc_prisoner.text_incrementar }}</td>
+                <td>{{matrix.3.0}} {{ text.common.monedes }}</td>
+                <td>{{matrix.3.1}} {{ text.common.monedes }}</td>
+            </tr>
+        </table>
+
+        <table class="taula_resum_disadvantatge" width="800px;" hidden="True">
+            <tr>
+                <th>{{ text.joc_prisoner.si_tu }}</th>
+                <th>{{ text.joc_prisoner.i_ell }}</th>
+                <th>{{ text.joc_prisoner.tu_guanyes }}</th>
+                <th>{{ text.joc_prisoner.ell_guanya }}</th>
+            </tr>
+            <tr>
+                <td>{{ text.joc_prisoner.text_mantener }}</td>
+                <td>{{ text.joc_prisoner.text_mantener }}</td>
+                <td>{{matrix.0.1}} {{ text.common.monedes }}</td>
+                <td>{{matrix.0.0}} {{ text.common.monedes }}</td>
+            </tr>
+            <tr>
+                <td>{{ text.joc_prisoner.text_mantener }}</td>
+                <td>{{ text.joc_prisoner.text_incrementar }}</td>
+                <td>{{matrix.2.1}} {{ text.common.monedes }}</td>
+                <td>{{matrix.2.0}} {{ text.common.monedes }}</td>
+            </tr>
+            <tr>
+                <td>{{ text.joc_prisoner.text_incrementar }}</td>
+                <td>{{ text.joc_prisoner.text_mantener }}</td>
+                <td>{{matrix.1.1}} {{ text.common.monedes }}</td>
+                <td>{{matrix.1.0}} {{ text.common.monedes }}</td>
+            </tr>
+            <tr>
+                <td>{{ text.joc_prisoner.text_incrementar }}</td>
+                <td>{{ text.joc_prisoner.text_incrementar }}</td>
+                <td>{{matrix.3.1}} {{ text.common.monedes }}</td>
+                <td>{{matrix.3.0}} {{ text.common.monedes }}</td>
+            </tr>
+        </table>
+
+
+
+         <div class="text_info4">{{ text.joc_prisoner.text3 | safe }}</div>
+
+             <hr class="separador-bottom" />
+
+        <div class="page_button_right">
+            <button id="boto_enquesta" type="button" onclick="location.href='/{{ lang }}/user/joc_prisoner3_asimetric'" name="logout" class="bx bx-push bx-redstencil" >
+                A JUGAR!!
+            </button>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+
+    $(document).ready(function() {
+
+        if ({{tirada}} == 2){
+
+            if ('{{user_prisoner.rol2}}' == 'A') {
+                $(".taula_resum_advantatge").show()
+            } else {
+                console.log('adios')
+                $(".taula_resum_disadvantatge").show()
+
+            }
+        } else if ({{tirada}} == 3){
+
+                if ('{{user_prisoner.rol3}}' == 'A') {
+                    $(".taula_resum_advantatge").show()
+                } else {
+                    console.log('adios')
+                    $(".taula_resum_disadvantatge").show()
+
+                }
+         }
+    });
+
+
+
+    </script>
+{% endblock %}

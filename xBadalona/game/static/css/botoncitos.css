@@ -1,0 +1,205 @@
+.bx {
+    display: inline-block;
+    line-height: 23px;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 16px 10px 16px;
+    text-align: center;
+    text-transform: none;
+    white-space: nowrap;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    box-sizing: border-box;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    border: 1px solid #ffffff;
+    outline: none;
+}
+
+.bx-mini {
+    width: 35px;
+    height:35px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+.bx-push {
+}
+.bx-tab {
+}
+
+.bx-red {
+    color: white;
+    border: 1px solid #ff6056;
+    background-color: #ff6056;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+.bx-red.disabled {
+    color: #ff6056;
+    border: 1px solid #ff6056;
+    background-color: #ffffff;
+}
+
+.bx-blue {
+    color: white;
+    border: 1px solid #357ebd;
+    background-color: #428bca;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+.bx-blue.disabled {
+    color: #357ebd;
+    border: 1px solid #357ebd;
+    background-color: #ffffff;
+}
+
+
+.bx-green {
+    color: white;
+    border: 1px solid #91496F;
+    background-color: #91496F;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+.bx-green.disabled {
+    color: #357ebd;
+    border: 1px solid #91496F;
+    background-color: #ffffff;
+}
+
+.bx-greenwhite {
+    color: #91496F;
+    border: 1px solid #91496F;
+    background-color: white;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+
+.bx-redstencil {
+    color: white;
+    border: 1px solid #E63334;
+    background-color: #E63334;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+.bx-redstencil.disabled {
+    color: #357ebd;
+    border: 1px solid #E63334;
+    background-color: #ffffff;
+}
+
+.bx-redstencilwhite {
+    color: #E63334;
+    border: 1px solid #E63334;
+    background-color: white;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+
+.bx-blaustencil {
+    color: white;
+    border: 1px solid #035992;
+    background-color: #035992;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+.bx-blaustencil.disabled {
+    color: #035992;
+    border: 1px solid #035992;
+    background-color: #ffffff;
+}
+
+.bx-blaustencilwhite {
+    color: #035992;
+    border: 1px solid #035992;
+    background-color: white;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+
+
+
+.bx-orange {
+    color: white;
+    border: 1px solid #ff7f00;
+    background-color: #ff7f00;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+.bx-orange.disabled {
+    color: #357ebd;
+    border: 1px solid #ff7f00;
+    background-color: #ffffff;
+}
+
+.bx-orangewhite {
+    color: #ff7f00;
+    border: 1px solid #ff7f00;
+    background-color: white;
+    width:300px;
+    height:60px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+
+
+.bx-white {
+    color: #333333;
+    border: 1px solid #cccccc;
+    background-color: transparent;
+}
+
+.bx-blue.bx-push-hover {
+    background-color: #327bba;
+}
+.bx-white.bx-push-hover {
+    background-color: #ebebeb;
+}
+.bx-green.bx-push-hover {
+    background-color: #762C53;
+}
+
+.bx-green.disabled {
+    color: #762C53;
+    border: 1px solid #762C53;
+    background-color: #762C53;
+}
+
+.bx-option {
+    color: #333333;
+    border: 1px solid #cccccc;
+    background-color: transparent;
+}
+.bx-option-selected {
+    color: #333;
+    border: 1px solid #adadad;
+    background-color: #ebebeb;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 5px 0px inset;
+}
+.bx-option-hover {
+    color: #333333;
+    border: 1px solid #cccccc;
+    background-color: transparent;
+}

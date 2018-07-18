@@ -1,0 +1,194 @@
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+@font-face {
+  font-family: 'stencil';
+  src: url('../fonts/Letterwerk-StencilAllround.otf');
+  src: local('../fonts/Letterwerk-StencilAllround.otf')
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #eee;
+  height: 100%;
+}
+
+/* The next rule avoid body-scrolling bug */
+.modal-open, .modal-open .navbar-fixed-top {
+  margin-right: 0 !important;
+}
+/* end of body-scroolling bug */
+
+
+.wrapper-ipad {
+  width:1024px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color:#fff;
+  min-height: 100%;
+}
+
+/*aixo nomes per ordinador, no ipad */
+.wrapper-pc{
+    height: 675px;  /*#670px;*/
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #dddddd;
+    -webkit-box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
+    background-color: white;
+    overflow:hidden;
+}
+
+*{
+	font-family: 'Roboto', sans-serif;
+	font-weight:300;
+	font-size:14pt;
+	color:#333;
+}
+
+
+.container {
+	width: 1024px !important;
+	max-width: 1024px !important;
+
+}
+
+.topdiv {
+    position:relative;
+}
+
+.topdiv-centered{
+    position:relative;
+    text-align:center;
+}
+
+.separador {
+    position:absolute;
+    left:-15px;
+    top:570px;
+    width:1024px;
+}
+
+hr {
+    border-top: 1px solid #ddd;
+    top: 120px;
+}
+
+.separador-top {
+    position:absolute;
+    left:-15px;
+    top:80px;
+    width:1024px;
+    height: 0;
+    background-color: #dddddd;
+}
+
+
+.separador-bottom {
+    position:absolute;
+    left:-15px;
+    top:575px;
+    width:1024px;
+    height: 0;
+    background-color: #dddddd;
+}
+
+
+/*.page_title {
+    position:absolute;
+    top:35px;
+    left:100px;
+    width:824px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 36px;
+    color:#035992;
+    z-index:2;
+}*/
+.page_title {
+    position: absolute;
+    top: 35px;
+    left: 67px;
+    width: 824px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 26px;
+    color: #035992;
+    z-index: 2;
+    font-family: stencil;
+}
+
+
+.page_logo {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    width: 80px;
+    text-align: left;
+    z-index: 2;
+}
+
+
+.page_sublogo {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    width: 153px;
+    text-align: left;
+    z-index: 2;
+}
+
+.page_button_left {
+    position:absolute;
+    top:605px;
+    left:16px;
+    width:400px;
+    text-align: left;
+}
+
+.page_button_right {
+    position:absolute;
+    top:605px;
+    right:16px;
+    width:400px;
+    text-align: right;
+}
+
+
+#boto_sortir {
+    width: 300px;
+    height:60px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #aaaaaa;
+    background-color: white;
+    border: 1px solid #aaaaaa;
+
+}
+
+
+.capsalera_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:1024px;
+    height: 100px;
+    margin-left: -15px;
+    z-index:0;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #CCDDE9 0%, #CCDDE9 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#CCDDE9), color-stop(100%,#CCDDE9)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #CCDDE9 0%,#CCDDE9 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CCDDE9', endColorstr='#CCDDE9',GradientType=0 ); /* IE6-9 */
+}
+

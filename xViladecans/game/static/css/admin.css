@@ -1,0 +1,79 @@
+.boto1 {
+    position: absolute;
+    left: 280px;
+    top: 10px;
+}
+
+.boto2 {
+    position: absolute;
+    left: 425px;
+    top: 10px;
+}
+
+.boto3 {
+    position: absolute;
+    left: 570px;
+    top: 10px;
+}
+
+.boto4 {
+    position: absolute;
+    left: 715px;
+    top: 10px;
+}
+
+.boto5 {
+    position: absolute;
+    left: 860px;
+    top: 10px;
+}
+
+#botons_admin {
+    width:135px;
+    height:80px;
+    text-transform: uppercase;
+    font-weight:normal;
+    font-size: 18px;
+}
+
+
+.capsalera_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:1024px;
+    height: 100px;
+    margin-left: -15px;
+    z-index:0;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f4e3eb 0%, #ffffff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4e3eb), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #f4e3eb 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f4e3eb 0%,#ffffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f4e3eb 0%,#ffffff 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #f4e3eb 0%,#ffffff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4e3eb', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.admin_logo {
+    position:absolute;
+    top:8px;
+    left:10px;
+    width:80px;
+    text-align: left;
+    z-index:2;
+}
+
+
+#admin_text {
+    position: absolute;
+    top: 8px;
+    left: 35px;
+    width: 80px;
+    text-align: left;
+    z-index: 2;
+    color: #035992;
+    font-weight: bold;
+    font-size: 63px;
+}
+

@@ -1,0 +1,36 @@
+.form_nickname {
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    width: 424px;
+}
+
+.user_info {
+    position: absolute;
+    top: 360px;
+    left: 150px;
+    width: 690px;
+    text-align: justify;
+    font-size: 22px;
+    margin-top: 40px;
+}
+
+.user_info2 {
+    position: absolute;
+    top: 135px;
+    left: 85px;
+    width: 800px;
+    text-align: left;
+    font-size: 24px;
+    margin-top: 40px;
+}
+
+.error_nickname {
+    position:absolute;
+    top:180px;
+    left:300px;
+    width:424px;
+    height:35px;
+    color:#ff0000;
+    text-align: center;
+}

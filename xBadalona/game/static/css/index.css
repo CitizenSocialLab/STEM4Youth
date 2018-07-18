@@ -1,0 +1,278 @@
+.image_banks{
+    position: absolute;
+    top: 98px;
+    left: 12px;
+    width: 290px;
+}
+
+.image_logo {
+    position: absolute;
+    top: 10px;
+    left: 355px;
+    width: 180px;
+    text-align: left;
+}
+
+.image_sublogo {
+    position: absolute;
+    top: 28px;
+    left: 569px;
+    width: 370px;
+    text-align: left;
+}
+
+
+.text-benvinguda {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+    width: 830px;
+    font-size: 30px;
+    color: #035992;
+    font-weight: normal;
+    font-family: "stencil";
+}
+
+.text-benvinguda2 {
+    position: absolute;
+    top: 110px;
+    left: 40px;
+    width: 940px;
+    font-size: 20px;
+}
+
+.text-final {
+    position: absolute;
+    top: 180px;
+    left: 550px;
+    width: 435px;
+    font-size: 21px;
+}
+
+
+
+.vull-jugar {
+    position: absolute;
+    top: 420px;
+    left: 685px;
+    text-align: right;
+}
+
+.logos_llenguatge {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    text-align: right;
+}
+
+.logos_idioma {
+    font-size: 22px;
+    width: 100px;
+    height:50px;
+}
+
+.logos {
+    font-size: 12px;
+    text-align: left;
+}
+
+.logos_uni {
+    position:absolute;
+    top:690px;
+    left:0px;
+    margin-left: -5px;
+}
+
+.logos_colaboradors {
+    position:absolute;
+    top:690px;
+    left:395px;
+}
+
+.logos_disseny {
+    position:absolute;
+    top:690px;
+    left:945px;
+    width:100px;
+}
+
+#imatge_logos {
+    height: 180px;
+    position: absolute;
+    top: 495px;
+    left: 100px;
+}
+
+
+
+
+.fons {
+    z-index: -5;
+    top:0;
+    left:0;
+    width:1024px;
+    height:490px ;  /* XX: ADDED 100 */
+    margin-left: -15px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #CCDDE9 0%, #CCDDE9 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#CCDDE9), color-stop(100%,#CCDDE9)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #CCDDE9 0%,#CCDDE9 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CCDDE9', endColorstr='#CCDDE9',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+.agraiment-final{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    width: 900px;
+    font-size: 30px;
+    color: #035992;
+    font-weight: normal;
+    font-family: stencil;
+}
+
+.resum {
+    position: absolute;
+    top: 90px;
+    left: 30px;
+    width: 890px;
+    font-size: 22px;
+}
+
+.resum_text {
+    position: absolute;
+    left: 5px;
+    width: 300px;
+    font-size: 22px;
+    text-align: center;
+}
+/*
+.resum_clima {
+    top: 130px;
+
+}
+*/
+.resum_dictator {
+    top: 130px;
+
+}
+/*
+.resum_inversor {
+    top: 170px;
+
+}
+*/
+.resum_prisoner {
+    top: 170px;
+
+}
+
+.resum_empresari {
+    top: 210px;
+
+}
+
+.resum_trust {
+    top: 210px;
+
+}
+.resum_premi {
+    top: 250px;
+
+}
+
+.resum_total {
+    top: 300px;
+    font-weight: bolder;
+    font-size: 26px;
+
+}
+
+
+
+.resum_valor {
+    position: absolute;
+    top: 90px;
+    left: 320px;
+    width: 890px;
+    font-size: 22px;
+    font-weight: bolder;
+    color: #035992;
+}
+/*
+.resum_clima_valor {
+    top: 130px;
+
+}
+*/
+.resum_dictator_valor {
+    top: 130px;
+
+}
+/*
+.resum_inversor_valor {
+    top: 170px;
+
+}
+*/
+.resum_prisoner_valor {
+    top: 170px;
+
+}
+/*
+.resum_empresari_valor {
+    top: 210px;
+
+}
+*/
+.resum_trust_valor {
+    top: 210px;
+
+}
+
+.resum_premi_valor {
+    top: 250px;
+
+}
+
+.resum_total_valor {
+    top: 300px;
+    font-weight: bolder;
+    font-size: 26px;
+}
+
+
+.resum_abacus {
+    top: 180px;
+    font-weight: bolder;
+    font-size: 30px;
+    left: 425px;
+    width: 500px;
+}
+
+.resum_abacus_valor {
+    left: 600px;
+    top: 225px;
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+.text_correu{
+    position: absolute;
+    top: 390px;
+    left: 5px;
+    width: 660px;
+    font-size: 21px;
+    font-style: italic;
+}
+
+.negrita_correu {
+    font-size: 21px;
+    font-weight: bolder;
+    color: #269abc;
+}

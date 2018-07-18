@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+    <link href="/static/css/joc_inversor.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block title %}{{ text.joc_inversor2.titol_pagina }} | {{ user.nickname }}{% endblock %}
+
+{% block content %}
+
+    <div class="topdiv-centered">
+
+        <div class="capsalera_background"></div>
+        <!--<img src="/static/img/logo.png" class="page_logo"/>-->
+
+        <div class="page_title">{{ text.joc_inversor.titol }}</div>
+
+        <hr class="separador-top" />
+
+        <div class="text_title">{{ text.joc_inversor.i_ara }}</div>
+        <div class="text_title3">{{ text.joc_inversor.empresari }}</div>
+
+        <!-- FASE 1 -->
+
+        <div class="text_info">{{ text.joc_inversor.text_empresari | safe }}</div>
+
+
+        <div class="esperant_empresari">
+            <i id="presentacio_waiting"class="fa fa-spinner fa-spin fa-5x"></i>
+        </div>
+
+        <div class="esperant_empresari_text">{{ text.joc_inversor.espera_empresari }}</div>
+
+        <!-- FASE 2 -->
+
+
+        <div class="empresari_text1" hidden>{{ text.joc_inversor.empresari_text1 | safe}}</div>
+        <div class="empresari_text1_valor" hidden></div>
+
+        <div class="empresari_text2" hidden>{{ text.joc_inversor.empresari_text2 | safe}}</div>
+        <div class="empresari_text2_valor" hidden></div>
+
+        <div class="empresari_text3" hidden>{{ text.joc_inversor.empresari_text3 | safe}}</div>
+
+        <button id="button-00" class="bx bx-push boto_seleccio_joc button-long-format" hidden></button>
+        <button id="button-25" class="bx bx-push boto_seleccio_joc button-long-format" hidden></button>
+        <button id="button-50" class="bx bx-push boto_seleccio_joc button-long-format" hidden></button>
+        <button id="button-75" class="bx bx-push boto_seleccio_joc button-long-format" hidden></button>
+        <button id="button-100" class="bx bx-push boto_seleccio_joc button-long-format" hidden></button>
+
+
+        <div class="text-00 text-button-empresari" hidden>0 {{ text.joc_inversor.monedes }}</div>
+        <div class="text-25 text-button-empresari" hidden></div>
+        <div class="text-50 text-button-empresari" hidden></div>
+        <div class="text-75 text-button-empresari" hidden></div>
+        <div class="text-100 text-button-empresari" hidden></div>
+
+        <!-- FASE 2 -->
+
+        <div class="seleccio_inversor_text" hidden>{{ text.joc_inversor.empresari_resultat1 }}</div>
+        <div class="seleccio_inversor" hidden></div>
+
+        <div class="seleccio_inversor2_text" hidden>{{ text.joc_inversor.empresari_resultat1b }}</div>
+        <div class="seleccio_inversor2" hidden></div>
+
+        <div class="seleccio_empresari_text" hidden>{{ text.joc_inversor.empresari_resultat2 }}</div>
+        <div class="seleccio_empresari" hidden></div>
+
+        <div class="seleccio_empresari2_text" hidden>{{ text.joc_inversor.empresari_resultat2b }}</div>
+        <div class="seleccio_empresari2" hidden></div>
+
+        <div class="resultat_inversor_text" hidden>{{ text.joc_inversor.empresari_resultat3 }}</div>
+        <div class="resultat_inversor" hidden></div>
+
+        <div class="resultat_empresari_text" hidden>{{ text.joc_inversor.empresari_resultat4 }}</div>
+        <div class="resultat_empresari" hidden></div>
+
+        <div class="missatge_fi" hidden>{{ text.joc_inversor.missatge_fi }}</div>
+
+        <hr class="separador-bottom" />
+
+        <div class="page_button_right" hidden>
+            <button id="boto_enquesta" type="button" onclick="location.href='/{{ lang }}/user/joc_inversor3'" name="logout" class="bx bx-push bx-redstencil" >
+                {{ text.joc_inversor.boto_final }}
+            </button>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+
+
+    function button_pressed(value) {
+        enviar_accio({{ user.id }},value);
+    }
+
+    function isInt(n) {
+        return n % 1 === 0;
+    }
+
+    //Funcio per a enviar la selecció
+    function enviar_accio(user, accio) {
+        $.ajax({
+            url: '/es/ws/enviar_accio_empresari2/'+user+'/'+accio+'/',
+            success: function(data) {
+                console.log(data);
+                if (data.saved == "ok") {
+                    $(".button-long-format").hide();
+                    $(".text-button-empresari").hide();
+                    $(".text_info").hide();
+                    $(".empresari_text1").hide();
+                    $(".empresari_text1_valor").hide();
+                    $(".empresari_text2").hide();
+                    $(".empresari_text2_valor").hide();
+                    $(".empresari_text3").hide();
+
+                    $(".seleccio_inversor_text").show();
+                    $(".seleccio_inversor").text(data.diners_invertits+' {{ text.joc_inversor.monedes }}').show();
+
+
+                    $(".seleccio_inversor2_text").show();
+                    $(".seleccio_inversor2").text((10-data.diners_invertits)+' {{ text.joc_inversor.monedes }}').show();
+
+                    $(".seleccio_empresari_text").show();
+                    var text = isInt(data.diners_guanyats)? data.diners_guanyats : data.diners_guanyats.toFixed(1);
+                    $(".seleccio_empresari").text(text  +' {{ text.joc_inversor.monedes }}').show();
+
+                    $(".seleccio_empresari2_text").show();
+                    text = isInt(data.devolucio_empresari)? data.devolucio_empresari : data.devolucio_empresari.toFixed(1);
+                    $(".seleccio_empresari2").text(text  +' {{ text.joc_inversor.monedes }}').show();
+
+                    $(".resultat_inversor_text").show();
+                    text = isInt(data.resultat_inv)? data.resultat_inv : data.resultat_inv.toFixed(1);
+                    $(".resultat_inversor").text(text  +' {{ text.joc_inversor.monedes }}').show();
+                    $(".resultat_empresari_text").show();
+                    text = isInt(data.resultat_emp)? data.resultat_emp : data.resultat_emp.toFixed(1);
+                    $(".resultat_empresari").text(text  +' {{ text.joc_inversor.monedes }}').show();
+                    $(".page_button_right").show();
+                    $(".missatge_fi").show();
+
+                } else {
+                    enviar_accio(user, accio);
+                }
+            },
+            error: function(){
+                enviar_accio(user, accio);
+            }
+        });
+    }
+
+
+    //Funcio per a obtenir el resultat del torn
+    function demanar_resultat(user) {
+        $.ajax({
+            url: '/es/ws/demanar_resultat_empresari2/'+user+'/',
+            success: function(data) {
+                console.log(data);
+                if (data.correcte) {
+                    //MOSTRAR MENU DE DECISIO
+                    $(".esperant_empresari").hide();
+                    $(".esperant_empresari_text").hide();
+
+                    $(".empresari_text1").show();
+                    $(".empresari_text1_valor").text(data.seleccio + " {{ text.joc_inversor.monedes }}").show();
+                    $(".empresari_text2").show();
+                    $(".empresari_text2_valor").text(3*data.seleccio + " {{ text.joc_inversor.monedes }}").show();
+                    $(".empresari_text3").show();
+
+                    $(".button-long-format").show();
+
+                    var guany = (3*data.seleccio)/4;
+                    var text = isInt(guany) ? guany : guany.toFixed(1);
+                    $(".text-25").text(text + ' {{ text.joc_inversor.monedes }}');
+
+                    guany = (3*data.seleccio)/2;
+                    text = isInt(guany) ? guany : guany.toFixed(1);
+                    $(".text-50").text(text + ' {{ text.joc_inversor.monedes }}');
+
+                    guany = (3*data.seleccio)*3/4;
+                    text = isInt(guany) ? guany : guany.toFixed(1);
+                    $(".text-75").text(text + ' {{ text.joc_inversor.monedes }}');
+
+                    text = (3*data.seleccio);
+                    $(".text-100").text(text + ' {{ text.joc_inversor.monedes }}');
+
+                    $(".text-button-empresari").show();
+
+                } else {
+                    setTimeout(function(){demanar_resultat(user)}, 500);
+                }
+            },
+            error: function(data) {
+                setTimeout(function(){demanar_resultat(user)}, 500);
+            }
+        });
+    }
+
+    $(document).ready(function() {
+
+        $("#button-00").on("pushed", function(e) { button_pressed(0); });
+        $("#button-25").on("pushed", function(e) { button_pressed(25); });
+        $("#button-50").on("pushed", function(e) { button_pressed(50); });
+        $("#button-75").on("pushed", function(e) { button_pressed(75); });
+        $("#button-100").on("pushed", function(e) { button_pressed(100); });
+
+        $(".button-long-format").hide();
+
+        demanar_resultat({{ user.id }});
+    });
+
+
+
+    </script>
+{% endblock %}

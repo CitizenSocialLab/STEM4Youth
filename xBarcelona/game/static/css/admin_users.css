@@ -1,0 +1,46 @@
+#users_1 {
+    position:absolute;
+    top: 120px;
+    left: 10px;
+    width: 470px;
+}
+
+#users_2 {
+    position:absolute;
+    top: 120px;
+    left: 520px;
+    width: 470px;
+}
+
+.userlist tr {
+    height: 28px;
+}
+
+.userlist tr:nth-child(even) {background: #dedede  }
+
+.td_nickname {
+    width: 250px;
+    text-align: left;
+    font-size: 16px;
+    font-weight:bold;
+}
+
+.td_valor {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+.th_nickname {
+    width: 150px;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.th_valor {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+}

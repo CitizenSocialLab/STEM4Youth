@@ -1,0 +1,86 @@
+{% extends "admin.html" %}
+
+
+{% block stylesheet %}
+    <link href="/static/css/admin.css" rel="stylesheet" media="screen">
+    <link href="/static/css/admin_partida_list.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block content_admin %}
+    <div id="llista_partides_titol">Listado últimas partidas</div>
+    <div id="llista_partides"></div>
+{% endblock %}
+
+{% block javascript %}
+
+        <script>
+
+            function detailPartida(num_partida) {
+                window.location.href = '/es/admin/partida_detail/'+num_partida+'/'
+            }
+
+
+            function update_list() {
+                $.ajax({
+                    url: '/es/ws/llistat_partides/',
+                    success: function(data) {
+
+                            mytext = '<table width="90%" class="partides"><tr>'+
+                                    '<th style="font-size:15px; text-align:center; font-weight:bold; width:50px;">'+ "id" + '</th>'+
+                                    '<th style="font-size:15px; text-align:center; font-weight:bold; width:160px;">'+ "estado" +'</th>'+
+                                    '<th style="font-size:15px; text-align:center; font-weight:bold; width:120px;">'+ "inicio" +'</th>'+
+                                    '<th style="font-size:15px; text-align:center; font-weight:bold; width:120px;">'+ "final" +'</th>'+
+                                    '<th style="font-size:15px; text-align:center; font-weight:bold; width:100px;">'+ "wealth" +'</th>'+
+                                    '<th style="font-size:15px; text-align:center; font-weight:bold; width:100px;">'+ "reward" +'</th>'+
+                                    '<th style="font-size:15px; text-align:center; font-weight:bold; width:100px;">'+ "objetivo" +'</th>'+
+                                    '<th style="font-size:15px; text-align:center; font-weight:bold; width:100px;">'+ "vales €" +'</th>'+
+                                    '<th></th>';
+
+                            for (i = 0; i < data.partida.length; i++) {
+
+                                // Calcul diners totals reals
+                                var total_diners_reals = 0
+                                console.log(data)
+                                for (j = 0; j < data.partida[i].guanys.length; j++){
+                                    console.log(data.partida[i].guanys[j])
+                                    total_diners_reals = total_diners_reals + data.partida[i].guanys[j]
+                                }
+                                
+                                if (data.partida[i].always_win) sorteo = "Sí";
+                                else sorteo = "No";
+
+                                if (data.partida[i].objectiu_aconseguit) objetivo = "Sí";
+                                else objetivo = "No";
+
+                                mytext += '<tr>' +
+                                        '<td style="font-size:14px; text-align:center; width:50px;">' + data.partida[i].num_partida  + '</td>'+
+                                        '<td style="font-size:14px; text-align:center; width:160px;">' + data.partida[i].status + '</td>'+
+                                        '<td style="font-size:14px; text-align:center; width:120px;">' + data.partida[i].date_creation + '</td>'+
+                                        '<td style="font-size:14px; text-align:center; width:120px;">' + data.partida[i].date_end + '</td>'+
+                                        '<td style="font-size:14px; text-align:center; width:100px;">' + data.partida[i].wealth + '</td>'+
+                                        '<td style="font-size:14px; text-align:center; width:100px;">' + data.partida[i].reward + '</td>'+
+                                        '<td style="font-size:14px; text-align:center; width:100px;">' + objetivo + '</td>'+
+                                        '<td style="font-size:16px; text-align:center; width:100px; font-weight:bold;">' + total_diners_reals + ' </td>'+
+                                        '<td><button onclick="detailPartida(' + data.partida[i].num_partida + ')" class="bx-push bx bx-main" style="width:100px;height:25px;font-size:14px;padding:0px 0px 0px 0px;">' + "Detalles" + '</button></td>'+
+                                        '<td></td>'+
+                                        '</tr>'
+                            }
+                            $('#llista_partides').html(mytext);
+
+                        setTimeout(function(){update_list()}, 1000);
+                    },
+                    error: function(data) {
+                         setTimeout(function(){update_list()}, 1000);
+                    }
+                });
+            }
+
+            $(document).ready(function() {
+                update_list();
+            });
+        </script>
+
+
+
+{% endblock %}

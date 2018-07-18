@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+    <link href="/static/css/index.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block content %}
+    <div class="topdiv">
+
+        <div class="fons"></div>
+
+        <div class="agraiment-final">{{ text.final_joc.agraiment| safe }}</div>
+
+
+        <div class="resum">{{ text.final_joc.text_resultat1 }}</div>
+
+        <!-- Joc del corredor -->
+        <div class="resum_text resum_dictator">{{ text.final_joc.text_resultat2 }}</div>
+        <div class="resum_valor resum_dictator_valor">{{ resultat_dictator }}</div>
+        <!-- Joc del premi -->
+        <div class="resum_text resum_prisoner ">{{ text.final_joc.text_resultat3 }}</div>
+        <div class="resum_valor resum_prisoner_valor">{{ resultat_prisoner }}</div>
+        <!-- Joc del inversor -->
+        <div class="resum_text resum_trust">{{ text.final_joc.text_resultat4 }}</div>
+        <div class="resum_valor resum_trust_valor">{{ resultat_trust }}</div>
+        <!--
+        <div class="resum_text resum_premi">{{ text.final_joc.text_resultat5 }}</div>
+        <div class="resum_valor resum_premi_valor">{{ resultat_premi }}</div>
+         -->
+        <!-- Resultat total  -->
+        <div class="resum_text resum_total">{{ text.final_joc.text_resultat6 }}</div>
+        <div class="resum_valor resum_total_valor">{{ resultat_total }}</div>
+
+        <div class="resum_text resum_abacus">{{ text.final_joc.text_resultat7 }}</div>
+        <div class="resum_valor resum_abacus_valor">{{ vals }} {{text.final_joc.vals}}</div>
+        <!--
+        <div class="text_correu">{{ text.final_joc.text_correu | safe }}</div>
+        -->
+        <div class="vull-jugar">
+            <form method="post" action="/{{ lang }}/">
+                <button class="bx bx-push bx-redstencil">
+                    {{ text.final_joc.boto }}
+                </button>
+            </form>
+        </div>
+
+        <img id="imatge_logos" src="/static/img/logos/all_logos.png"/>
+
+    </div>
+
+{% endblock %}

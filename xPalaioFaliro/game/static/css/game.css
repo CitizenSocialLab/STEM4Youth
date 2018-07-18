@@ -1,0 +1,769 @@
+/***********************************/
+/***** CSS del modal de welcome ****/
+/***********************************/
+.modal-welcome {
+    margin-top: 160px;
+    width:570px;
+    text-align: center;
+}
+
+.modal-content-welcome {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #FAE8E8 0%, #FAE8E8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FAE8E8), color-stop(100%,#FAE8E8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #FAE8E8 0%,#FAE8E8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #FAE8E8 0%,#FAE8E8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #FAE8E8 0%,#FAE8E8 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #FAE8E8 0%,#FAE8E8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FAE8E8', endColorstr='#FAE8E8',GradientType=0 ); /* IE6-9 */
+}
+
+.modal-welcome-body
+{
+    text-align: center;
+    height: 320px;
+}
+
+.modal-welcome-footer
+{
+    text-align: center;
+    background-color: white;
+}
+
+#welcome-modal-start
+{
+    width:300px;
+    height:60px;
+    font-size: 40px;
+}
+
+#presentacio_partida {
+    position:absolute;
+    top:20px;
+    left:-27px;
+    width:570px;
+    text-align:center;
+    font-weight: normal;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+#presentacio_waiting {
+    position:absolute;
+    top:165px;
+    left:230px;
+}
+
+/************************************/
+/**** CSS del modal de countdown ****/
+/************************************/
+
+.modal-countdown {
+    margin-top: 20px;
+    width:965px;
+    text-align: center;
+}
+.modal-content-countdown {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #ffffff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#ffffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#ffffff 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#ffffff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.modal-countdown-body
+{
+    text-align: center;
+    height: 520px;
+}
+
+.modal-countdown-footer
+{
+    text-align: center;
+    height:80px;
+    background-color: #FAE8E8;
+}
+
+#countdown-modal-start
+{
+    width:300px;
+    height:60px;
+    font-size: 40px;
+}
+
+#countdown_titol {
+    position: absolute;
+    top: -2px;
+    left: 0px;
+    color: #000000;
+    font-size: 30px;
+}
+
+
+#countdown_time {
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    color: #000000;
+    font-size: 50px;
+    text-align: right;
+    width: 100px;
+}
+
+#countdown_text_wealth {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    font-size: 24px;
+    text-align: justify;
+    width: 800px;
+}
+
+#countdown_text_player {
+    position: absolute;
+    top: 230px;
+    left: 50px;
+    font-size: 24px;
+    text-align: left;
+    width: 700px;
+}
+
+#countdown_text_endowment {
+    position: absolute;
+    top: 120px;
+    left: 50px;
+    font-size: 24px;
+    text-align: justify;
+    width: 800px;
+}
+
+#countdown_text_others {
+    position: absolute;
+    top: 280px;
+    left: 50px;
+    font-size: 24px;
+    text-align: left;
+    width: 700px;
+}
+
+#countdown_valor_otros {
+    position: absolute;
+    top: 315px;
+    left: 70px;
+    text-align: left;
+    width: 700px;
+}
+
+.countdown_valor_j {
+    /*border: 1px solid black;*/
+    border: none;
+    width: 400px;
+    height: 40px;
+    font-size: 24px;
+}
+
+.bold_countdown_color {
+    font-size: 24px;
+    font-weight: bolder;
+    color: #CD1919;
+}
+
+.bold_countdown {
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+
+/***********************************/
+/***** CSS del modal de la ronda ***/
+/***********************************/
+
+.modal-ronda {
+    margin-top: 20px;
+    width:965px;
+    text-align: center;
+}
+
+.modal-content-ronda {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #ffffff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#ffffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#ffffff 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#ffffff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.modal-ronda-body
+{
+    text-align: center;
+    height: 520px;
+}
+
+.modal-ronda-footer
+{
+    text-align: center;
+    height:80px;
+    background-color: #FAE8E8;
+}
+
+#nextround_titol {
+    position: absolute;
+    top: -2px;
+    left: 0px;
+    color: #000000;
+    font-size: 30px;
+}
+
+
+#nextround_time {
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    color: #000000;
+    font-size: 50px;
+    text-align: right;
+    width: 100px;
+}
+
+#modal_ronda_msg {
+    font-size: 30px;
+    top: 15px;
+    left: 120px;
+    position: absolute;
+    width: 700px;
+    text-align: center;
+    color: #CD1919;
+    font-weight: bold;
+}
+
+.resultats_table{
+    table-layout: fixed;
+    width: 700px;
+    background-color: transparent;
+    position: absolute;
+    top: 260px;
+    left: 100px;
+}
+
+table.resultats_table th {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+
+table.resultats_table td {
+    font-weight: normal;
+    font-size: 18px;
+}
+
+
+.top_bold {
+    border-top:4px solid;
+    border-color:#CD1919;
+}
+
+.bottom_bold {
+    border-bottom:4px solid;
+    border-color:#CD1919;
+}
+
+.top_thin {
+    border-top:thin solid;
+    border-color:#CD1919;
+}
+
+.bottom_thin {
+    border-bottom:thin solid;
+    border-color:#CD1919;
+}
+
+#resultat_objectiu {
+    position: absolute;
+    top: 70px;
+    left: 300px;
+    width: 140px;
+    font-size: 70px;
+    font-weight: normal;
+    height: 140px;
+    border-radius: 5px;
+    background-color: #CD1919;
+    line-height: 170px;
+    text-align: center;
+}
+
+#text_objectiu {
+    position: absolute;
+    top: 90px;
+    left: 300px;
+    width: 140px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+#resultat_contribucio {
+    position: absolute;
+    top: 70px;
+    right: 300px;
+    width: 140px;
+    font-size: 70px;
+    font-weight: normal;
+    height: 140px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    line-height: 170px;
+    text-align: center;
+    border-style: solid;
+    border-color: #CD1919;
+    border-width: 5px;
+}
+
+#text_contribucio {
+    position: absolute;
+    top: 90px;
+    right: 300px;
+    width: 140px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+
+#text_nota {
+    position: absolute;
+    top: 505px;
+    left: 15px;
+    font-size: 16px;
+}
+
+
+/**************************************/
+/**************************************/
+/***** CSS del final de la partida ****/
+.modal-final {
+    margin-top: 90px;
+    width: 780px;
+    text-align: center;
+}
+
+.modal-content-final {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #FAE8E8 0%, #FAE8E8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FAE8E8), color-stop(100%,#FAE8E8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #FAE8E8 0%,#FAE8E8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #FAE8E8 0%,#FAE8E8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #FAE8E8 0%,#FAE8E8 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #FAE8E8 0%,#FAE8E8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FAE8E8', endColorstr='#FAE8E8',GradientType=0 ); /* IE6-9 */
+}
+
+.modal-final-body
+{
+    height: 360px;
+    text-align: center;
+}
+
+.modal-final-footer
+{
+    text-align: center;
+    background-color: white;
+}
+
+#fi_partida {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    width: 700px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 36px;
+    text-transform: uppercase;
+    color: #CD1919;
+}
+
+#fi_partida_imatge {
+    position: absolute;
+    top: 86px;
+    left: 0px;
+    width: 200px;
+}
+
+
+#fi_partida_text {
+    position: absolute;
+    top: 110px;
+    left: 80px;
+    text-align: left;
+    font-size: 26px;
+    width: 600px;
+}
+
+
+
+#modal-final-titol
+{
+    position:absolute;
+    top:80px;
+    left:220px;
+    width:500px;
+    text-align:left;
+    font-weight: normal;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.modal-final-text {
+    position:absolute;
+    top:110px;
+    left:0;
+    width:760px;
+    text-align:center;
+    font-size: 40px;
+    height: 60px;
+}
+
+#final-modal-fi{
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #999999;
+    width: 240px;
+}
+
+#resp_correctes{
+    font-size: 40px;
+}
+
+#resp_incorrectes{
+    font-size: 40px;
+}
+
+#resp_diners {
+    font-size: 40px;
+}
+
+#quadre1 {
+    position:absolute;
+    top:160px;
+    left:220px;
+
+    background-color: #35ba3f;
+    border-color: #35ba3f;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+#quadre1_text {
+    position:absolute;
+    top:175px;
+    left:220px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+#quadre1_results {
+    position:absolute;
+    top:205px;
+    left:220px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+#quadre2 {
+    position:absolute;
+    top:160px;
+    left:330px;
+
+    background-color: #ee1c36;
+    border-color: #ee1c36;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+#quadre2_text {
+    position:absolute;
+    top:175px;
+    left:330px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+#quadre2_results {
+    position:absolute;
+    top:205px;
+    left:330px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+#quadre3 {
+    position:absolute;
+    top:160px;
+    left:440px;
+
+    background-color: #f2c857;
+    border-color: #f2c857;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+#quadre3_icona {
+    position:absolute;
+    top:171px;
+    left:470px;
+    width: 40px;
+    color: white;
+}
+
+
+#quadre3_results {
+    position:absolute;
+    top:210px;
+    left:440px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+#medalla {
+    position:absolute;
+    top:145px;
+    left:550px;
+    width: 130px;
+}
+
+/****************************************************/
+/****************************************************/
+/* CSS del timer */
+
+.logo {
+    position:absolute;
+    top:12px;
+    left:15px;
+    width:160px;
+    text-align: left;
+    z-index:2;
+}
+
+#timer_title{
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: 900px;
+    text-align: center;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+#timer_background {
+    z-index: 2;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 30px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ffffff;
+}
+
+#timer_progress {
+    z-index: 2;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    height: 30px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ffffff;
+}
+
+#timer-wrap{
+    position: absolute;
+    top: 50px;
+    left: 170px;
+    width: 625px;
+    padding-top: 10px;
+}
+
+
+/****************************************************/
+/****************************************************/
+/* CSS dels botons UP DN */
+
+#text-contribucio {
+    position: absolute;
+    top: 300px;
+    left: 100px;
+    width: 800px;
+    text-align: center;
+    font-size: 40px;
+}
+
+#button-0{
+    position: absolute;
+    top: 420px;
+    left: 100px;
+    height: 180px;
+    width: 180px;
+    padding: 0 0 0 0;
+    border-radius: 6px;
+    font-size: 100px;
+    border: 2px solid #CD1919;
+    background-color: #FAE8E8;
+    background-image: url("/static/img/botons/0.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+
+#button-1{
+    position: absolute;
+    top: 380px;
+    left: 220px;
+    height: 180px;
+    width: 180px;
+    padding: 0 0 0 0;
+    border-radius: 6px;
+    font-size: 100px;
+    border: 2px solid #CD1919;
+    background-image: url("/static/img/botons/1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+
+}
+
+#button-2{
+    position: absolute;
+    top: 420px;
+    left: 400px;
+    height: 180px;
+    width: 180px;
+    border-radius: 6px;
+    font-size: 100px;
+    border: 2px solid #CD1919;
+    background-color: #FAE8E8;
+    background-image: url("/static/img/botons/2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+
+#button-3{
+    position: absolute;
+    top: 380px;
+    left: 620px;
+    height: 180px;
+    width: 180px;
+    padding: 0 0 0 0;
+    border-radius: 6px;
+    border: 2px solid #CD1919;
+    background-image: url("/static/img/botons/3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#button-4{
+    position: absolute;
+    top: 420px;
+    right: 100px;
+    height: 180px;
+    width: 180px;
+    padding: 0 0 0 0;
+    border-radius: 6px;
+    font-size: 100px;
+    border: 2px solid #CD1919;
+    background-color: #FAE8E8;
+    background-image: url("/static/img/botons/4.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+
+
+#image-bucket{
+    position: absolute;
+    top: 190px;
+    left: 665px;
+    width: 110px;
+}
+
+#text-bucket{
+    position: absolute;
+    top: 200px;
+    left: 40px;
+    width: 900px;
+    text-align: center;
+    font-size: 40px;
+}
+
+#text-ronda{
+    position: absolute;
+    top: 115px;
+    left: 40px;
+    width: 900px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+
+
+.rotate {
+    filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+    -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
+    -ms-transform: rotate(-90.0deg);  /* IE9+ */
+    -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(-90.0deg);  /* Safari 3.1+, Chrome */
+    transform: rotate(-90.0deg);  /* Standard */
+}
+
+
+.user_info {
+position: absolute;
+    top: 105px;
+    right: 0px;
+    width: 610px;
+    text-align: right;
+    color: #444444;
+    font-size: 22px;
+    z-index: 2;
+}
+
+.bold_savings {
+    font-size: 60px;
+    font-weight: bolder;
+    color: #CD1919;
+}

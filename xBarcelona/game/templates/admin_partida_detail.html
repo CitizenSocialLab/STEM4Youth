@@ -1,0 +1,132 @@
+{% extends "admin.html" %}
+
+
+{% block stylesheet %}
+    <link href="/static/css/admin.css" rel="stylesheet" media="screen">
+    <link href="/static/css/admin_partida_detail.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block content_admin %}
+
+    <div id="usuaris_titol" hidden>La partida no existe</div>
+    <div id="table_partida"></div>
+    <div id="table_partida_detail"></div>
+    <div id="table_partida_jocs"></div>
+
+{% endblock %}
+
+{% block javascript %}
+
+        <script>
+            function tancarPartida(num_partida) {
+                //console.log("Tancant partida " + num_partida);
+                $.ajax({
+                    url: '/es/ws/tancar_partida/'+num_partida+'/'
+                });
+            }
+
+            function tancarRonda(num_partida) {
+                //console.log("Tancant ronda " + num_partida);
+                $.ajax({
+                    url: '/es/ws/tancar_ronda/'+num_partida+'/'
+                });
+            }
+
+
+            function update_estat() {
+                $.ajax({
+                    url: '/es/ws/stats_partida_detail/{{ num_partida }}/',
+                    success: function(data) {
+
+                        $("#table_partida").empty();
+                        $("#table_partida_detail").empty();
+                        $("#table_partida_jocs").empty();
+
+                            var table3 = '<table class="table_partida_detail">';
+
+                            table3+="<tr style='cellpadding:10;'>";
+                            table3+="<td colspan=11 style=font-size:22px;font-weight:bold;cell></td>";
+                            table3+="</tr>";
+                                //"nicknames": [up.nickname for up in users_partida],
+                                //"diners_inicials": [up.diners_inicials for up in users_partida],
+                                //"diners_contribuits": [up.diners_inicials - up.diners_actuals for up in users_partida],
+                                //"diners_reals": ""
+                            table3+='<tr class="top_bold bottom_bold">';
+                            table3+='<td style="font-size:12px; width:10px;"> Jugador </td>';
+                            table3+='<td style="font-size:12px; width:100px;"> Nickname </td>';
+
+                            table3+='<td style="font-size:12px; width:30px;"> Rol1 </td>';
+                            table3+='<td style="font-size:12px; width:30px;"> Rol2 </td>';
+                            table3+='<td style="font-size:12px; width:30px;"> DG1 </td>';
+                            table3+='<td style="font-size:12px; width:30px;"> DG2 </td>';
+                            table3+='<td style="font-size:12px; width:50px;"> Guany</td>';
+
+                            table3+='<td style="font-size:12px; width:30px;"> PD1 </td>';
+                            table3+='<td style="font-size:12px; width:30px;"> PD2 </td>';
+                            table3+='<td style="font-size:12px; width:30px;"> PD3 </td>';
+                            table3+='<td style="font-size:12px; width:50px;"> Guany</td>';
+
+                            table3+='<td style="font-size:12px; width:30px;"> Rol1 </td>';
+                            table3+='<td style="font-size:12px; width:30px;"> Rol2 </td>';
+                            table3+='<td style="font-size:12px; width:30px;"> TG1 </td>';
+                            table3+='<td style="font-size:12px; width:30px;"> TG2 </td>';
+                            table3+='<td style="font-size:12px; width:50px;"> Guany</td>';
+
+                            table3+='<td style="font-size:12px; width:50px;"> Total</td>';
+                            table3+='<td style="font-size:12px; width:50px;"> Vals</td>';
+
+                            table3+="</tr>";
+
+
+                            table3+='<tr class="bottom_dotted">';
+                            table3+="</tr>";
+
+                            for (i=0; i < data.nicknames.length; i++) {
+                                player = i + 1;
+                                table3 += '<tr class="bottom_dotted">';
+                                table3 += '<td style="font-size:12px;">' + player + '</td>';
+                                table3 += '<td style="font-size:12px;">' + data.nicknames[i] + '</td>';
+
+                                table3 += '<td style="font-size:12px;">' + data.rol1_dictator[i] + '</td>';
+                                table3 += '<td style="font-size:12px;">' + data.rol2_dictator[i] + '</td>';
+                                table3 += '<td style="font-size:12px;">' + data.seleccio1_dictator[i] + '</td>';
+                                table3 += '<td style="font-size:12px;">' + data.seleccio2_dictator[i] + '</td>';
+                                table3 += '<td style="font-size:12px;font-weight:bold">' + data.guanys_dictator[i] + '</td>';
+
+                                table3 += '<td style="font-size:12px;">' + data.seleccio1_prisoner[i] + '</td>';
+                                table3 += '<td style="font-size:12px;">' + data.seleccio2_prisoner[i] + '</td>';
+                                table3 += '<td style="font-size:12px;">' + data.seleccio3_prisoner[i] + '</td>';
+                                table3 += '<td style="font-size:12px;font-weight:bold">' + data.guanys_prisoner[i] + '</td>';
+
+                                table3 += '<td style="font-size:12px;">' + data.rol1_trust[i] + '</td>';
+                                table3 += '<td style="font-size:12px;">' + data.rol2_trust[i] + '</td>';
+                                table3 += '<td style="font-size:12px;">' + data.seleccio1_trust[i] + '</td>';
+                                table3 += '<td style="font-size:12px;">' + data.seleccio2_trust[i] + '</td>';
+                                table3 += '<td style="font-size:12px;font-weight:bold">' + data.guanys_trust[i] + '</td>';
+
+                                table3 += '<td style="font-size:14px;font-weight:bold">' + data.diners_total[i] + '</td>';
+                                table3 += '<td style="font-size:14px;font-weight:bold">' + data.vals[i] + '</td>';
+                                table3+="</tr>";
+                          }
+
+
+                            $("#table_partida_jocs").append(table3 );
+
+
+
+
+                        setTimeout(function(){update_estat()}, 3000);
+                    },
+                    error: function(data) {
+                        setTimeout(function(){update_estat()}, 3000);
+                    }
+                });
+            }
+
+            $(document).ready(function() {
+                update_estat();
+            });
+        </script>
+
+{% endblock %}

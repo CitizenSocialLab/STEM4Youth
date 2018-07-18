@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+    <link href="/static/css/enquesta.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block title %}{{ text.enquestafinal3.titol_pagina }}{% endblock %}
+
+{% block content %}
+    <div class="topdiv-centered">
+
+        <div class="capsalera_background"></div>
+        <img src="/static/img/logo.png" class="page_logo"/>
+
+        <div class="page_title">{{ text.enquestafinal3.titol }}</div>
+
+        <hr class="separador-top" />
+
+        <form method="post" action="/{{ lang }}/user/enquestafinal3">
+
+            <div class="preguntafinal5">
+                <div class="pregunta_titol_custom5">{{ text.enquestafinal3.pr5 }}</div>
+                <div class="btn-toolbar" data-toggle="buttons">
+                    <input type="hidden" name="pr5" value="{{ pr5 }}">
+                    <button name="pr5" id="pr5_r1" value="r1" class="boto_llarg bx bx-option {{ pr5_1_checked }}">{{ text.enquestafinal3.pr5_r1 }}</button>
+                    <button name="pr5" id="pr5_r2" value="r2" class="boto_llarg bx bx-option {{ pr5_2_checked }}">{{ text.enquestafinal3.pr5_r2 }}</button>
+                    <br />
+                    <button name="pr5" id="pr5_r3" value="r3" class="boto_llarg bx bx-option {{ pr5_3_checked }}" style="margin-top: 10px; margin-left: 210px">{{ text.enquestafinal3.pr5_r3 }} </button>
+                    <br />
+                    <button name="pr5" id="pr5_r4" value="r4" class="boto_llarg bx bx-option {{ pr5_4_checked }}" style="margin-top: 10px;">{{ text.enquestafinal3.pr5_r4 }}</button>
+                    <button name="pr5" id="pr5_r5" value="r5" class="boto_llarg bx bx-option {{ pr5_5_checked }}" style="margin-top: 10px;">{{ text.enquestafinal3.pr5_r5 }}</button>
+                </div>
+                <div class="error_space">
+                    {% if pr5_danger %} <span class="error">{{ text.common.error_opcio }}</span>{%  endif %}
+                </div>
+            </div>
+
+
+            <form method="post" action="/{{ lang }}/user/enquestafinal3">
+
+            <div class="preguntafinal6">
+                <div class="pregunta_titol">{{ text.enquestafinal3.pr6 }}</div>
+                <div class="btn-toolbar" data-toggle="buttons">
+                    <input type="hidden" name="pr6" value="{{ pr6 }}">
+                    <button name="pr6" id="pr6_r1" value="r1" class="boto_gran bx bx-option {{ pr6_1_checked }}">{{ text.enquestafinal3.pr6_r1 }}</button>
+                    <button name="pr6" id="pr6_r2" value="r2" class="boto_gran bx bx-option {{ pr6_2_checked }}">{{ text.enquestafinal3.pr6_r2 }}</button>
+                    <button name="pr6" id="pr6_r3" value="r3" class="boto_gran bx bx-option {{ pr6_3_checked }}">{{ text.enquestafinal3.pr6_r3 }}</button>
+                </div>
+                <div class="error_space">
+                    {% if pr6_danger %} <span class="error">{{ text.common.error_opcio }}</span>{%  endif %}
+                </div>
+            </div>
+
+            <div class="preguntafinal7">
+                <div class="pregunta_titol">{{ text.enquestafinal3.pr7 }}</div>
+                <div class="btn-toolbar" data-toggle="buttons">
+                    <input type="hidden" name="pr7" value="{{ pr7 }}">
+                    <button name="pr7" id="pr7_r1" value="r1" class="boto_gran bx bx-option {{ pr7_1_checked }}">{{ text.enquestafinal3.pr7_r1 }}</button>
+                    <button name="pr7" id="pr7_r2" value="r2" class="boto_gran bx bx-option {{ pr7_2_checked }}">{{ text.enquestafinal3.pr7_r2 }}</button>
+                    <button name="pr7" id="pr7_r3" value="r3" class="boto_gran bx bx-option {{ pr7_3_checked }}">{{ text.enquestafinal3.pr7_r3 }}</button>
+
+                </div>
+                <div class="error_space">
+                    {% if pr7_danger %} <span class="error">{{ text.common.error_opcio }}</span>{%  endif %}
+                </div>
+            </div>
+
+            <hr class="separador-bottom" />
+
+            <div class="page_button_right">
+                <button class="bx bx-push bx-blaustencil" type="submit">{{ text.common.seguent }}</button>
+            </div>
+
+
+        </form>
+
+    </div> <!-- /container -->
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+
+    $(document).ready(function() {
+         var textos = ''
+
+         if ('{{pr4}}' == 'r1' && '{{lang}}' == 'ca'){textos = 'Els teus '+'{{text.enquestafinal2.pr4_r1 }}. '+ '{{text.enquestafinal3.pr5}}'}
+         if ('{{pr4}}' == 'r2' && '{{lang}}' == 'ca'){textos = 'Els teus '+'{{text.enquestafinal2.pr4_r2 }}. '+ '{{text.enquestafinal3.pr5}}'}
+         if ('{{pr4}}' == 'r3' && '{{lang}}' == 'ca'){textos = 'La teva '+'{{text.enquestafinal2.pr4_r3 }}. '+ '{{text.enquestafinal3.pr5a}}'}
+         if ('{{pr4}}' == 'r4' && '{{lang}}' == 'ca'){textos = 'Els teus '+'{{text.enquestafinal2.pr4_r4 }}. '+ '{{text.enquestafinal3.pr5}}'}
+         if ('{{pr4}}' == 'r5' && '{{lang}}' == 'ca'){textos = 'Les teves persones de confiança. '+ '{{text.enquestafinal3.pr5}}'}
+
+         if ('{{pr4}}' == 'r1' && '{{lang}}' == 'es'){textos = 'Tus '+'{{text.enquestafinal2.pr4_r1 }}. '+ '{{text.enquestafinal3.pr5}}'}
+         if ('{{pr4}}' == 'r2' && '{{lang}}' == 'es'){textos = 'Tus '+'{{text.enquestafinal2.pr4_r2 }}. '+ '{{text.enquestafinal3.pr5}}'}
+         if ('{{pr4}}' == 'r3' && '{{lang}}' == 'es'){textos = 'Tu '+'{{text.enquestafinal2.pr4_r3 }}. '+ '{{text.enquestafinal3.pr5a}}'}
+         if ('{{pr4}}' == 'r4' && '{{lang}}' == 'es'){textos = 'Tus '+'{{text.enquestafinal2.pr4_r4 }}. '+ '{{text.enquestafinal3.pr5}}'}
+         if ('{{pr4}}' == 'r5' && '{{lang}}' == 'es'){textos = 'Tus personas de confianza. '+ '{{text.enquestafinal3.pr5}}'}
+
+         $(".pregunta_titol_custom5").text(textos )
+
+    });
+
+    </script>
+{% endblock %}

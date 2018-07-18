@@ -1,0 +1,88 @@
+#usuaris_titol {
+    position:absolute;
+    top:310px;
+    left:155px;
+    font-size:25px;
+    width:700px;
+}
+
+#boto_registre {
+    position:absolute;
+    top:355px;
+    left:255px;
+    width:500px;
+    height:100px;
+    text-align: center;
+    font-size:30px;
+    line-height: 120%;
+}
+
+
+#llista_usuaris_titol {
+    position:absolute;
+    top:120px;
+    left:100px;
+    font-size:25px;
+    width:700px;
+    text-decoration: underline;
+    text-align: left;
+}
+
+#llista_usuaris {
+    position:absolute;
+    top:175px;
+    left:100px;
+    text-align: left;
+
+}
+
+#boto_iniciar {
+    position:absolute;
+    top:550px;
+    left:305px;
+    width:400px;
+    height:80px;
+    text-align: center;
+    font-size:30px;
+    line-height: 120%;
+
+}
+
+.pregunta_diners_heterogenis {
+    position:absolute;
+    top:450px;
+    left:150px;
+    width:600px;
+    text-align: left;
+    font-size:30px;
+    line-height: 120%;
+
+}
+
+.pregunta_imatges_refors {
+    position:absolute;
+    top:450px;
+    left:500px;
+    width:600px;
+    text-align: left;
+    font-size:30px;
+    line-height: 120%;
+
+}
+
+#partida_jugant {
+    position:absolute;
+    top:660px;
+    left:205px;
+    width:600px;
+    text-align: center;
+    font-size:20px;
+    line-height: 120%;
+    color: #ff0000;
+}
+
+table{
+    table-layout: fixed;
+}
+
+

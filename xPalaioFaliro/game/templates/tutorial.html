@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}{{ text.titol_pagina }}{% endblock %}
+
+{% block stylesheet %}
+    <link href="/static/css/tutorial.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block content %}
+
+
+    <div style="position:relative">
+        <!--
+        <div id="background_tutorial"></div>
+        -->
+        <img class="slide" src="">
+
+        <div class="prev-button">
+            <button id="prev" class="bx bx-push bx-my-white">
+                <img id="arrow_left" src="/static/img/tutorial/arrow_left_full.png" style="width:110px; margin-right: 15px;" />
+            </button>
+        </div>
+        <div class="next-button">
+            <button id="next" class="bx bx-push bx-my-white">
+                <img id="arrow_right" src="/static/img/tutorial/arrow_right_full.png" style="width:110px; margin-left: 15px;" />
+            </button>
+        </div>
+
+        <hr class="separador-bottom" />
+
+        <div class="page_button_left">
+            <button id="boto_sortir" type="button" onclick="location.href='/{{ lang }}/user/logout'" name="logout" class="bx-push bx bx-white" >
+                {{ text.common.sortir_joc }}
+            </button>
+        </div>
+
+        <div class="page_button_right">
+            <!-- Go to play-->
+            <!--
+            <button id="button" type="button" onclick="location.href='{{ jugar_url }}'" name="logout" class="bx-push bx bx-main" >
+                {{ text.common.entesos }}
+            </button>
+            -->
+            <!-- Go to Verification-->
+            <button id="button" type="button" onclick="location.href='{{ verification_url }}'" name="logout" class="bx bx-push bx-main" >
+                {{ text.common.entesos }}
+            </button>
+        </div>
+
+
+
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascript %}
+    <script src="/static/js/tutorial.js"></script>
+    <script>
+        tutorial.load({{ count }}, '{{ prefix }}', '{{ provar_url }}', '', '{{ lang }}', '{{ control_reward }}');
+        tutorial.start();
+
+        $('#prev').on("pushed", function() { tutorial.show_prev(); });
+        $('#next').on("pushed", function() { tutorial.show_next(); });
+    </script>
+{% endblock %}

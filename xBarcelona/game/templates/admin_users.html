@@ -1,0 +1,66 @@
+{% extends "admin.html" %}
+
+
+{% block stylesheet %}
+    <link href="/static/css/admin.css" rel="stylesheet" media="screen">
+    <link href="/static/css/admin_users.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block content_admin %}
+    <div id="users_1" class="userlist">
+        <table>
+            <tr>
+                <th class="th_valor">ID</th>
+                <th class="th_nickname">user</th>
+                <th class="th_valor">Game</th>
+                <th class="th_valor">DG</th>
+                <th class="th_valor">PD</th>
+                <th class="th_valor">TG</th>
+                <th class="th_valor">Total</th>
+                <th class="th_valor">VALS</th>
+            </tr>
+
+        {% for user in users_1 %}
+            <tr>
+              <td class="td_valor">{{ user.id }}</td>
+              <td class="td_nickname">{{ user.nickname }}</td>
+              <td class="td_valor">{{ user.partida }}</td>
+              <td class="td_valor">{{ user.diners_dictator }}</td>
+              <td class="td_valor">{{ user.diners_prisoner }}</td>
+              <td class="td_valor">{{ user.diners_trust }}</td>
+              <td class="td_valor">{{ user.diners_total }}</td>
+              <td class="td_valor" style="font-weight:bold;">{{ user.vals }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+
+    <div id="users_2" class="userlist">
+        <table>
+            <tr>
+                <th class="th_valor">ID</th>
+                <th class="th_nickname">user</th>
+                <th class="th_valor">Game</th>
+                <th class="th_valor">DG</th>
+                <th class="th_valor">PD</th>
+                <th class="th_valor">TG</th>
+                <th class="th_valor">Total</th>
+                <th class="th_valor">VALS</th>
+            </tr>
+
+        {% for user in users_2 %}
+            <tr>
+              <td class="td_valor">{{ user.id }}</td>
+              <td class="td_nickname">{{ user.nickname }}</td>
+              <td class="td_valor">{{ user.partida }}</td>
+              <td class="td_valor">{{ user.diners_dictator }}</td>
+              <td class="td_valor">{{ user.diners_prisoner }}</td>
+              <td class="td_valor">{{ user.diners_trust }}</td>
+              <td class="td_valor">{{ user.diners_total }}</td>
+              <td class="td_valor" style="font-weight:bold;">{{ user.vals }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+{% endblock %}

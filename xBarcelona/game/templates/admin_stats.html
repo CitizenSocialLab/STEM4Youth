@@ -1,0 +1,159 @@
+{% extends "admin.html" %}
+
+
+{% block stylesheet %}
+    <link href="/static/css/admin.css" rel="stylesheet" media="screen">
+    <link href="/static/css/admin_stats.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block content_admin %}
+        <div id="stats_titol">
+            Info General
+        </div>
+
+        <div id="stats_info"></div>
+{% endblock %}
+{% block javascript %}
+
+    <script>
+            function update_list() {
+                $.ajax({
+                    url: '/es/ws/stats_partida/',
+                    success: function(data) {
+                        console.log(data)
+                        if(true) {
+                            total_partides_homo_imatge = 0
+                            total_diners_homo_imatge = 0
+                            total_arbres_homo_imatge = 0
+
+                            total_partides_homo_noimatge = 0
+                            total_diners_homo_noimatge = 0
+                            total_arbres_homo_noimatge = 0
+
+                            total_partides_hete_imatge = 0
+                            total_diners_hete_imatge = 0
+                            total_arbres_hete_imatge = 0
+
+                            total_partides_hete_noimatge = 0
+                            total_diners_hete_noimatge = 0
+                            total_arbres_hete_noimatge = 0
+
+                            total_partides = data.partida.length;
+
+                            for (i = 0; i < data.partida.length; i++) {
+                                if (!data.partida[i].diners_heterogenis && data.partida[i].imatges_refors){
+                                    total_partides_homo_imatge = total_partides_homo_imatge + 1;
+
+                                    if (data.partida[i].objectiu_aconseguit) total_arbres_homo_imatge = total_arbres_homo_imatge + 1;
+
+                                    for (j = 0; j < data.partida[i].guanys.length; j++){
+                                        total_diners_homo_imatge = total_diners_homo_imatge + data.partida[i].guanys[j]
+
+                                    }
+
+                                }else if (!data.partida[i].diners_heterogenis && !data.partida[i].imatges_refors){
+                                    total_partides_homo_noimatge = total_partides_homo_noimatge + 1;
+
+                                    if (data.partida[i].objectiu_aconseguit) total_arbres_homo_noimatge = total_arbres_homo_noimatge + 1;
+
+                                    for (j = 0; j < data.partida[i].guanys.length; j++){
+                                        total_diners_homo_noimatge = total_diners_homo_noimatge + data.partida[i].guanys[j]
+                                    }
+
+                                }else if (data.partida[i].diners_heterogenis && data.partida[i].imatges_refors) {
+                                    total_partides_hete_imatge = total_partides_hete_imatge + 1;
+
+                                    if (data.partida[i].objectiu_aconseguit) total_arbres_hete_imatge = total_arbres_hete_imatge + 1;
+
+                                    for (j = 0; j < data.partida[i].guanys.length; j++){
+                                        total_diners_hete_imatge = total_diners_hete_imatge + data.partida[i].guanys[j]
+                                    }
+                                }else if (data.partida[i].diners_heterogenis && !data.partida[i].imatges_refors) {
+                                    total_partides_hete_noimatge = total_partides_hete_noimatge + 1;
+
+                                    if (data.partida[i].objectiu_aconseguit) total_arbres_hete_noimatge = total_arbres_hete_noimatge + 1;
+
+                                    for (j = 0; j < data.partida[i].guanys.length; j++){
+                                        total_diners_hete_noimatge = total_diners_hete_noimatge + data.partida[i].guanys[j]
+                                    }
+                                }
+
+
+                            }
+                            total_dinero_ganado_jugadores = total_diners_hete_imatge +
+                                        total_diners_hete_noimatge +
+                                        total_diners_homo_imatge +
+                                        total_diners_homo_noimatge
+
+                            total_arbres_ganado_jugadores = total_arbres_hete_imatge +
+                                        total_arbres_hete_noimatge +
+                                        total_arbres_homo_imatge +
+                                        total_arbres_homo_noimatge
+
+                            if (total_partides > 0 && total_arbres_ganado_jugadores > 0) ratio_partides_guanyades = (total_arbres_ganado_jugadores / total_partides)*100;
+                            else ratio_partides_guanyades = 0
+
+                            if (total_partides_homo_noimatge > 0 && total_arbres_homo_noimatge > 0) ratio_partides_guanyades_homo_noimatge = (total_arbres_homo_noimatge / total_partides_homo_noimatge) *100;
+                            else ratio_partides_guanyades_homo_noimatge = 0
+
+                            if (total_partides_homo_imatge > 0 && total_arbres_homo_imatge > 0) ratio_partides_guanyades_homo_imatge = (total_arbres_homo_imatge / total_partides_homo_imatge)*100;
+                            else ratio_partides_guanyades_homo_imatge = 0
+
+                            if (total_partides_hete_noimatge > 0 && total_arbres_hete_noimatge > 0) ratio_partides_guanyades_hete_noimatge = (total_arbres_hete_noimatge/total_partides_hete_noimatge)*100;
+                            else ratio_partides_guanyades_hete_noimatge = 0
+
+                            if (total_partides_hete_imatge > 0 && total_arbres_hete_imatge > 0) ratio_partides_guanyades_hete_imatge = (total_arbres_hete_imatge/total_partides_hete_imatge)*100;
+                            else ratio_partides_guanyades_hete_imatge = 0
+
+
+                            mytext = '<table width="90%">' +
+                                    '<tr>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:right; width:350px; padding-right: 30px"></th>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:left; width:200px;">'+ "Total" +'</th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:22px;font-weight:bold;text-align:right; width:350px; padding-right: 30px">'+ "Num. Partides" +'</th>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:left; width:200px;">'+ total_partides +'</th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:22px;font-weight:bold;text-align:right; width:350px; padding-right: 30px">'+ "Objetivo clima cumplido" +'</th>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:left; width:200px;">'+ total_arbres_ganado_jugadores + " (" +(ratio_partides_guanyades).toFixed(1)+ "%)"+'</th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:22px;font-weight:bold;text-align:right; width:350px; padding-right: 30px">'+ "VALES ABACUS repartidos" +'</th>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:left; width:200px;">'+ total_dinero_ganado_jugadores +' €</th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th style="font-size:22px;font-weight:bold;text-align:right; width:350px; padding-right: 30px">'+ "Monedas arboles" +'</th>'+
+                                    '<th style="font-size:22px;font-weight:bold;text-align:left; width:200px;">'+ total_arbres_ganado_jugadores*120 +'</th>'+
+
+                                    '<th></th>'+
+                                    '</tr>' +
+                                    '</table>';
+
+                            $('#stats_info').html(mytext);
+                        }
+                        setTimeout(function(){update_list()}, 10000);
+                    },
+                    error: function(data) {
+                        console.log("error")
+                         setTimeout(function(){update_list()}, 10000);
+                    }
+                });
+            }
+
+            $(document).ready(function() {
+                update_list();
+            });
+        </script>
+
+{% endblock %}

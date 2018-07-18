@@ -1,0 +1,196 @@
+/*********************/
+/* CSS Final Results */
+/*********************/
+
+.top_bottom_bold_red {
+    border-top: 4px solid;
+    border-bottom:4px solid;
+    border-color:#CD1919;
+    background: #CD1919;
+}
+
+.top_bottom_bold_black {
+    border-bottom:4px solid;
+    border-top: 4px solid;
+    border-color:#000000;
+    background: #000000;
+}
+
+.top_bottom_border_bold_red {
+    border-bottom:4px solid;
+    border-top: 4px solid;
+    border-color:#CD1919;
+}
+
+.top_bottom_border_bold_black {
+    border-bottom:4px solid;
+    border-top: 4px solid;
+    border-color:#000000;
+}
+
+table td{
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 15px;
+    vertical-align: center;
+    text-align: center;
+    height: 20px;
+}
+
+table th{
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    vertical-align: center;
+    text-align: center;
+    height: 30px;
+}
+
+#text_resultat_aconseguit {
+    position: absolute;
+    top: 350px;
+    left: 40px;
+    width: 900px;
+    text-align: justify;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000000;
+}
+
+#text_resultat_no_aconseguit {
+    position: absolute;
+    top: 350px;
+    left: 40px;
+    width: 900px;
+    text-align: justify;
+    font-weight: bold;
+    font-size: 17px;
+    color: #000000;
+}
+
+#text_objectiu {
+    position: absolute;
+    top: 470px;
+    left: 180px;
+    width: 140px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+#resultat_objectiu {
+    position: absolute;
+    top: 450px;
+    left: 180px;
+    width: 140px;
+    font-size: 50px;
+    font-weight: normal;
+    height: 140px;
+    border-radius: 5px;
+    background-color: #CD1919;
+    line-height: 150px;
+    text-align: center;
+}
+
+#text_pot {
+    position: absolute;
+    top: 470px;
+    left: 340px;
+    width: 140px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+#resultat_pot {
+    position: absolute;
+    top: 450px;
+    left: 340px;
+    width: 140px;
+    font-size: 50px;
+    font-weight: normal;
+    height: 140px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    line-height: 150px;
+    text-align: center;
+    border-style: solid;
+    border-color: #CD1919;
+    border-width: 5px;
+
+}
+
+#text_action {
+    position: absolute;
+    top: 470px;
+    left: 500px;
+    width: 140px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+#resultat_action {
+    position: absolute;
+    top: 450px;
+    left: 500px;
+    width: 140px;
+    font-size: 50px;
+    font-weight: normal;
+    height: 140px;
+    border-radius: 5px;
+    background-color: #CD1919;
+    line-height: 150px;
+    text-align: center;
+}
+
+#text_diners {
+    position: absolute;
+    top: 470px;
+    left: 660px;
+    width: 140px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+
+#resultat_diners {
+    position: absolute;
+    top: 450px;
+    left: 660px;
+    width: 140px;
+    font-size: 50px;
+    font-weight: normal;
+    height: 140px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    line-height: 150px;
+    text-align: center;
+    border-style: solid;
+    border-color: #CD1919;
+    border-width: 5px;
+
+}
+
+#partida_resum_nota {
+    position: absolute;
+    top: 596px;
+    left: 10px;
+    font-size: 11pt;
+}
+
+#table_partida_detail {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+}
+
+
+

@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+    <link href="/static/css/resultats_clima.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block content %}
+    <div class="topdiv-centered">
+
+        <div class="page_title">{{ text.resultats.resultats }}</div>
+
+        <div class="capsalera_background"></div>
+
+        <hr class="separador-top" />
+        <hr class="separador-bottom" />
+
+        <div class="page_button_right">
+            <button id="boto_enquesta" type="button" onclick="location.href='/{{ lang }}/user/joc_inversor1'" name="logout" class="bx bx-push bx-redstencilwhite" >
+                {{  text.resultats.enquesta }}
+            </button>
+        </div>
+
+        <div id="text_resultat_aconseguit" hidden>{{ text.resultats.aconseguit|safe }}</div>
+        <div id="text_resultat_no_aconseguit" hidden>{{ text.resultats.no_aconseguit|safe }}</div>
+
+        <div id="subtext_resultat_aconseguit" hidden>{{ text.resultats.aconseguit_subtitol|safe }}</div>
+        <div id="subtext_resultat_no_aconseguit" hidden>{{ text.resultats.no_aconseguit_subtitol|safe }}</div>
+
+        <div id="text_objectiu">{{ text.resultats.objectiu }}</div>
+        <div id="text_pot">{{ text.resultats.pot }}</div>
+        <div id="text_diners">{{ text.resultats.diners_guanyats|safe }}</div>
+
+        <div id="resultat_objectiu">120</div>
+        <div id="resultat_pot"></div>
+        <div id="resultat_diners"></div>
+
+
+        <div id="partida_resum">{{ text.resultats.resum }}</div>
+        <div id="partida_resum_nota">{{ text.resultats.resum_nota }}</div>
+
+        <div id="table_partida_detail"></div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+
+    <script>
+        function update_estat(user_id) {
+
+            $.ajax({
+                url: '/es/ws/stats_partida_detail/{{ num_partida }}/',
+                success: function (data) {
+
+                    this.guanyen_igualment = data.guanyen_igualment;
+
+                    var table2 = '<table class="table_partida_detail">';
+
+                    table2 += "<tr style='cellpadding:10;'>";
+                    table2 += "<td colspan=11 style=font-size:22px;font-weight:bold;cell></td>";
+                    table2 += "</tr>";
+                    //"nicknames": [up.nickname for up in users_partida],
+                    //"diners_inicials": [up.diners_inicials for up in users_partida],
+                    //"diners_contribuits": [up.diners_inicials - up.diners_actuals for up in users_partida],
+                    //"diners_reals": ""
+                    table2 += '<tr class="bottom_bold">';
+                    table2 += '<td style="font-size:16px; width:80px; vertical-align:bottom;"> Jugador </td>';
+                    table2 += '<td style="font-size:16px; width:200px; vertical-align:bottom;"> Nickname </td>';
+                    table2 += '<td style="font-size:16px; width:100px;"> Capital<br/>Inicial </td>';
+
+                    for (i = 1; i <= 10; i++) table2 += '<td class style="font-size:16px; vertical-align:bottom;"> R' + i + '</td>';
+
+                    table2 += '<td style="font-size:16px; width:100px;"> Capital<br/>Contrib. </td>';
+                    table2 += '<td style="font-size:16px; width:100px;"> Capital<br/>Final </td>';
+{#                    table2 += '<td style="font-size:16px; width:100px; vertical-align:bottom;">'+titol_diners+'</td>';#}
+
+                    table2 += "</tr>";
+
+                    var num_robot = Array.apply(null, Array(6)).map(Number.prototype.valueOf, 0);
+
+                    var total_diners_reals = 0;
+                    for (i = 0; i < data.nicknames.length; i++) {
+                        if (user_id == data.user_ids[i]) style_user = ' color:#FF0000;';
+                        else style_user = '';
+
+                        var player = i + 1;
+                        table2 += '<tr class="bottom_dotted">';
+                        table2 += '<td style="font-size:16px;'+style_user+'">' + player + '</td>';
+                        table2 += '<td style="font-size:16px;'+style_user+'">' + data.nicknames[i] + '</td>';
+                        table2 += '<td style="font-size:16px;'+style_user+'">' + data.diners_inicials[i] + '</td>';
+
+                        for (j = 0; j <= 9; j++) {
+
+                            if (data.rondes[i][j] === null) {
+                                ronda_val = '-';
+                            } else {
+                                if (data.robot[i][j]) {
+                                    ronda_val = data.rondes[i][j];
+                                } else {
+                                    ronda_val = data.rondes[i][j] + '*';
+                                    num_robot[i] = num_robot[i] + 1;
+                                }
+                            }
+
+                            table2 += '<td style="font-size:16px; width:60px;'+style_user+'">' + ronda_val + '</td>';
+                        }
+
+                        table2 += '<td style="font-size:16px;'+style_user+'">' + data.diners_contribuits[i] + '</td>';
+
+                        // Diners restants
+                        var diners_restants = data.diners_inicials[i] - data.diners_contribuits[i];
+                        table2 += '<td style="font-size:16px;'+style_user+'">' + diners_restants + '</td>';
+
+                        //================== Diners guanyats per l'usuari ==================//
+                        diners_reals = data.guany_final[i];
+{#                        table2 += '<td style="font-size:16px;'+style_user+'">' + diners_reals + '</td>';#}
+
+                        if (user_id == data.user_ids[i]){
+                            $("#resultat_diners").text(diners_reals);
+                        }
+                        table2 += "</tr>";
+                    }
+
+
+                    table2 += '<tr class="top_bold">';
+                    table2 += '<td style="font-size:16px;" colspan=2> Total </td>';
+
+                    // Diners total inicials
+                    var total_inicial = 0;
+                    for (i = 0; i < data.diners_inicials.length; i++) total_inicial += data.diners_inicials[i]
+                    table2 += '<td style="font-size:16px;">' + total_inicial + '</td>';
+
+                    // Diners per ronda
+                    for (i = 0; i < 10; i++) {
+                        var total_ronda = 0
+                        for (j = 0; j < data.rondes.length; j++) {
+                            total_ronda += data.rondes[j][i];
+                        }
+                        table2 += '<td style="font-size:16px;">' + total_ronda + '</td>';
+                    }
+
+
+                    // Diners totals contribuits
+                    var total_contribuciones = 0
+                    for (i = 0; i < data.diners_inicials.length; i++) total_contribuciones += data.diners_contribuits[i]
+                    table2 += '<td style="font-size:16px;">' + total_contribuciones + '</td>';
+
+                    // Diners totals restants
+                    var total_restants = 0
+                    for (i = 0; i < data.diners_inicials.length; i++) total_restants += data.diners_inicials[i] - data.diners_contribuits[i]
+                    table2 += '<td style="font-size:16px;">' + total_restants + '</td>';
+
+                    // Diners reals
+{#                    table2 += '<td style="font-size:16px;">' + total_diners_reals + '</td>';#}
+{#                    table2 += "</tr>";#}
+
+                    $("#table_partida_detail").append(table2);
+
+                    $("#resultat_pot").text(total_contribuciones);
+
+                    if (total_contribuciones>=120)
+                    {
+                        $('#text_resultat_aconseguit').show();
+                        $('#subtext_resultat_aconseguit').show();
+                        $('#resultat_pot').css("background-color", "#7FE69D");
+
+                    } else {
+                        $('#text_resultat_no_aconseguit').show();
+                        $('#subtext_resultat_no_aconseguit').show();
+                        $('#resultat_pot').css("background-color", "#FF9090");
+                    }
+                },
+                error: function (data) {
+                    setTimeout(function () { update_estat(user_id); }, 500);
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            update_estat({{ user.id }});
+        });
+
+        var titol_diners = "{{ text.resultats.titol_diners | safe }}";
+
+    </script>
+{% endblock %}

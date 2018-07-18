@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'stencil';
+    src: url('../fonts/Letterwerk-StencilAllround.otf') format('otf'),
+         url('../fonts/Letterwerk-StencilAllround.ttf') format('ttf'),
+         url('../fonts/Letterwerk-StencilAllround.woff') format('woff'),
+         url('../fonts/Letterwerk-StencilAllround.woff2') format('woff2'),
+    font-weight: normal;
+    font-style: normal;
+}

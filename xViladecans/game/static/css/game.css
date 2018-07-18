@@ -1,0 +1,824 @@
+/***********************************/
+/***********************************/
+/***** CSS del modal de welcome ****/
+.modal-welcome {
+    margin-top: 160px;
+    width:570px;
+    text-align: center;
+}
+
+.modal-content-welcome {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #CCDDE9 0%, #CCDDE9 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#CCDDE9), color-stop(100%,#CCDDE9)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #CCDDE9 0%,#CCDDE9 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CCDDE9', endColorstr='#CCDDE9',GradientType=0 ); /* IE6-9 */
+}
+
+.modal-welcome-body
+{
+    text-align: center;
+    height: 320px;
+}
+
+.modal-welcome-footer
+{
+    text-align: center;
+    background-color: white;
+}
+
+#welcome-modal-start
+{
+    width:300px;
+    height:60px;
+    font-size: 40px;
+}
+
+#presentacio_partida {
+    position:absolute;
+    top:20px;
+    left:-27px;
+    width:570px;
+    text-align:center;
+    font-weight: normal;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+#presentacio_waiting {
+    position:absolute;
+    top:165px;
+    left:230px;
+}
+
+
+/***********************************/
+/***********************************/
+/***** CSS del modal de countdown ****/
+.modal-countdown {
+    margin-top: 20px;
+    width:965px;
+    text-align: center;
+}
+.modal-content-countdown {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #CCDDE9 0%, #CCDDE9 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#CCDDE9), color-stop(100%,#CCDDE9)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #CCDDE9 0%,#CCDDE9 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CCDDE9', endColorstr='#CCDDE9',GradientType=0 ); /* IE6-9 */
+}
+
+.modal-countdown-body
+{
+    text-align: center;
+    height: 520px;
+}
+
+.modal-countdown-footer
+{
+    text-align: center;
+    height:80px;
+    background-color: white;
+}
+
+#countdown-modal-start
+{
+    width:300px;
+    height:60px;
+    font-size: 40px;
+}
+
+#countdown_titol {
+    position:absolute;
+    top:-5px;
+    left:0px;
+    color: #555555;
+    font-size: 40px;
+}
+
+
+#countdown_time {
+    position: absolute;
+    top: -23px;
+    left: 765px;
+    color: #555555;
+    font-size: 60px;
+    text-align: right;
+    width:100px;
+}
+
+#countdown_texto_jugador {
+    position: absolute;
+    top: 10px;
+    left: 140px;
+    font-size: 30px;
+    text-align: left;
+    width: 600px;
+}
+
+
+#countdown_valor_jugador {
+    position: absolute;
+    top: 3px;
+    left: 320px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: left;
+    width: 400px;
+    color: #035992;
+}
+
+
+#countdown_texto_ruleta {
+    position: absolute;
+    top: 75px;
+    left: 140px;
+    font-size: 30px;
+    text-align: left;
+    width: 400px;
+}
+
+
+#countdown_valor_ruleta {
+    position: absolute;
+    top: 52px;
+    left: 400px;
+    font-size: 60px;
+    text-align: left;
+    width: 400px;
+    font-weight: bold;
+    color: #035992;
+}
+
+
+#countdown_texto_otros {
+    position: absolute;
+    top: 140px;
+    left: 140px;
+    font-size: 30px;
+    text-align: left;
+    width: 450px;
+}
+
+
+#countdown_valor_otros {
+    position: absolute;
+    top: 200px;
+    left: 140px;
+    text-align: left;
+}
+
+.countdown_valor_j {
+    /*border: 1px solid black;*/
+    border: none;
+    width: 200px;
+    height: 50px;
+    padding-left: 20px;
+    font-size: 28px;
+}
+
+
+
+#dibuix_ruleta {
+    position: absolute;
+    top: 85px;
+    left: 377px;
+    width: 410px;
+    height: 410px;
+    z-index: 2;
+}
+
+
+
+#drbrain_ruleta
+{
+    position: absolute;
+    top: 161px;
+    right: -16px;
+    width: 310px;
+    /* height: 440px; */
+    vertical-align: middle;
+    align-content: center;
+    z-index: 3;
+}
+
+
+#punter_ruleta
+{
+    position: absolute;
+    top: -15px;
+    left: 483px;
+    width: 142px;
+    vertical-align: middle;
+    align-content: center;
+    z-index: 6;
+}
+
+#background_ruleta
+{
+    position: absolute;
+    top: 78px;
+    left: 365px;
+    width: 393px;
+    height: 440px;
+    vertical-align: middle;
+    align-content: center;
+}
+
+
+/***********************************/
+/***********************************/
+/***** CSS del modal de la ronda ****/
+.modal-ronda {
+    margin-top: 20px;
+    width:965px;
+    text-align: center;
+}
+
+.modal-content-ronda {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #CCDDE9 0%, #CCDDE9 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#CCDDE9), color-stop(100%,#CCDDE9)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #CCDDE9 0%,#CCDDE9 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CCDDE9', endColorstr='#CCDDE9',GradientType=0 ); /* IE6-9 */
+}
+
+.modal-ronda-body
+{
+    text-align: center;
+    height: 520px;
+}
+
+.modal-ronda-footer
+{
+    text-align: center;
+    height:80px;
+    background-color: white;
+}
+
+#nextround_titol {
+    position:absolute;
+    top:-5px;
+    left:0px;
+    color: #555555;
+    font-size: 40px;
+}
+
+
+#nextround_time {
+    position: absolute;
+    top: -23px;
+    left: 805px;
+    color: #555555;
+    font-size: 60px;
+    text-align: right;
+    width:100px;
+}
+
+
+#modal_ronda_img {
+    width: 300px;
+    top: 137px;
+    left: 16px;
+    position: absolute;
+}
+
+#modal_ronda_msg {
+    font-size: 40px;
+    top: 15px;
+    left: 120px;
+    position: absolute;
+    width: 700px;
+    text-align: center;
+    color: #035992;
+    font-weight: bold;
+}
+
+
+.resultats_table{
+    table-layout: fixed;
+    width: 600px;
+    background-color: transparent;
+    position: absolute;
+    top: 120px;
+    left: 30px;
+}
+
+table.resultats_table th {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+
+
+table.resultats_table td {
+    font-weight: lighter;
+    font-size: 25px;
+}
+
+
+.top_bold {
+    border-top:2px solid;
+    border-color:#035992;
+}
+
+.bottom_bold {
+    border-bottom:2px solid;
+    border-color:#035992;
+}
+
+.top_thin {
+    border-top:thin solid;
+    border-color:#035992;
+}
+
+.bottom_thin {
+    border-bottom:thin solid;
+    border-color:#035992;
+}
+
+#text_objectiu {
+    position: absolute;
+    top: 120px;
+    left: 685px;
+    font-size: 30px;
+    text-align: center;
+    width: 220px;
+    font-weight: bold;
+}
+
+#text_contribucio {
+    position: absolute;
+    top: 310px;
+    left: 685px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    width: 220px;
+}
+
+#resultat_objectiu {
+    position: absolute;
+    top: 170px;
+    left: 685px;
+    font-size: 66px;
+    font-weight: normal;
+    width: 220px;
+    height: 100px;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #035992;
+}
+
+#resultat_contribucio {
+    position: absolute;
+    top: 360px;
+    left: 685px;
+    font-size: 66px;
+    font-weight: normal;
+    width: 220px;
+    height: 100px;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #679BBD;
+}
+
+
+#text_nota {
+    position: absolute;
+    top: 505px;
+    left: 15px;
+    font-size: 16px;
+}
+
+
+#ronda_text_refors
+{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 900px;
+    text-align: center;
+    font-size: 32px;
+}
+
+#ronda_foto_refors
+{
+    position: absolute;
+    top: 120px;
+    left: 200px;
+    width: 540px;
+}
+
+
+
+/**************************************/
+/**************************************/
+/***** CSS del final de la partida ****/
+.modal-final {
+    margin-top: 90px;
+    width: 780px;
+    text-align: center;
+}
+
+.modal-content-final {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #CCDDE9 0%, #CCDDE9 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#CCDDE9), color-stop(100%,#CCDDE9)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #CCDDE9 0%,#CCDDE9 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #CCDDE9 0%,#CCDDE9 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CCDDE9', endColorstr='#CCDDE9',GradientType=0 ); /* IE6-9 */
+}
+
+.modal-final-body
+{
+    height: 360px;
+    text-align: center;
+}
+
+.modal-final-footer
+{
+    text-align: center;
+    background-color: white;
+}
+
+#fi_partida {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    width: 700px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 36px;
+    text-transform: uppercase;
+    color: #035992;
+}
+
+#fi_partida_imatge {
+    position: absolute;
+    top: 86px;
+    left: 0px;
+    width: 200px;
+}
+
+
+#fi_partida_text {
+    position: absolute;
+    top: 110px;
+    left: 80px;
+    text-align: left;
+    font-size: 26px;
+    width: 600px;
+}
+
+
+
+#modal-final-titol
+{
+    position:absolute;
+    top:80px;
+    left:220px;
+    width:500px;
+    text-align:left;
+    font-weight: normal;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.modal-final-text {
+    position:absolute;
+    top:110px;
+    left:0;
+    width:760px;
+    text-align:center;
+    font-size: 40px;
+    height: 60px;
+}
+
+#final-modal-fi{
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #999999;
+    width: 240px;
+}
+
+#resp_correctes{
+    font-size: 40px;
+}
+
+#resp_incorrectes{
+    font-size: 40px;
+}
+
+#resp_diners {
+    font-size: 40px;
+}
+
+#quadre1 {
+    position:absolute;
+    top:160px;
+    left:220px;
+
+    background-color: #35ba3f;
+    border-color: #35ba3f;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+#quadre1_text {
+    position:absolute;
+    top:175px;
+    left:220px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+#quadre1_results {
+    position:absolute;
+    top:205px;
+    left:220px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+#quadre2 {
+    position:absolute;
+    top:160px;
+    left:330px;
+
+    background-color: #ee1c36;
+    border-color: #ee1c36;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+#quadre2_text {
+    position:absolute;
+    top:175px;
+    left:330px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+#quadre2_results {
+    position:absolute;
+    top:205px;
+    left:330px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+#quadre3 {
+    position:absolute;
+    top:160px;
+    left:440px;
+
+    background-color: #f2c857;
+    border-color: #f2c857;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+#quadre3_icona {
+    position:absolute;
+    top:171px;
+    left:470px;
+    width: 40px;
+    color: white;
+}
+
+
+#quadre3_results {
+    position:absolute;
+    top:210px;
+    left:440px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+#medalla {
+    position:absolute;
+    top:145px;
+    left:550px;
+    width: 130px;
+}
+
+/****************************************************/
+/****************************************************/
+/* CSS del timer */
+
+.logo {
+    position:absolute;
+    top:12px;
+    left:15px;
+    width:160px;
+    text-align: left;
+    z-index:2;
+}
+
+#timer_title{
+    position: absolute;
+    top: 3px;
+    left: 415px;
+    text-align: left;
+    font-size: 40px;
+    color: #91496F;
+}
+
+#timer_background {
+    z-index: 2;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    background-color: rgba(0,0,0,0.1);
+    height: 30px;
+    border-radius: 4px;
+}
+
+#timer_progress {
+    z-index: 2;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    background-color: red;
+    border-radius: 4px;
+    height: 30px;
+}
+
+#timer-wrap{
+    position: absolute;
+    top: 50px;
+    left: 170px;
+    width: 625px;
+    padding-top: 10px;
+}
+
+
+/****************************************************/
+/****************************************************/
+/* CSS dels botons UP DN */
+
+#text-contribucio {
+    position: absolute;
+    top: 300px;
+    left: 100px;
+    width: 800px;
+    text-align: center;
+    font-size: 50px;
+}
+
+#button-0{
+    position: absolute;
+    top: 380px;
+    left: 20px;
+    height: 250px;
+    width: 160px;
+    padding: 0 0 0 0;
+    border-radius: 6px;
+    font-size: 100px;
+    border: 1px solid #035992;
+    background-image: url("/static/img/botons/blau/boto0.png");
+}
+
+
+#button-1{
+    position: absolute;
+    top: 380px;
+    left: 220px;
+    height: 250px;
+    width: 160px;
+    padding: 0 0 0 0;
+    border-radius: 6px;
+    font-size: 100px;
+    border: 1px solid #035992;
+    background-image: url("/static/img/botons/boto1.png");
+";
+}
+
+#button-2{
+    position: absolute;
+    top: 380px;
+    left: 420px;
+    height: 250px;
+    width: 160px;
+    padding: 0 0 0 0;
+    border-radius: 6px;
+    font-size: 100px;
+    border: 1px solid #035992;
+    background-image: url("/static/img/botons/blau/boto2.png");
+}
+
+
+#button-3{
+    position: absolute;
+    top: 380px;
+    left: 620px;
+    height: 250px;
+    width: 160px;
+    padding: 0 0 0 0;
+    border-radius: 6px;
+    border: 1px solid #035992;
+    background-image: url("/static/img/botons/boto3.png");
+}
+
+#button-4{
+    position: absolute;
+    top: 380px;
+    left: 820px;
+    height: 250px;
+    width: 160px;
+    padding: 0 0 0 0;
+    border-radius: 6px;
+    font-size: 100px;
+    border: 1px solid #035992;
+    background-image: url("/static/img/botons/blau/boto4.png");
+}
+
+
+
+#image-bucket{
+    position: absolute;
+    top: 190px;
+    left: 665px;
+    width: 110px;
+}
+
+#text-bucket{
+    position: absolute;
+    top: 166px;
+    left: 450px;
+    width: 209px;
+    text-align: right;
+    font-size: 100px;
+}
+
+#text-previ-bucket{
+    position: absolute;
+    top: 205px;
+    left: 180px;
+    width: 350px;
+    text-align: right;
+    font-size: 50px;
+}
+
+#text-ronda{
+    position: absolute;
+    top: 115px;
+    left: 100px;
+    width: 800px;
+    text-align: center;
+    font-size: 50px;
+}
+
+
+
+.rotate {
+    filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+    -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
+    -ms-transform: rotate(-90.0deg);  /* IE9+ */
+    -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(-90.0deg);  /* Safari 3.1+, Chrome */
+    transform: rotate(-90.0deg);  /* Standard */
+}
+
+
+.user_info {
+position: absolute;
+    top: 105px;
+    right: 0px;
+    width: 610px;
+    text-align: right;
+    color: #444444;
+    font-size: 22px;
+    z-index: 2;
+}

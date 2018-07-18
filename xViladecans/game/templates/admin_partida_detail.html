@@ -1,0 +1,204 @@
+{% extends "admin.html" %}
+
+
+{% block stylesheet %}
+    <link href="/static/css/admin.css" rel="stylesheet" media="screen">
+    <link href="/static/css/admin_partida_detail.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block content_admin %}
+
+    <div id="usuaris_titol" hidden>La partida no existe</div>
+    <div id="table_partida"></div>
+    <div id="table_partida_detail"></div>
+
+{% endblock %}
+
+{% block javascript %}
+
+        <script>
+            function tancarPartida(num_partida) {
+                //console.log("Tancant partida " + num_partida);
+                $.ajax({
+                    url: '/es/ws/tancar_partida/'+num_partida+'/'
+                });
+            }
+
+            function tancarRonda(num_partida) {
+                //console.log("Tancant ronda " + num_partida);
+                $.ajax({
+                    url: '/es/ws/tancar_ronda/'+num_partida+'/'
+                });
+            }
+
+
+            function update_estat() {
+                $.ajax({
+                    url: '/es/ws/stats_partida_detail/{{ num_partida }}/',
+                    success: function(data) {
+
+                        console.log(data)
+
+                        $("#table_partida").empty();
+                        $("#table_partida_detail").empty();
+
+
+                        this.guanyen_igualment = data.guanyen_igualment;
+                        this.diners_heterogenis =  data.diners_heterogenis;
+                        this.imatges_refors = data.imatges_refors;
+                        this.estat_partida = data.estat_partida;
+
+
+                        if(true) {
+                            $('#usuaris_titol').hide();
+
+                            var table = '<table class="table_partida">';
+
+                            table+="<tr style='cellpadding:10;'>";
+                            table+="<td colspan=4 style=font-size:22px;font-weight:bold;cell>Partida #"+data.num_partida+"</td>";
+                            table+="</tr>";
+
+                            table+="<tr>";
+                            table+='<td style="font-size:14px; width:10%;"> Creacion: ' + data.date_creacio + '</tr>';
+                            table+='<td style="font-size:14px; width:10%;"> Inicio: '+ data.date_inici + '</tr>';
+                            table+='<td style="font-size:14px; width:10%;"> Final: '+data.date_final+'</tr>';
+
+                            if (this.guanyen_igualment) table+='<td style="font-size:16px; width:10%; font-weight: bold"> Siempre ganan: Sí </td>';
+                            else table+='<td style="font-size:16px; width:10%; font-weight: bold""> Siempre ganan: No </td>';
+
+                            table+="</tr>";
+
+
+                            table+="</table> <br />";
+
+                            $("#table_partida").append(table );
+
+                            var table2 = '<table class="table_partida_detail">';
+
+                            table2+="<tr style='cellpadding:10;'>";
+                            table2+="<td colspan=11 style=font-size:22px;font-weight:bold;cell></td>";
+                            table2+="</tr>";
+                                //"nicknames": [up.nickname for up in users_partida],
+                                //"diners_inicials": [up.diners_inicials for up in users_partida],
+                                //"diners_contribuits": [up.diners_inicials - up.diners_actuals for up in users_partida],
+                                //"diners_reals": ""
+                            table2+='<tr class="top_bold bottom_bold">';
+                            table2+='<td style="font-size:16px; width:150px;"> Jugador </td>';
+                            table2+='<td style="font-size:16px; width:150px;"> Nickname </td>';
+
+                            for (i=1; i <= 10 ; i++) table2+='<td class style="font-size:16px;"> R'+i+'</td>';
+
+                            table2+='<td style="font-size:16px; width:100px;"> Inicial </td>';
+                            table2+='<td style="font-size:16px; width:100px;"> Contribution </td>';
+                            table2+='<td style="font-size:16px; width:100px;"> Restante </td>';
+
+                            table2+='<td style="font-size:16px; width:100px;  font-weight: bold"> Bots </td>';
+                            table2+='<td style="font-size:16px; width:100px;  font-weight: bold"> Vales </td>';
+                            table2+='<td style="font-size:16px; width:100px;  font-weight: bold"> Savings </td>';
+
+
+
+                            table2+="</tr>";
+
+                            for (i=0; i < data.nicknames.length; i++) {
+                                var player = i+1;
+                                table2+='<tr class="bottom_dotted">';
+                                table2+='<td style="font-size:16px;">'+ player +'</td>';
+                                table2+='<td style="font-size:16px;">'+ data.nicknames[i]+'</td>';
+
+                                for (j=0; j <= 9 ; j++){
+
+                                    if(data.rondes[i][j] === null) {
+                                        ronda_val = '-';
+                                    }else {
+                                        if (data.robot[i][j]){
+                                            ronda_val = data.rondes[i][j];
+                                        }else {
+                                            ronda_val = data.rondes[i][j]+'*';
+                                        }
+                                    }
+
+                                    table2+='<td style="font-size:16px; width:60px;">'+ ronda_val +'</td>';
+                                }
+
+                                table2+='<td style="font-size:16px;">'+ data.diners_inicials[i]+'</td>';
+
+                                table2+='<td style="font-size:16px;">'+data.diners_contribuits[i]+'</td>';
+
+                                // Diners restants
+                                var diners_restants = data.diners_inicials[i] - data.diners_contribuits[i];
+                                table2+='<td style="font-size:16px;">'+diners_restants+'</td>';
+
+                                //================== Diners reals ==================//
+                                table2 += '<td style="font-size:16px; font-weight: bold">' + data.bots[i] + '</td>';
+                                table2 += '<td style="font-size:16px; font-weight: bold">' + data.val_abacus[i] + '</td>';
+                                table2 += '<td style="font-size:16px; font-weight: bold">' + ((data.diners_inicials[i] - data.diners_contribuits[i])/data.diners_inicials[i]).toFixed(2) + '</td>';
+                                table2 += "</tr>";
+                            }
+                           table2+='<tr class="top_bold bottom_bold">';
+
+                           table2+='<td style="font-size:16px; font-weight: bold""> Total </td>';
+                           table2+='<td style="font-size:16px;"></td>';
+
+                           // Diners per ronda
+                           for (i=0; i<10; i++) {
+                               var total_ronda = 0
+                               for (j = 0; j < data.rondes.length; j++){
+                                   total_ronda += data.rondes[j][i];
+                                }
+                               table2+='<td style="font-size:16px;">'+ total_ronda +'</td>';
+                           }
+                           // Diners total inicials
+                           var total_inicial = 0;
+                           for (i = 0; i < data.diners_inicials.length; i++) total_inicial+=data.diners_inicials[i]
+                           table2+='<td style="font-size:16px; font-weight: bold"">'+ total_inicial +'</td>';
+
+                           // Diners totals contribuits
+                           var total_contribuciones = 0;
+                           for (i = 0; i < data.diners_inicials.length; i++) total_contribuciones+=data.diners_contribuits[i]
+                           if (total_contribuciones >= 120) table2+='<td style="font-size:16px; font-weight: bold; color: #FF0000;">'+ total_contribuciones +'</td>';
+                           else table2+='<td style="font-size:16px; font-weight: bold; color: #000000;">'+ total_contribuciones +'</td>';
+
+                           // Diners totals restants
+                            var total_restants = 0;
+                            for (i = 0; i < data.diners_inicials.length; i++) total_restants+=data.diners_inicials[i] - data.diners_contribuits[i];
+                            table2+='<td style="font-size:16px; font-weight: bold"">'+ total_restants +'</td>';
+
+                            // Bots
+                            total_bots = 0;
+                            for (i = 0; i < data.bots.length; i++) total_bots = total_bots + data.bots[i]
+                            table2 += '<td style="font-size:16px; font-weight: bold; color: #000000;">' + total_bots + '</td>';
+
+                            // Vals
+                            total_vals = 0;
+                            for (i = 0; i < data.val_abacus.length; i++) total_vals = total_vals + data.val_abacus[i]
+                            table2 += '<td style="font-size:16px; font-weight: bold; color: #000000;">' + total_vals + '</td>';
+                            table2+='<td style="font-size:16px;font-weight: bold;">-</td>';
+
+                            table2+='<tr class="bottom_dotted">';
+                            table2+="</tr>";
+
+                            $("#table_partida_detail").append(table2 );
+
+
+                        }
+                        else
+                        {
+                            $('#usuaris_titol').show();
+                        }
+
+                        setTimeout(function(){update_estat()}, 3000);
+                    },
+                    error: function(data) {
+                        setTimeout(function(){update_estat()}, 3000);
+                    }
+                });
+            }
+
+            $(document).ready(function() {
+                update_estat();
+            });
+        </script>
+
+{% endblock %}

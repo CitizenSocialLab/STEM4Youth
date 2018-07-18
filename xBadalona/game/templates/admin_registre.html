@@ -1,0 +1,93 @@
+{% extends "admin.html" %}
+
+
+{% block stylesheet %}
+    <link href="/static/css/admin.css" rel="stylesheet" media="screen">
+    <link href="/static/css/admin_registre.css" rel="stylesheet" media="screen">
+
+{% endblock %}
+
+
+{% block content_admin %}
+
+    {% if not registre_iniciat  %}
+
+        <div id="usuaris_titol">
+            No hay ninguna partida registrando usuarios...
+        </div>
+
+        <form method="post" action="/{{ lang }}/admin/registre">
+            <button id="boto_registre" type="submit" name="registre" class="bx-push bx bx-blaustencil" >
+                Abrir nuevo registro
+            </button>
+        </form>
+
+    {%  else %}
+
+        <div id="llista_usuaris_titol">
+            Lista usuarios registrados
+        </div>
+
+        <div id="llista_usuaris"></div>
+
+        <form method="post" action="/{{ lang }}/admin/registre">
+
+            <button id="boto_iniciar" type="submit" name="registre" class="bx-push bx bx-blaustencil" >
+                Empezar!!
+            </button>
+        </form>
+
+        {% if partida_jugant %}
+        <div id="partida_jugant">
+            No se puede empezar partida, hay una en juego.
+        </div>
+        {%  endif %}
+
+    {%  endif %}
+
+{% endblock %}
+
+{% block javascript %}
+
+    {% if registre_iniciat  %}
+        <script>
+            function update_list() {
+                $.ajax({
+                    url: '/es/ws/usuaris_registrats/',
+                    success: function(data) {
+                        if(data.registrant==true) {
+                            mytext = '<table width="90%"><tr>'+
+                                    '<th style="font-size:15px;font-weight:bold;width:70px;">NUM</th>'+
+                                    '<th style="font-size:15px;font-weight:bold;width:70px;">'+ "id" + '</th>'+
+                                    '<th style="font-size:15px;font-weight:bold">' + "nombre" +'</th>'+
+                                    '<th style="font-size:15px;font-weight:bold;width:180px;">'+ "fecha registro" +'</th>'+
+                                    '</tr></table>';
+                            for (i = 0; i < data.usuaris.length; i++) {
+
+                                mytext += '<table width="90%"><tr>'+
+                                        '<td style="font-size:14px;width:70px;"><b>' + (i+1) + '</b></td>'+
+                                        '<td style="font-size:14px;width:70px;">' + data.usuaris[i].num_registre  + '</td>'+
+                                        '<td style="font-size:14px">' + data.usuaris[i].nom + '</td>'+
+                                        '<td style="font-size:14px;width:180px;">' + data.usuaris[i].data_registre + '</td>'+
+                                        '</tr></table>'
+                            }
+                            $('#llista_usuaris').html(mytext);
+                        }
+                        setTimeout(function(){update_list()}, 1000);
+                    },
+                    error: function(data) {
+                         setTimeout(function(){update_list()}, 1000);
+                    }
+                });
+            }
+
+            $(document).ready(function() {
+                update_list();
+            });
+        </script>
+
+    {%  endif %}
+
+
+{% endblock %}
+
