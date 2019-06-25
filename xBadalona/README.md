@@ -99,8 +99,11 @@ CitizenSocialLab | STEM4Youth (c) by Julian Vicens
 CitizenSocialLab | STEM4Youth is licensed under a
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 
-You should have received a copy of the license along with this
-work. If not, see [CC BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+You should have received a copy of the license along with this work. If not, see [CC BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+## Contributors ##
+
+[Julián Vicens](https://github.com/jvicens)
 
 ## Contact ##
 
