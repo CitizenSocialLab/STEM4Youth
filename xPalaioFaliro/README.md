@@ -96,16 +96,14 @@ Control and Administration:
 Version 1.0
 
 ## License ##
-CitizenSocialLab (c) by Julian Vicens
 
 CitizenSocialLab is licensed under a [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.txt)
 
 All the contents of STEM4Youth repository are under the license [CC BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-
 ## Contributors ##
 
-[Julián Vicens](https://github.com/jvicens)
+[Julián Vicens](https://jvicens.github.io)
 
 ## Contact ##
 
